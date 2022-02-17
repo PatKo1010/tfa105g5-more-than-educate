@@ -1,0 +1,229 @@
+/*------------------------------------
+    Section: Posts/Blog
+------------------------------------*/
+
+.section-blog {
+    .el-card {
+        text-align: left;
+        padding: 30px 30px 20px;
+        margin-bottom: 30px;
+        background: #f8f8f8;
+        .card-image {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding-top: 57%;
+            margin-bottom: 25px;
+            background-color: $primary;
+            img {
+                top: 0;
+                right: 0;
+                width: 100%;
+                position: absolute;
+                transition: all 300ms;
+            }
+            &:hover {
+                img {
+                    opacity: 0.75;
+                    transform: scale(1.05, 1.05);
+                }
+            }
+        }
+        .card-details {
+            position: relative;
+            p {
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+            h3,
+            h4 {
+                font-size: 18px;
+                a {
+                    display: block;
+                }
+                &:hover {
+                    color: $primary;
+                }
+            }
+            .button {
+                height: 18px;
+                padding: 0;
+            }
+            .post-meta {
+                right: 0;
+                bottom: 3px;
+                color: $text-color;
+                position: absolute;
+                .fa {
+                    padding-left: 3px;
+                }
+            }
+        }
+    }
+}
+
+.section-single-post {
+    .single-post {
+        .post-image {
+            overflow: hidden;
+            position: relative;
+            padding-top: 54%;
+            margin-bottom: 45px;
+            border-radius: $default-br;
+            box-shadow: $default-bs;
+            img {
+                top: 0;
+                right: 0;
+                width: 100%;
+                position: absolute;
+            }
+        }
+        .post-details {
+            .post-head {
+                min-height: 90px;
+                position: relative;
+                padding-left: 90px;
+                margin-bottom: 45px;
+                h1 {
+                    font-size: 27px;
+                }
+                .post-info {
+                    color: #333;
+                    font-size: 14px;
+                    margin-bottom: 12px;
+                    .post-date {
+                        color: $secondary;
+                    }
+                    .post-author {
+                        color: $secondary;
+                        &:hover {
+                            color: $primary;
+                        }
+                    }
+                }
+                .post-author-image {
+                    top: 0;
+                    left: 0;
+                    width: 75px;
+                    height: 100%;
+                    position: absolute;
+                    img {
+                        left: 0;
+                        bottom: 0;
+                        width: 75px;
+                        height: 75px;
+                        overflow: hidden;
+                        position: absolute;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .post-body {
+                p {
+                    color: #333;
+                    font-size: 15px;
+                    a {
+                        color: $primary;
+                    }
+                }
+                .post-tags {
+                    display: block;
+                    color: $text-color;
+                    padding: 30px 0 30px;
+                    > span {
+                        color: $black;
+                    }
+                    ul {
+                        list-style: none;
+                        display: inline-block;
+                        padding: 0 0 0 15px;
+                        li {
+                            color: $secondary;
+                            display: inline-block;
+                            font-size: 14px;
+                            position: relative;
+                            margin-left: 6px;
+                            margin-bottom: 3px;
+                            a {
+                                display: block;
+                                padding-left: 12px;
+                            }
+                            &:before {
+                                top: 2px;
+                                left: 1px;
+                                content: "#";
+                                font-size: 12px;
+                                position: absolute;
+                            }
+                            &:hover {
+                                color: $primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .page-blog {
+        .el-pagination {
+            float: inherit;
+            margin: 15px auto 45px;
+            text-align: center !important;
+        }
+    }
+    .section-blog {
+        .el-card {
+            .card-details {
+                h3,
+                h4 {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .section-single-post {
+        .single-post {
+            .post-details {
+                .post-head {
+                    padding-left: 69px;
+                    h1 {
+                        font-size: 16px;
+                    }
+                    .post-info {
+                        font-size: 12px;
+                        .post-date {
+                            display: block;
+                        }
+                    }
+                    .post-author-image {
+                        width: 60px;
+                        img {
+                            bottom: 6px;
+                            width: 57px;
+                            height: 57px;
+                        }
+                    }
+                }
+                .post-body {
+                    p {
+                        font-size: 0.9em;
+                    }
+                    .post-tags {
+                        font-size: 12px;
+                        ul {
+                            li {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

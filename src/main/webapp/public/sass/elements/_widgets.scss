@@ -1,0 +1,75 @@
+/*------------------------------------
+    Element: Widget
+------------------------------------*/
+
+.widget {
+    padding-right: 36px;
+    .widget-title {
+        height: 80px;
+        overflow: hidden;
+        position: relative;
+        h4 {
+            top: 15px;
+            color: $primary;
+            color: #32335a;
+            font-size: 16px;
+            position: relative;
+            padding-top: 15px;
+        }
+    }
+    &.widget-logo {
+        padding: 0;
+        .footer-logo {
+            display: block;
+            margin-bottom: 30px;
+        }
+    }
+    &.widget-links {
+        ul {
+            padding: 0;
+            list-style: none;
+            li {
+                color: $text-color;
+                display: block;
+                white-space: nowrap;
+                margin-bottom: 8px;
+                .icon {
+                    color: $primary;
+                    font-size: 9px;
+                    display: inline-block;
+                    margin-left: 3px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .widget {
+        .widget-title {
+            h4 {
+                text-align: center;
+            }
+        }
+        &.widget-links {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .widget {
+        .widget-title {
+            h4 {
+                font-size: 14px !important;
+            }
+        }
+        &.widget-links {
+            li {
+                .text {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
