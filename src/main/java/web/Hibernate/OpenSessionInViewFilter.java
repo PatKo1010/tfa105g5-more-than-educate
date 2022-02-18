@@ -13,9 +13,9 @@ import javax.servlet.annotation.WebFilter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-@WebFilter(
-		urlPatterns = {"/*"}  //對那些url做request時,會經過這個filter (似一種公用servlet效果)
-)
+//@WebFilter(
+//		urlPatterns = {"/*"}  //對那些url做request時,會經過這個filter (似一種公用servlet效果)
+//)
 public class OpenSessionInViewFilter implements Filter {
 	private SessionFactory sessionFactory;
 	@Override
