@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebListener;
 
 import org.hibernate.SessionFactory;
 
-@WebListener
+//@WebListener
 public class SessioinFactoryListener implements ServletContextListener {
 	//不寫在這,寫在filter,還是有可能會關掉
 	@Override
