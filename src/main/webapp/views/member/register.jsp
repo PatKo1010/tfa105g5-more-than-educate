@@ -47,32 +47,38 @@
 
 <%-- <form action="<c:url value="/Register" />" method="get">  <!-- 啟動servlet: get方法 --> --%>
                             <!-- <form class="form-3 max-w-576"> -->
+                            <!-- 註冊表單 -->
                             <form name="registerForm" class="form-3 max-w-576" action="<c:url value="/views/member/register" />" method="post">
 <!--                        	<tr> -->
 <!-- 								<td>ID : </td> -->
 <%-- 								<td><input type="text" name="username" value="${param.username}"></td> --%>
 <%-- 								<td><span class="error">${errors.username}</span></td> --%>
 <!-- 							</tr> -->
+                                <!-- 註冊信箱 -->
                                 <div class="form-item">
                                     <label class="form-label">Email</label>
                                     <input type="text" name="email" value="${param.email}" >
                                     <span class="error" style="color:red;"> ${errors.email} </span>
                                 </div>
+                                <!-- 註冊使用者名稱 -->
                                 <div class="form-item">
                                     <label class="form-label">使用者名稱</label>
                                     <input type="text" name="username" value="${param.username}" >
                                     <span class="error" style="color:red;"> ${errors.username} </span>
                                 </div>
+                                <!-- 註冊使用者密碼 -->
                                 <div class="form-item">
                                     <label class="form-label">密碼</label>
                                     <input type="password" name="password" value="${param.password}" >
                                    	<span class="error" style="color:red;"> ${errors.password} </span>
                                 </div>
+                                <!-- 確認密碼 -->
                                 <div class="form-item">
                                     <label class="form-label">確認密碼</label>
                                     <input type="password" name="passwordConf" value="${parma.passwordConf}" >
                                     <span class="error" style="color:red;"> ${errors.passwordConf} </span>
                                 </div>
+                                <!-- 註冊按鈕 -->
                                 <div class="form-item mb-0">
                                     <button class="button button-md button-block button-primary" type="submit">
                                         <span class="text">註冊</span>
