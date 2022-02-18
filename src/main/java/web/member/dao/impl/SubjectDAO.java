@@ -2,25 +2,33 @@ package web.member.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.PersistenceContext;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Repository;
 
+import configuration.SpringJavaConfig;
 import web.member.dao.SubjectDAOInterface;
 import web.member.entity.SubjectBean;
 
-public class SubjectDAOHibernate implements SubjectDAOInterface {
+@Repository
+public class SubjectDAO implements SubjectDAOInterface {
 //500星  參數是靈魂  方法是裝載的肉體  屬性是結果(就是值)  又開始輪迴成靈魂
 	
 //環境建立
 //  三建行第1種寫法 空的(for session)
-	private SessionFactory sessionFactory; //宣sessionFactory(包環境)做屬性
-	public SubjectDAOHibernate(SessionFactory sessionFactory) { //建建構式,環境當參數放入DAO
-		this.sessionFactory = sessionFactory;
-	}
+//	private SessionFactory sessionFactory; //宣sessionFactory(包環境)做屬性
+//	public SubjectDAOHibernate(SessionFactory sessionFactory) { //建建構式,環境當參數放入DAO
+//		this.sessionFactory = sessionFactory;
+//	}
 	//上兩行, 只是為了getCurrentSession, 才創的"sessionFactory+建構子"
-	public Session getSession() {
-		return sessionFactory.getCurrentSession();//注意這裡不是指HibernateUtil那個getSessionFactory
-	}
+//	public Session getSession() {
+//		return sessionFactory.getCurrentSession();//注意這裡不是指HibernateUtil那個getSessionFactory
+//	}
 		
 //  三建行第2種寫法 (西洋寫法)	
 //	private Session session;
@@ -31,6 +39,13 @@ public class SubjectDAOHibernate implements SubjectDAOInterface {
 //		return this.session;
 //	}
 
+//Spring寫法
+	@PersistenceContext
+	private Session session;
+	public Session getSession() {
+		return this.session;
+	}
+	
 	
 //實作DAOInterface裡定好,但還沒實作的方法  (去interface裡抄的, interface只是規格不參與反應)	
 	//1.新增
@@ -89,6 +104,19 @@ public class SubjectDAOHibernate implements SubjectDAOInterface {
 	@Override
 	public List<SubjectBean> select() { //全選就不用判subjectid是否為空
 		return getSession().createQuery("FROM SubjectBean", SubjectBean.class).list(); //記得用的是createQuery(qureyString,resultType)
+	}
+
+	
+	//測試
+	public static void main (String args[]) {
+		//拿到spring
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		
+		SubjectDAO subjectDAO = context.getBean("subjectDAO", SubjectDAO.class);
+		System.out.println(subjectDAO.select());
+		
+		
+		( (ConfigurableApplicationContext)context ) .close();
 	}
 	
 }

@@ -17,7 +17,7 @@ import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
-@WebServlet( urlPatterns={"/secure/loginResult"} )
+@WebServlet( urlPatterns={"/views/member/loginResult"} )
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	//0.new搬到這裡來 Session連線
 		Session session = (Session)request.getAttribute("session");
-		memberService = new MemberService( new MemberDAO(session) );
+		memberService = new MemberService( new MemberDAO() );
 		
 	//1.接收
 //request.getParamter("username");
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 		if(errors != null && !errors.isEmpty() ) {
 			//轉導#1  #request.RequestDispatcher()裡放URL?
 //????????????????
-			request.getRequestDispatcher("/secure/login.jsp").forward(request, response); 
+			request.getRequestDispatcher("/views/member/login.jsp").forward(request, response); 
 			return;
 		}
 		
@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet {
 			//轉導#2  #response下sendRedirect()
 //			response.sendRedirect(path+"/pages/dashboard.html"); //登入成功後原版html
 //			response.sendRedirect(path+"/index.jsp"); 			 //登入成功後樸實!
-			response.sendRedirect(path + "/views/dashboard.jsp");  //sendRedirect()用的是Response,且需要加webApp那段
+			response.sendRedirect(path + "/views/member/dashboard.jsp");  //sendRedirect()用的是Response,且需要加webApp那段
 		}
 	}
 

@@ -14,21 +14,12 @@
     <meta name="msapplication-TileColor" content="#9f00a7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="../">
-    <!--
-    ========================================================================
-    EXCLUSIVE ON themeforest.net
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Template Name   : Eduline - Education HTML Template
-    Author          : AfraCode
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Copyright (c) 2019 - AfraCode
-    ========================================================================
-    -->
-    <link rel="shortcut icon" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/favicon.ico" />
+    
+    <link rel="shortcut icon" href="../public/favicon.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,500,600,700,900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/css/plugins.min.css" />
-    <link rel="stylesheet" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/css/styles.css" />
+    <link rel="stylesheet" href="../public/css/plugins.min.css" />
+    <link rel="stylesheet" href="../public/css/styles.css" />
 </head>
 
 <body>
@@ -409,11 +400,11 @@
                 </div>
                 <div class="header-links">
 <!--                 http://localhost:7080/hwproj-morethanedu-hibernate/views/dashboard.jsp -->
-                    <a href="<%= request.getContextPath() %>/views/register.jsp" class="button button-md button-line-primary">
+                    <a href="<%= request.getContextPath() %>/views/member/register.jsp" class="button button-md button-line-primary">
 <!--                     <a href="register.jsp" class="button button-md button-line-primary"> -->
                         <span class="title">註冊</span>
                     </a>
-                    <a href="<%= request.getContextPath() %>/secure/login.jsp" class="button button-md button-primary">
+                    <a href="<%= request.getContextPath() %>/views/member/login.jsp" class="button button-md button-primary">
                         <span class="title">登入</span>
                     </a>
                 </div>
@@ -483,9 +474,9 @@
                         <div class="el-panel">
                             <div class="el-panel-body">
                                 <div class="el-panel-title">
-                                    <h2>歡迎!!  ${member.username}</h2>
+                                    <h2>歡迎!!</h2>  <h2 style="color: blue;">${member.username}</h2>
                                 </div>
-                                <form class="form-3" action="http://localhost:7080/hwproj-morethanedu-hibernate/views/update" method="post" enctype="multipart/form-data">
+                                <form class="form-3" action="<%= request.getContextPath() %>/views/update" method="post" enctype="multipart/form-data">
                                     <div class="row row-sm">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-2">
                                             <div class="el-avatar">
@@ -519,12 +510,14 @@
                                             <div class="form-item">
                                                 <label for="input-mobile" class="form-label">使用者名稱</label>
                                                 <input name="username" type="text" id="input-username" class="text-left" value="${member.username}">
+                                            	<span class="error" style="color:red;"> ${errors.username} </span>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
                                                 <label for="input-email" class="form-label">電話</label>
                                                 <input name="phonenum" type="text" id="input-phonenum" class="text-left" value="${member.phonenum}">
+                                            	<span class="error" style="color:red;"> ${errors.phonenum} </span>
                                             </div>
                                         </div>
                                        
@@ -545,6 +538,7 @@
                                             <div class="form-item">
                                                 <label for="input-birth" class="form-label">生日</label>
                                                 <input name="birth" type="text" id="input-birth" class="text-left" value="${member.birth}">
+                                            	<span class="error" style="color:red;"> ${errors.birth} </span>
                                             </div>
                                         </div>
 
@@ -568,10 +562,10 @@
     <!--/-->
 </div>
     </div>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/jquery.min.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/plugins.min.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/main-scripts.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/dashboard.js"></script>
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/plugins.min.js"></script>
+    <script src="../public/js/main-scripts.js"></script>
+    <script src="../public/js/dashboard.js"></script>
 </body>
 
 </html>

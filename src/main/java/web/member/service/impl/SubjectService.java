@@ -5,36 +5,51 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import configuration.SpringJavaConfig;
 import web.Hibernate.HibernateUtil;
 import web.member.dao.SubjectDAOInterface;
-import web.member.dao.impl.SubjectDAOHibernate;
 import web.member.entity.SubjectBean;
 
+@Service
+@Transactional
 public class SubjectService {
 	
+	@Autowired
 	private SubjectDAOInterface subjectDAO;
 	public SubjectService(SubjectDAOInterface subjectDAO) {
 		this.subjectDAO = subjectDAO;
 	}
 
 	public static void main(String[] args) {
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.getCurrentSession();
-		Transaction transaction = session.beginTransaction();
-	
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//		Session session = sessionFactory.getCurrentSession();
+//		Transaction transaction = session.beginTransaction();
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
 		
-		SubjectService subjectService = new SubjectService( new SubjectDAOHibernate(sessionFactory) );
-		//1st種輸出
-		System.out.println(subjectService.select() ) ;  //XXXX
+		SubjectService subjectService = context.getBean("subjectService", SubjectService.class);
+		System.out.println( subjectService.select());
+		
+		( (ConfigurableApplicationContext)context ).close();
+		
+		
+//		SubjectService subjectService = new SubjectService();
+//		//1st種輸出
+//		System.out.println(subjectService.select() ) ;  //XXXX
 		//2nd輸出
 //		List answer = subjectService.select();
 //		System.out.println(answer);
 		
 		
-		transaction.commit();
-		session.close();
-		sessionFactory.close();
+//		transaction.commit();
+//		session.close();
+//		sessionFactory.close();
 	}
 	
 	//1.新增 (宣告一方法)

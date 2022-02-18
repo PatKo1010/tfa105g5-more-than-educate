@@ -2,23 +2,37 @@ package web.member.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.PersistenceContext;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Repository;
 
+import configuration.SpringJavaConfig;
 import web.member.dao.CertificateDAOInterface;
 import web.member.entity.CertificateBean;
 
+@Repository
 public class CertificateDAO implements CertificateDAOInterface {
 	//i.先建環境
-	private SessionFactory sessionFactory;
-	public CertificateDAO(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+//	private SessionFactory sessionFactory;
+//	public CertificateDAO(SessionFactory sessionFactory) {
+//		this.sessionFactory = sessionFactory;
+//	}
+	
+//	public Session getSession() {
+//		return sessionFactory.getCurrentSession();
+//	}
+
+	@PersistenceContext
+	private Session session;
+	public Session getSession() {
+		return session;
 	}
 	
-	public Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
-
 	//ii.實作各方法
 	@Override
 	public CertificateBean insert(CertificateBean certificateBean) {
@@ -74,6 +88,23 @@ public class CertificateDAO implements CertificateDAOInterface {
 	public List<CertificateBean> select() {
 //getSession().creatQuery("FROM CertificateBean", CertificateBean.class).list();
 		return	getSession().createQuery("FROM CertificateBean", CertificateBean.class).list();
+	}
+	
+	//測試
+	public static void main(String[] args) {
+		//引進spring環境
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		
+		//context取bean
+		CertificateDAO certificateDAO = context.getBean("certificateDAO", CertificateDAO.class);
+		
+		System.out.println(certificateDAO.select());
+		
+		//關
+		((ConfigurableApplicationContext)context ).close();
+		
+		
+		
 	}
 	
 }

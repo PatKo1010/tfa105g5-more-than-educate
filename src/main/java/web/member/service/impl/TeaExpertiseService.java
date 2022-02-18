@@ -2,11 +2,22 @@ package web.member.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import configuration.SpringJavaConfig;
 import web.member.dao.impl.TeaExpertiseDAO;
 import web.member.entity.TeaExpertiseBean;
 
+@Service
+@Transactional
 public class TeaExpertiseService {
 	
+	@Autowired
 	private TeaExpertiseDAO teaExpertiseDAO;
 	public TeaExpertiseService(TeaExpertiseDAO teaExpertiseDAO) {
 		this.teaExpertiseDAO = teaExpertiseDAO;
@@ -47,6 +58,20 @@ public class TeaExpertiseService {
 	//4b.查詢(多)
 	public List<TeaExpertiseBean> select() {
 		return teaExpertiseDAO.select();
+	}
+	
+	//測試
+	public static void main(String[] args) {
+		//建spring環境
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		
+		//spring取bean
+		TeaExpertiseService teaExpertiseService = context.getBean("teaExpertiseService", TeaExpertiseService.class);
+		
+		teaExpertiseService.select();
+		
+		//關Spring
+		((ConfigurableApplicationContext)context ).close();
 	}
 	
 	
