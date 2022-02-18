@@ -16,7 +16,7 @@ public class CourseServiceImpl implements CourseServiceInterface{
 	@Autowired
 	private CourseDaoInterface courseDao;
 	
-	@Transactional(readOnly = true)
+//	@Transactional(readOnly = true)
 	@Override
 	public List<CourseBean> findAll() {
 		return courseDao.select();
