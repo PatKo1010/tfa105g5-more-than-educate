@@ -2,26 +2,41 @@ package web.member.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.PersistenceContext;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Repository;
 
+import configuration.SpringJavaConfig;
 import web.Hibernate.HibernateUtil;
 import web.member.dao.WrkExpDAOInterface;
 import web.member.entity.WrkExpBean;
 
+@Repository
 public class WrkExpDAO implements WrkExpDAOInterface {
 //提示  i.建環境(Hibernate)  ii.實作Interface各方法  iii.測試
 	
 	//i.建環境三行
-	private SessionFactory sessionFactory;
-	public WrkExpDAO(SessionFactory sessionFactory) { //重要!!!!DAO包SessionFactory
-		this.sessionFactory = sessionFactory;
+//	private SessionFactory sessionFactory;
+//	public WrkExpDAO(SessionFactory sessionFactory) { //重要!!!!DAO包SessionFactory
+//		this.sessionFactory = sessionFactory;
+//	}
+//	
+//	public Session getSession() { //只是收納起來 用一個方法
+//		return sessionFactory.getCurrentSession();
+//	}
+
+	@PersistenceContext
+	private Session session;
+	public Session getSession() {
+		return this.session;
 	}
 	
-	public Session getSession() { //只是收納起來 用一個方法
-		return sessionFactory.getCurrentSession();
-	}
 	
 	//ii.實作Interface各方法
 	//1.新增
@@ -91,50 +106,63 @@ public class WrkExpDAO implements WrkExpDAOInterface {
 	
 	
 	//iii.測試
+//	public static void main(String[] args) {
+//		//使用三行
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//		Session session = sessionFactory.getCurrentSession();
+//		Transaction transaction = session.beginTransaction();
+//		
+//		WrkExpDAO wrkExpDAO = new WrkExpDAO(sessionFactory); //關鍵的一手
+//		
+//		//1.新增 O
+////		WrkExpBean wrkExpBean = new WrkExpBean();
+////		wrkExpBean.setWkexpid(2);
+////		wrkExpBean.setTeaid(1);
+////		wrkExpBean.setWkduration(5);
+////		wrkExpBean.setWkunit("SOD");
+////		wrkExpBean.setWktitle("資深動作片演員");
+////		WrkExpBean insertResult = wrkExpDAO.insert(wrkExpBean);
+////		System.out.println("insertResult= " + insertResult );
+//		
+//		//2.刪除 O
+////		boolean deleteResult = wrkExpDAO.delete(1);  //????為什麼error
+////		System.out.println(deleteResult);
+//		
+//		//3.修改 X (都會變成像是"insert"的效果)
+//		WrkExpBean wrkExpBean2 = new WrkExpBean();
+//		wrkExpBean2.setWkexpid(3);
+//		wrkExpBean2.setTeaid(1);
+//		wrkExpBean2.setWkduration(5);
+//		wrkExpBean2.setWkunit("SOD");
+//		wrkExpBean2.setWktitle("改-資深動作片演員");
+//		WrkExpBean updateResult = wrkExpDAO.insert(wrkExpBean2);
+//		System.out.println("updateResult= " + updateResult );		
+//
+//		//4a.查詢(單) O
+//		WrkExpBean selectResult = wrkExpDAO.select(2);
+//		System.out.println(selectResult);
+//		
+//		//4b.查詢(多) O
+//		List<WrkExpBean> selectAll = wrkExpDAO.selectAll();
+//		System.out.println("selectAll=" + selectAll );
+//		
+//		transaction.commit();
+//		session.close();
+//		sessionFactory.close();
+//	}
+	
 	public static void main(String[] args) {
-		//使用三行
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.getCurrentSession();
-		Transaction transaction = session.beginTransaction();
-		
-		WrkExpDAO wrkExpDAO = new WrkExpDAO(sessionFactory); //關鍵的一手
-		
-		//1.新增 O
-//		WrkExpBean wrkExpBean = new WrkExpBean();
-//		wrkExpBean.setWkexpid(2);
-//		wrkExpBean.setTeaid(1);
-//		wrkExpBean.setWkduration(5);
-//		wrkExpBean.setWkunit("SOD");
-//		wrkExpBean.setWktitle("資深動作片演員");
-//		WrkExpBean insertResult = wrkExpDAO.insert(wrkExpBean);
-//		System.out.println("insertResult= " + insertResult );
-		
-		//2.刪除 O
-//		boolean deleteResult = wrkExpDAO.delete(1);  //????為什麼error
-//		System.out.println(deleteResult);
-		
-		//3.修改 X (都會變成像是"insert"的效果)
-		WrkExpBean wrkExpBean2 = new WrkExpBean();
-		wrkExpBean2.setWkexpid(3);
-		wrkExpBean2.setTeaid(1);
-		wrkExpBean2.setWkduration(5);
-		wrkExpBean2.setWkunit("SOD");
-		wrkExpBean2.setWktitle("改-資深動作片演員");
-		WrkExpBean updateResult = wrkExpDAO.insert(wrkExpBean2);
-		System.out.println("updateResult= " + updateResult );		
-
-		//4a.查詢(單) O
-		WrkExpBean selectResult = wrkExpDAO.select(2);
-		System.out.println(selectResult);
-		
-		//4b.查詢(多) O
-		List<WrkExpBean> selectAll = wrkExpDAO.selectAll();
-		System.out.println("selectAll=" + selectAll );
-		
-		transaction.commit();
-		session.close();
-		sessionFactory.close();
-	}
+	//建spring環境
+	ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+	
+	//spring取bean
+	WrkExpDAO wrkExpDAO = context.getBean("wrkExpDAO", WrkExpDAO.class);
+	
+	System.out.println(wrkExpDAO.selectAll());
+	
+	//關Spring
+	((ConfigurableApplicationContext)context ).close();
+}
 
 	
 	

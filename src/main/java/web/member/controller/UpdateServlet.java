@@ -38,7 +38,7 @@ public class UpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//new MemberService搬到這
 		Session session = (Session)request.getAttribute("session");  //????session從哪拿的 →去看DAO
-		memberService = new MemberService( new MemberDAO(session) );
+		memberService = new MemberService( new MemberDAO() );
 
 //是不是用httpSession就好????
 		//i.接收 
@@ -81,7 +81,9 @@ public class UpdateServlet extends HttpServlet {
 		}
 		//驗證失敗的action
 		if (!errors.isEmpty()) {
-			request.getRequestDispatcher("/views/dashboard.jsp").forward(request, response);
+			System.out.println("驗證失敗");
+//			request.getRequestDispatcher( request.getContextPath() + "/views/member/dashboard.jsp").forward(request, response);
+			request.getRequestDispatcher( "../views/member/dashboard.jsp").forward(request, response); //BUG!!!!!!!!!!!!!!
 			return;
 		}
 		
@@ -95,28 +97,21 @@ public class UpdateServlet extends HttpServlet {
 		bean.setBirth(birthDate);
 		
 		
-		//iii.作動 (依Model)
+		//iii.作動Model
 		//a.資料庫的值
 		MemberBean updateResult = memberService.update(bean);
 		//放回資料值
 		httpSession.setAttribute("member", updateResult);
 		
-		
-		
+		//b.依值作動
 		//導頁
 		String path = request.getContextPath();
 		if (updateResult != null) {
 			response.sendRedirect(path);
 		} else {
 			request.getRequestDispatcher(
-					"/views/dashboard.jsp").forward(request, response);
+					"/views/dashboard.jsp").forward(request, response);  //!!
 		}
-		//b.依值作動
-		
-		
-		
-		
-		
 		
 		
 		
