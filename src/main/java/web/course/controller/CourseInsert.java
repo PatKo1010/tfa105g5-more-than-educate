@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import web.course.entity.CourseBean;
-import web.course.service.impl.CourseServiceImpl;
+import web.course.service.CourseServiceInterface;
 
 @RestController
 @RequestMapping("CourseInsert")
 public class CourseInsert {
 	@Autowired
-	private CourseServiceImpl courseService;
+	private CourseServiceInterface courseService;
 	
 	public String insert(String memid, String expertiseid, String coursetitle, String courseintro, String classamount, String price, Model model, HttpSession session) {
 		

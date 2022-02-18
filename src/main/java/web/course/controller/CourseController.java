@@ -12,18 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import web.course.entity.CourseBean;
+import web.course.service.CourseServiceInterface;
 import web.course.service.impl.CourseServiceImpl;
 
 @WebServlet(urlPatterns = { "/views/course" })
 public class CourseController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	private CourseServiceImpl courseService;
+	
+	@Autowired
+	private CourseServiceInterface courseService;
 
 	@Override
 	public void init() throws ServletException {
