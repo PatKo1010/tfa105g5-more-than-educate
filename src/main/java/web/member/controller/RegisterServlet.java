@@ -16,8 +16,7 @@ import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
-// =================================
-@WebServlet( urlPatterns={"/views/register"} )
+@WebServlet( urlPatterns={"/views/member/register"} )
 public class RegisterServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +36,7 @@ public class RegisterServlet extends HttpServlet{
 			HttpServletResponse response) throws ServletException, IOException {
 	//0.new Session連線
 		Session session = (Session)request.getAttribute("session");	//getAtt回來是object
-		memberService = new MemberService( new MemberDAO( session ) );
+		memberService = new MemberService( new MemberDAO( ) );
 		
 	//1.接收資料
 		String email = request.getParameter("email");

@@ -12,9 +12,10 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <link rel="shortcut icon" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/favicon.ico" />
-    <link rel="stylesheet" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/css/plugins.min.css" />
-    <link rel="stylesheet" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/css/styles.css" />
+<!--     <link rel="shortcut icon" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/favicon.ico" /> -->
+    <link rel="shortcut icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../public/css/plugins.min.css" />
+    <link rel="stylesheet" href="../../public/css/styles.css" />
 
 <!--     <link rel="stylesheet" href="./assets/css/custom.css">  for自加的CSS -->
 </head>
@@ -23,7 +24,7 @@
 <body>
     <!--Header-->
     <header class="app-header app-header-default">
-        <a href="../index.jsp" class="button button-md button-arrow button-go-back">
+        <a href="../../index.jsp" class="button button-md button-arrow button-go-back">
             <span class="icon-arrow arrow-right"></span>
         </a>
     </header>
@@ -40,13 +41,13 @@
                             <header class="el-heading center">
                                 <h2>註冊MoreThanEducate</h2>
                                 <h3>
-                                    <a href="../secure/login.jsp">已經是會員? 馬上登入!</a>
+                                    <a href="./login.jsp">已經是會員? 馬上登入!</a>
                                 </h3>
                             </header>
 
 <%-- <form action="<c:url value="/Register" />" method="get">  <!-- 啟動servlet: get方法 --> --%>
                             <!-- <form class="form-3 max-w-576"> -->
-                            <form name="registerForm" class="form-3 max-w-576" action="<c:url value="/views/register" />" method="post">
+                            <form name="registerForm" class="form-3 max-w-576" action="<c:url value="/views/member/register" />" method="post">
 <!--                        	<tr> -->
 <!-- 								<td>ID : </td> -->
 <%-- 								<td><input type="text" name="username" value="${param.username}"></td> --%>
@@ -91,11 +92,11 @@
             <!--/-->
         </div>
     </div>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/jquery.min.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/plugins.min.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/main-scripts.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/plugins.min.js"></script>
+    <script src="../../public/js/main-scripts.js"></script>
 
-    <script src="./assets/js/custom.js"></script><!-- 自加的 -->
+<!--     <script src="./assets/js/custom.js"></script>自加的 -->
 </body>
 
 </html>

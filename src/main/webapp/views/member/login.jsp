@@ -12,16 +12,16 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/favicon.ico" />
-    <link rel="stylesheet" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/css/plugins.min.css" />
-    <link rel="stylesheet" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/css/styles.css" />
+    <link rel="shortcut icon" href="../../public/favicon.ico" />
+    <link rel="stylesheet" href="../../public/css/plugins.min.css" />
+    <link rel="stylesheet" href="../../public/css/styles.css" />
 </head>
 
 
 <body>
     <!--Header-->
     <header class="app-header app-header-default">
-        <a href="../index.jsp" class="button button-md button-arrow button-go-back">
+        <a href="../../index.jsp" class="button button-md button-arrow button-go-back">
             <span class="icon-arrow arrow-right"></span>
         </a>
     </header>
@@ -37,14 +37,14 @@
                             <header class="el-heading center">
                                 <h2>登入MoreThanEducate</h2>
                                 <h3>
-                                    <a href="../views/register.jsp">尚未成為會員?  來註冊八</a>
+                                    <a href="./register.jsp">尚未成為會員?  來註冊八</a>
                                 </h3>
                             </header>
 
 <!--  FORM -->
 <!--                             <form class="form-3 max-w-576"> -->
 <!-- 							!!!!啟動servlet by網址-->
-               				<form name="loginForm" class="form-3 max-w-576" action="<c:url value="/secure/loginResult" />" method="post">
+               				<form name="loginForm" class="form-3 max-w-576" action="<c:url value="/views/member/loginResult" />" method="post">
                                 <div class="form-item">
                                     <label class="form-label">Email</label>
                                     <input type="text" name="email" value="${param.email}" placeholder="請輸入電郵">
@@ -98,9 +98,9 @@
 
         </div>
     </div>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/jquery.min.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/plugins.min.js"></script>
-    <script src="http://localhost:7080/hwproj-morethanedu-hibernate/public/js/main-scripts.js"></script>
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/plugins.min.js"></script>
+    <script src="../../public/js/main-scripts.js"></script>
 </body>
 
 </html>

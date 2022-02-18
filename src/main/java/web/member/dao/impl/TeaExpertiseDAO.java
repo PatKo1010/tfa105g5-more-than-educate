@@ -2,22 +2,36 @@ package web.member.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.PersistenceContext;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Repository;
 
+import configuration.SpringJavaConfig;
 import web.member.dao.TeaExpertiseDAOInterface;
 import web.member.entity.TeaExpertiseBean;
 
-
+@Repository
 public class TeaExpertiseDAO implements TeaExpertiseDAOInterface {
-
-	private SessionFactory sessionFactory;
-	public TeaExpertiseDAO(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+//Hibernate
+//	private SessionFactory sessionFactory;
+//	public TeaExpertiseDAO(SessionFactory sessionFactory) {
+//		this.sessionFactory = sessionFactory;
+//	}
+//	
+//	public Session getSession() {
+//		return sessionFactory.getCurrentSession();
+//	}
 	
+//Spring
+	@PersistenceContext
+	private Session session;
 	public Session getSession() {
-		return sessionFactory.getCurrentSession();
+		return this.session;
 	}
 	
 	
@@ -77,5 +91,19 @@ public class TeaExpertiseDAO implements TeaExpertiseDAOInterface {
 	public List<TeaExpertiseBean> select() {
 		return getSession().createQuery("FROM TeaExpertiseBean", TeaExpertiseBean.class).list();
 	}
+	
+//	//測試
+//	public static void main(String[] args) {
+//		//建spring環境
+//		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+//		
+//		//spring取bean
+//		TeaExpertiseDAO teaExpertiseDAO = context.getBean("teaExpertiseDAO", TeaExpertiseDAO.class);
+//		
+//		teaExpertiseDAO.select();
+//		
+//		//關Spring
+//		((ConfigurableApplicationContext)context ).close();
+//	}
 
 }
