@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -20,20 +19,22 @@ import web.course.entity.CourseBean;
 import web.course.service.CourseServiceInterface;
 import web.course.service.impl.CourseServiceImpl;
 
-@WebServlet(urlPatterns = { "/views/course" })
+//@WebServlet(urlPatterns = { "/views/course" })
 public class CourseController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	
-	@Autowired
-	private CourseServiceInterface courseService;
+
+	private CourseServiceInterface courseServiceInterface;
 
 	@Override
 	public void init() throws ServletException {
 		ServletContext application = this.getServletContext();
-		ApplicationContext context = (ApplicationContext) application
-				.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-		courseService = context.getBean("courseServiceImpl", CourseServiceImpl.class);
+		ApplicationContext context = (ApplicationContext) application.getAttribute(
+				WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+		
+//		courseServiceInterface = context.getBean("courseServiceImpl", CourseServiceImpl.class); //新版的bug 無法強轉
+		courseServiceInterface = (CourseServiceInterface) context.getBean("courseServiceImpl");
+		
 	}
 
 	@Override
@@ -112,11 +113,11 @@ public class CourseController extends HttpServlet {
 		bean.setPrice(price);
 
 		if (production != null && production.equals("Select")) {
-			List<CourseBean> result = courseService.findAll();
+			List<CourseBean> result = courseServiceInterface.findAll();
 			req.setAttribute("select", result);
 			req.getRequestDispatcher("/views/course/TeacherCourse.html").forward(req, resp);
 		} else if (production != null && production.equals("新增")) {
-			CourseBean result = courseService.addCourse(bean);
+			Integer result = courseServiceInterface.addCourse(bean);
 			if (result == null) {
 				errors.put("action", "新增失敗");
 			} else {
@@ -124,7 +125,7 @@ public class CourseController extends HttpServlet {
 			}
 			req.getRequestDispatcher("/views/course/TeacherCourse.html").forward(req, resp);
 		} else if (production != null && production.equals("Update")) {
-			CourseBean result = courseService.modifyCourse(bean);
+			CourseBean result = courseServiceInterface.modifyCourse(bean);
 			if (result == null) {
 				errors.put("action", "修改失敗");
 			} else {
@@ -132,7 +133,7 @@ public class CourseController extends HttpServlet {
 			}
 			req.getRequestDispatcher("/views/course/TeacherCourse.html").forward(req, resp);
 		} else if (production != null && production.equals("Delete")) {
-			boolean result = courseService.rmoveCourse(bean);
+			boolean result = courseServiceInterface.rmoveCourse(bean);
 			if (!result) {
 				req.setAttribute("delete", 0);
 			} else {

@@ -21,6 +21,7 @@ public class CourseDaoImpl implements CourseDaoInterface {
 
 	@Override
 	public CourseBean select(Integer expertiseid) {
+		
 		return this.select(expertiseid);
 	}
 
@@ -30,8 +31,8 @@ public class CourseDaoImpl implements CourseDaoInterface {
 	}
 
 	@Override
-	public CourseBean insert(CourseBean bean) {
-			return this.insert(bean);
+	public Integer insert(CourseBean bean) {
+			return (Integer) session.save(bean);
 		}
 
 
