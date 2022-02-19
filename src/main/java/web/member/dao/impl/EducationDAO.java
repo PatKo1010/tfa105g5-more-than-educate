@@ -6,11 +6,8 @@ import java.util.List;
 import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
-import web.Hibernate.HibernateUtil;
 import web.member.dao.EducationDAOInterface;
 import web.member.entity.EducationBean;
 

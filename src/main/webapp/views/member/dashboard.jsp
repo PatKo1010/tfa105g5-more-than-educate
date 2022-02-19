@@ -413,7 +413,7 @@
     </header>
     <!--/-->
     <!--Wrapper-->
-    <div class="app-wrapper">
+<div class="app-wrapper">
 <div class="page page-dashboard page-dashboard-student">
     <!--Section-->
     <section class="section section-dashboard section-dashboard-student">
@@ -435,19 +435,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="student/dashboard-wallet.html">
-                            <i class="fa fas fa-book"></i>
-                            <span class="text">Wallet</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="student/dashboard-courses.html">
-                            <i class="fa fas fa-book"></i>
-                            <span class="text">Courses</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="student/dashboard-classrooms.html">
                             <i class="fa fas fa-book"></i>
                             <span class="text">Lessons</span>
                         </a>
@@ -476,8 +464,11 @@
                                 <div class="el-panel-title">
                                     <h2>歡迎!!</h2>  <h2 style="color: blue;">${member.username}</h2>
                                 </div>
+                                
+                                <!-- 上傳表單 -->
                                 <form class="form-3" action="<%= request.getContextPath() %>/views/update" method="post" enctype="multipart/form-data">
                                     <div class="row row-sm">
+                                        <!-- 上傳頭貼 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-2">
                                             <div class="el-avatar">
                                                 <div class="avatar-upload">
@@ -492,6 +483,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- 儲存email -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10">
                                             <div class="pr-15">
                                                 <div class="form-item">
@@ -506,6 +498,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- 儲存使用者名稱 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
                                                 <label for="input-mobile" class="form-label">使用者名稱</label>
@@ -513,6 +506,7 @@
                                             	<span class="error" style="color:red;"> ${errors.username} </span>
                                             </div>
                                         </div>
+                                        <!-- 儲存電話 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
                                                 <label for="input-email" class="form-label">電話</label>
@@ -520,20 +514,7 @@
                                             	<span class="error" style="color:red;"> ${errors.phonenum} </span>
                                             </div>
                                         </div>
-                                       
-<!--                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12"> -->
-<!--                                             <div class="form-item"> -->
-<!--                                                 <label for="input-gender" class="form-label">生日</label> -->
-<!--                                                 <div class="input-select"> -->
-<!--                                                     <select id="input-gender" class="el-select2-gender-empty"> -->
-<!--                                                         <option value="">&nbsp;</option> -->
-<!--                                                         <option value="1">Male</option> -->
-<!--                                                         <option value="2">Female</option> -->
-<!--                                                     </select> -->
-<!--                                                 </div> -->
-<!--                                             </div> -->
-<!--                                         </div> -->
-
+                                        <!-- 儲存生日 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-item">
                                                 <label for="input-birth" class="form-label">生日</label>
@@ -542,7 +523,7 @@
                                             </div>
                                         </div>
 
-                                        
+                                        <!-- 繳交按鈕 -->
                                         <div class="col-12">
                                             <div class="form-item mb-0">
                                                 <button class="button button-md button-block button-primary" type="submit">
