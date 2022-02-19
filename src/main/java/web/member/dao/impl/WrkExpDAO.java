@@ -5,15 +5,12 @@ import java.util.List;
 import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Repository;
 
 import configuration.SpringJavaConfig;
-import web.Hibernate.HibernateUtil;
 import web.member.dao.WrkExpDAOInterface;
 import web.member.entity.WrkExpBean;
 

@@ -2,14 +2,10 @@ package web.member.service.impl;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import web.Hibernate.HibernateUtil;
 import web.member.dao.impl.CertificateDAO;
 import web.member.entity.CertificateBean;
 
