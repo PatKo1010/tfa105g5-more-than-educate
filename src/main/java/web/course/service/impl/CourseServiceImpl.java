@@ -13,24 +13,24 @@ import web.course.service.CourseServiceInterface;
 @Service
 @Transactional
 public class CourseServiceImpl implements CourseServiceInterface{
+	
 	@Autowired
 	private CourseDaoInterface courseDao;
 	
-//	@Transactional(readOnly = true)
 	@Override
 	public List<CourseBean> findAll() {
 		return courseDao.select();
 	}
-
+	
 	@Override
-	public CourseBean addCourse(CourseBean bean) {
-		CourseBean result = null;
+	public Integer addCourse(CourseBean bean) {
+		Integer result =null ;
 		if(bean != null && bean.getExpertiseid() != null) {
 			result = courseDao.insert(bean);
 		}
 		return result;
 	}
-
+	
 	@Override
 	public CourseBean modifyCourse(CourseBean bean) {
 		CourseBean result = null;

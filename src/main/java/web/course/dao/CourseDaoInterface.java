@@ -10,7 +10,7 @@ public interface CourseDaoInterface {
 	
 	public List<CourseBean> select();
 	
-	public CourseBean insert(CourseBean bean);
+	public Integer insert(CourseBean bean);
 	
 	public CourseBean update(CourseBean bean);
 	
