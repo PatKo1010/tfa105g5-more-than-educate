@@ -6,7 +6,7 @@ import web.course.entity.CourseBean;
 
 public interface CourseServiceInterface {
 
-	CourseBean addCourse(CourseBean bean);
+	Integer addCourse(CourseBean bean);
 	
 	CourseBean modifyCourse(CourseBean bean);
 	
