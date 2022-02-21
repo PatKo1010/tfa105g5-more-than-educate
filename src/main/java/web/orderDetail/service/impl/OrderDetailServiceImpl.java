@@ -15,8 +15,11 @@ public class OrderDetailServiceImpl implements OrderDetailServiceInterface {
 	private OrderDetailDaoInterface orderDetailDao;
 	
 	@Override
-	public OrderDetailEntity select(OrderDetailEntity entity) {
-		return orderDetailDao.select(entity.getCourseTitle());
+	public List<OrderDetailEntity> listStudentCourses(OrderDetailEntity orderDetailEntity) {
+		if (orderDetailEntity != null && orderDetailEntity.getStudentId() != null) {
+			return orderDetailDao.selectByStudentId(orderDetailEntity.getStudentId());
+		}
+		return null;
 	}
 
 	@Override
