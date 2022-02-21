@@ -19,7 +19,7 @@ import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
-@WebServlet( urlPatterns= {"/views/update"} )
+//@WebServlet( urlPatterns= {"/views/update"} )
 @MultipartConfig
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

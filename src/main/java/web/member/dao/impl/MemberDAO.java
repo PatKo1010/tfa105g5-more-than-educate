@@ -43,7 +43,7 @@ public class MemberDAO implements MemberDAOInterface {
 	@Override
 	public MemberBean selectByEmail(String email) {
 		if (email != null && email.length() != 0) {
-			return getSession().createQuery("FROM MemberBean where email= :email", MemberBean.class)
+			return session.createQuery("FROM MemberBean where email= :email", MemberBean.class)
 				.setParameter("email", email).uniqueResult();
 		}
 		return null;
@@ -52,7 +52,7 @@ public class MemberDAO implements MemberDAOInterface {
 	//1.新增
 	@Override
 	public MemberBean insert(MemberBean memberBean) {
-		 getSession().save(memberBean);
+		 session.save(memberBean);
 		 return memberBean;
 	}
 
@@ -98,20 +98,20 @@ public class MemberDAO implements MemberDAOInterface {
 
 	
 //iii. main方法測試一下
-//	public static void main(String[]args) {
-//		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+	public static void main(String[]args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
 ////		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 ////		Session session = sessionFactory.getCurrentSession();
 ////		Transaction transaction = session.beginTransaction();
 //		
 //
-//		MemberDAO memberDAO = context.getBean("memberDAO", MemberDAO.class);
-////				new MemberDAO(session);
-//		
-//		List<MemberBean> beans =  memberDAO.select();
-//		System.out.println(beans);
-//		
-//		((ConfigurableApplicationContext)context).close();
+		MemberDAO memberDAO = context.getBean("memberDAO", MemberDAO.class);
+//				new MemberDAO(session);
+		
+		MemberBean bean =  memberDAO.selectByEmail("abc123456@gmail.com");
+		System.out.println(bean);
+		
+		((ConfigurableApplicationContext)context).close();
 //		
 //		
 ////		//1.新增   OK
@@ -202,6 +202,6 @@ public class MemberDAO implements MemberDAOInterface {
 ////		transaction.commit();
 ////		session.close();
 ////		sessionFactory.close();
-//	}
+	}
 	
 }
