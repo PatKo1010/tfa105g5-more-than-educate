@@ -5,6 +5,6 @@ import java.util.List;
 import web.orderDetail.entity.OrderDetailEntity;
 
 public interface OrderDetailServiceInterface {
-	OrderDetailEntity select (OrderDetailEntity courseTitle);
+	List<OrderDetailEntity> listStudentCourses (OrderDetailEntity orderDetailEntity);
 	List<OrderDetailEntity> selectAll ();
 }
