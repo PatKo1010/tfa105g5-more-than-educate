@@ -98,7 +98,16 @@ public class MemberService {
 
 
 	//測試
-//	public static void main(String[] args) {
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
+		
+		MemberService service = context.getBean("memberService", MemberService.class);
+		MemberBean bean =  service.selectByEmail("abc123456@gmail.com");
+		System.out.println(bean);
+		
+		
+		((ConfigurableApplicationContext)context).close();
 ////		//使用三行
 ////		//private SessionFactory sessionFactory; //錯誤示範
 ////		SessionFactory sessionFactory = HibernateUtil.getSessionFactory(); //START: 創sessionFactory(引進的方式)
@@ -206,6 +215,6 @@ public class MemberService {
 ////		transaction.commit();
 ////		session.close();
 ////		sessionFactory.close();
-//	}
+	}
 	
 }
