@@ -81,7 +81,7 @@ public class UpdateServlet extends HttpServlet {
 		}
 		//驗證失敗的action
 		if (!errors.isEmpty()) {
-			System.out.println("驗證失敗");
+//			System.out.println("驗證失敗");
 //			request.getRequestDispatcher( request.getContextPath() + "/views/member/dashboard.jsp").forward(request, response);
 			request.getRequestDispatcher( "../views/member/dashboard.jsp").forward(request, response); //BUG!!!!!!!!!!!!!!
 			return;
