@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <title>Profile</title>
+    <title>學生中心</title>
     <meta charset="UTF-8" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -15,11 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="../">
     
-    <link rel="shortcut icon" href="../public/favicon.ico" />
+    <link rel="shortcut icon" href="<%=request.getContextPath() %>/public/favicon.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,500,600,700,900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../public/css/plugins.min.css" />
-    <link rel="stylesheet" href="../public/css/styles.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/public/css/plugins.min.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/public/css/styles.css" />
 </head>
 
 <body>
@@ -393,7 +393,7 @@
     </ul>
 </div>
                 <div class="header-logo">
-                    <a href="../index.html" class="primary-logo">
+                    <a href="<%=request.getContextPath() %>/index.jsp" class="primary-logo">
                         <span class="text-1">MoreThanEducate</span>
                         <span class="text-2"></span>
                     </a>
@@ -473,6 +473,7 @@
                                             <div class="el-avatar">
                                                 <div class="avatar-upload">
                                                     <div class="avatar-edit">
+<!-- 上傳 -->
                                                         <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
                                                         <label for="imageUpload"></label>
                                                     </div>
@@ -543,10 +544,10 @@
     <!--/-->
 </div>
     </div>
-    <script src="../public/js/jquery.min.js"></script>
-    <script src="../public/js/plugins.min.js"></script>
-    <script src="../public/js/main-scripts.js"></script>
-    <script src="../public/js/dashboard.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/plugins.min.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/main-scripts.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/dashboard.js"></script>
 </body>
 
 </html>
