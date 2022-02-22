@@ -466,7 +466,7 @@
                                 </div>
                                 
                                 <!-- 上傳表單 -->
-                                <form class="form-3" action="<%= request.getContextPath() %>/views/update" method="post" enctype="multipart/form-data">
+                                <form class="form-3" action="<%= request.getContextPath() %>/views/member/update" method="post" enctype="multipart/form-data">
                                     <div class="row row-sm">
                                         <!-- 上傳頭貼 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-2">

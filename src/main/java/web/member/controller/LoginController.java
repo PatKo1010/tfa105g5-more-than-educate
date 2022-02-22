@@ -62,10 +62,10 @@ public class LoginController {
 
 		
 //2.呼叫Model
-	//"值的存取"  (by某Service)
+	//值的"存改"  (by某Service)
 		MemberBean dbObject = memberService.login(email, password);
 		
-	//Model結果的action (看model結果)
+	//結果的action (看model結果)
 		//錯誤 forward頁面
 		if (dbObject == null) {  
 			errors.put("password", "登入失敗, 可能輸入了不正確的帳號或密碼, 請重新登入");
