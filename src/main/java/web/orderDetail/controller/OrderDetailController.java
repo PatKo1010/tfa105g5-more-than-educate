@@ -1,5 +1,8 @@
 package web.orderDetail.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,10 +19,10 @@ public class OrderDetailController {
 	private OrderDetailServiceImpl orderDetailService;
 	
 	@PostMapping("selectCourse")
-	public OrderDetailEntity selectCourseByTilte(@RequestBody OrderDetailEntity entity) {
-		entity =  orderDetailService.select(entity);
-		System.out.println(entity);
-		return entity == null ? new OrderDetailEntity() : entity;
+	public List<OrderDetailEntity> selectCourseByTilte(@RequestBody OrderDetailEntity entity) {
+		List<OrderDetailEntity> entities =  orderDetailService.listStudentCourses(entity);
+		System.out.println(entities);
+		return entities == null ? new ArrayList<OrderDetailEntity>(): entities;
 	}
 	
 //	public OrderDetailEntity selectCourseByTilte (String title, HttpServletRequest req,HttpServletResponse res) throws IOException {

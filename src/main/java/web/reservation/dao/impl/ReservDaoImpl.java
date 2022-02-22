@@ -27,15 +27,14 @@ public class ReservDaoImpl implements ReservDaoInterface{
 
 	@Override
 	public List<ReservTimeBean> selectByOrderID(Integer orderID) {
-		// TODO Auto-generated method stub
+		if ( orderID!= null) {
+			List<ReservTimeBean> beans = this.session.createQuery("from ReservTimeBean where orderID=:X")
+			.setParameter("X", orderID).list();
+			return beans;
+		}
 		return null;
 	}
-
-	@Override
-	public List<ReservTimeBean> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public ReservTimeBean insert(ReservTimeBean bean) {

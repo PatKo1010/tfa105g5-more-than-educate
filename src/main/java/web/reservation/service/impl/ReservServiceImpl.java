@@ -1,5 +1,7 @@
 package web.reservation.service.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,16 @@ public class ReservServiceImpl implements ReservServiceInterface {
 	
 	@Autowired
 	private ReservDaoInterface dao;
-	
-	
+
 	@Override
-	public ReservTimeBean select(Integer id) {
-		return dao.select(id);
+	public List<ReservTimeBean> selectMemberCourse(ReservTimeBean bean) {
+		if (bean != null && bean.getOrderID()!= null) {
+			return dao.selectByOrderID(bean.getOrderID());
+		}
+		return null;
 	}
+	
+	
+
 	
 }
