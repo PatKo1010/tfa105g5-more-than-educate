@@ -17,7 +17,7 @@ import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
-@WebServlet( urlPatterns={"/views/member/loginResult"} )
+//@WebServlet( urlPatterns={"/views/member/loginResult"} )
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
