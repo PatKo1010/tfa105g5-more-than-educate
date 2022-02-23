@@ -399,14 +399,15 @@
                     </a>
                 </div>
                 <div class="header-links">
-<!--                 http://localhost:7080/hwproj-morethanedu-hibernate/views/dashboard.jsp -->
-                    <a href="<%= request.getContextPath() %>/views/member/register.jsp" class="button button-md button-line-primary">
-<!--                     <a href="register.jsp" class="button button-md button-line-primary"> -->
-                        <span class="title">註冊</span>
-                    </a>
-                    <a href="<%= request.getContextPath() %>/views/member/login.jsp" class="button button-md button-primary">
-                        <span class="title">登入</span>
-                    </a>
+<%--                     <a href="<%= request.getContextPath() %>/views/member/register.jsp" class="button button-md button-line-primary"> --%>
+<!--                         <span class="title">註冊</span> -->
+<!--                     </a> -->
+<%--                     <a href="<%= request.getContextPath() %>/views/member/login.jsp" class="button button-md button-primary"> --%>
+<!--                         <span class="title">登入</span> -->
+<!--                     </a> -->
+                    <form action="<%= request.getContextPath() %>/views/member/logout" method="post">
+                        <button class="button button-md button-primary" type="submit">登出</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -473,7 +474,8 @@
                                             <div class="el-avatar">
                                                 <div class="avatar-upload">
                                                     <div class="avatar-edit">
-<!-- 上傳 -->
+                                                    <input type="hidden" name="memID" value= "${member.memid}" />
+<!-- 上傳 -->												
                                                         <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
                                                         <label for="imageUpload"></label>
                                                     </div>

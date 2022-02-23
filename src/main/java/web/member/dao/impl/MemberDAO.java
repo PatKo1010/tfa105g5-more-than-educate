@@ -73,10 +73,21 @@ public class MemberDAO implements MemberDAOInterface {
 	@Override
 	public MemberBean update(MemberBean memberBean) {
 		if (memberBean != null) {
-//			MemberBean temp = getSession().get(MemberBean.class, memberBean.getMemid());
-//			getSession().save(memberBean);
-			//or
-			return (MemberBean)getSession().merge(memberBean); //等於上面兩行嗎????
+			MemberBean update =  session.createQuery("FROM MemberBean where mem_id= :mem_id", MemberBean.class)
+													.setParameter("mem_id", memberBean.getMemid()).uniqueResult();
+			if(update == null) {
+				return (MemberBean)getSession().merge(memberBean); //等於上面兩行嗎????
+			} else { 
+				if(update.getEmail().equals(memberBean.getEmail())) {
+					update.setBirth(memberBean.getBirth());
+					update.setEmail(memberBean.getEmail());
+					update.setPassword(memberBean.getPassword());
+					update.setPhoto(memberBean.getPhoto());
+					update.setPhonenum(memberBean.getPhonenum());
+					update.setUsername(memberBean.getUsername());
+					return (MemberBean)getSession().merge(update);
+				}
+			}
 		}
 		return null;
 	}
