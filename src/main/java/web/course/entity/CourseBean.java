@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "course")
-public class CourseBean {
+public class CourseBean{
 	
 	@Id
 	@Column(name = "course_id")

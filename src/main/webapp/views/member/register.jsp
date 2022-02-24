@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
 <!--     <link rel="shortcut icon" href="http://localhost:7080/hwproj-morethanedu-hibernate/public/favicon.ico" /> -->
-    <link rel="shortcut icon" href="../../public/favicon.ico" />
-    <link rel="stylesheet" href="../../public/css/plugins.min.css" />
-    <link rel="stylesheet" href="../../public/css/styles.css" />
+    <link rel="shortcut icon" href="<%=request.getContextPath() %>/public/favicon.ico" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/public/css/plugins.min.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/public/css/styles.css" />
 
 <!--     <link rel="stylesheet" href="./assets/css/custom.css">  for自加的CSS -->
 </head>
@@ -24,7 +24,7 @@
 <body>
     <!--Header-->
     <header class="app-header app-header-default">
-        <a href="../../index.jsp" class="button button-md button-arrow button-go-back">
+        <a href="<%=request.getContextPath() %>/index.jsp" class="button button-md button-arrow button-go-back">
             <span class="icon-arrow arrow-right"></span>
         </a>
     </header>
@@ -98,9 +98,9 @@
             <!--/-->
         </div>
     </div>
-    <script src="../../public/js/jquery.min.js"></script>
-    <script src="../../public/js/plugins.min.js"></script>
-    <script src="../../public/js/main-scripts.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/plugins.min.js"></script>
+    <script src="<%=request.getContextPath() %>/public/js/main-scripts.js"></script>
 
 <!--     <script src="./assets/js/custom.js"></script>自加的 -->
 </body>

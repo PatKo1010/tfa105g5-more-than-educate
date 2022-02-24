@@ -1,8 +1,10 @@
 package web.reservation.service;
 
+import java.util.List;
+
 import web.reservation.entity.ReservTimeBean;
 
 public interface ReservServiceInterface {
-	public abstract ReservTimeBean select(Integer id);
+	public abstract List<ReservTimeBean> selectMemberCourse (ReservTimeBean bean);
 	
 }

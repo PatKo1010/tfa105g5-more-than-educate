@@ -12,16 +12,17 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="../../public/favicon.ico" />
-    <link rel="stylesheet" href="../../public/css/plugins.min.css" />
-    <link rel="stylesheet" href="../../public/css/styles.css" />
+<!--     <link rel="shortcut icon" href="../../public/favicon.ico" /> -->
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/public/favicon.ico" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/plugins.min.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/styles.css" />
 </head>
 
 
 <body>
     <!--Header-->
     <header class="app-header app-header-default">
-        <a href="../../index.jsp" class="button button-md button-arrow button-go-back">
+        <a href="<%=request.getContextPath()%>/index.jsp" class="button button-md button-arrow button-go-back">
             <span class="icon-arrow arrow-right"></span>
         </a>
     </header>
@@ -37,7 +38,7 @@
                             <header class="el-heading center">
                                 <h2>登入MoreThanEducate</h2>
                                 <h3>
-                                    <a href="./register.jsp">尚未成為會員?  來註冊八</a>
+                                    <a href="<%=request.getContextPath() %>/views/member/register.jsp">尚未成為會員?  來註冊八</a>
                                 </h3>
                             </header>
 
@@ -98,9 +99,9 @@
 
         </div>
     </div>
-    <script src="../../public/js/jquery.min.js"></script>
-    <script src="../../public/js/plugins.min.js"></script>
-    <script src="../../public/js/main-scripts.js"></script>
+    <script src="<%=request.getContextPath()%>/public/js/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/public/js/plugins.min.js"></script>
+    <script src="<%=request.getContextPath()%>/public/js/main-scripts.js"></script>
 </body>
 
 </html>

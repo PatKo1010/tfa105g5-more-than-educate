@@ -24,7 +24,7 @@ public class RegisterContoller {
 	@RequestMapping(path = { "/views/member/register" })
 	public String handleRegister(String email, String username, String password, String passwordConf, Model model,
 			HttpSession session) {
-		// 驗證資料
+		// 驗證
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
 //		if(production != null) {
@@ -47,21 +47,22 @@ public class RegisterContoller {
 			errors.put("passwordConf", "請重複輸入密碼");
 		}
 
-		// 重輸密碼的確認
+			// 重輸密碼的確認
 		if (!password.equals(passwordConf)) {
 			errors.put("passwordConf", "請確認密碼是否一致!");
 		}
-		// 帳號已存在的確認
+			// 帳號已存在的確認
 		MemberBean check = memberService.selectByEmail(email);
 		if (check != null) {
-			errors.put("email", "email已有人使用");
+			errors.put("email", "Email已有人使用");
 		}
 		
-		//驗證失敗的action (or轉導)
+		//驗證失敗的Action (e.g.轉導 +是否帶入下頁)
 		if(errors != null && !errors.isEmpty() ) {
 			//轉導: 原畫面+顯示errorMessage
 			model.addAttribute(username, errors);  //專程回傳"帳號已使用"????
-			return "/views/register.jsp"; 	
+//			return "/views/register.jsp"; 	
+			return "/views/member/register.jsp"; 	
 		}
 		
 		MemberBean insertResult = null;
@@ -76,17 +77,17 @@ public class RegisterContoller {
 
 		//a.錯誤時    //不知道的話 →去想service回傳什麼
 		if ( insertResult == null) {   
-			errors.put("password", "insert不成功 code有錯");
-			return "/views/register.jsp";
+			errors.put("password", "insert不成功(code有錯)");
+//			return "/views/register.jsp";
+			return "/views/member/register.jsp";
 //			PrintWriter out = response.getWriter();
 //			out.print(errors);
 		} else {
 		//b.正確時
 //			HttpSession httpSession = request.getSession();
 //			httpSession.setAttribute("member", dbObject);
-
 			String nowPath = context.getContextPath();
-			return "redirect:" + nowPath + "/secure/login.jsp";
+			return "redirect:" + "/views/member/login.jsp";
 //待改:註冊後"不用再登入" 直入某頁
 //response.sendRedirect(nowPath + "/views/dashboard.jsp");
 		}

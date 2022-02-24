@@ -30,12 +30,12 @@ public class OrderDetailDaoImpl implements OrderDetailDaoInterface {
 	}
 	
 	@Override
-	public OrderDetailEntity select(String title) {
+	public List<OrderDetailEntity> selectByStudentId(Integer Id) {
 //		if (title!=null) {
 			Query<OrderDetailEntity> query = this.getSession()
-					.createQuery("from OrderDetailEntity where courseTitle like :XXX",OrderDetailEntity.class);
-			query.setParameter("XXX", title);
-			return query.uniqueResult();
+					.createQuery("from OrderDetailEntity where studentId = :X",OrderDetailEntity.class);
+			query.setParameter("X", Id);
+			return query.list();
 					
 //		}
 //		return null;
@@ -55,10 +55,7 @@ public class OrderDetailDaoImpl implements OrderDetailDaoInterface {
 //		Transaction trx = s.beginTransaction();
 		
 		OrderDetailDaoInterface dao = (OrderDetailDaoImpl)context.getBean("orderDetailDaoImpl");
-		OrderDetailEntity entity = dao.select("出國留學必");
-		System.out.println(entity);
-		
-		List<OrderDetailEntity> entities = dao.selectAll();
+		List<OrderDetailEntity> entities = dao.selectByStudentId(10);
 		System.out.println(entities);
 		
 //		trx.commit();

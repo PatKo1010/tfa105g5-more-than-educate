@@ -19,6 +19,9 @@ public class OrderDetailEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderID;
 	
+	@Column(name = "s_id")
+	private Integer studentId;
+	
 	@Column(name = "s_name")
 	private String sName;
 	
@@ -60,39 +63,26 @@ public class OrderDetailEntity implements Serializable {
 
 	public OrderDetailEntity() {
 	}
-
-	public OrderDetailEntity(String sName, Date orderDate, String courseTitle, String tName,
-			Integer expertiseId, String courseIntro, Integer classAmount, Integer price, Integer classRecord,
-			Boolean classStatus, Boolean transStatus, Integer rate, String comment) {
-		super();
-		this.sName = sName;
-		this.orderDate = orderDate;
-		this.courseTitle = courseTitle;
-		this.tName = tName;
-		this.expertiseId = expertiseId;
-		this.courseIntro = courseIntro;
-		this.classAmount = classAmount;
-		this.price = price;
-		this.classRecord = classRecord;
-		this.classStatus = classStatus;
-		this.transStatus = transStatus;
-		this.rate = rate;
-		this.comment = comment;
-	}
 	
-	
-
 	@Override
 	public String toString() {
-		return "OrderDetailEntity [orderID=" + orderID + ", sName=" + sName + ", orderDate=" + orderDate
-				+ ", courseTitle=" + courseTitle + ", tName=" + tName + ", expertiseId=" + expertiseId
-				+ ", courseIntro=" + courseIntro + ", classAmount=" + classAmount + ", price=" + price
+		return "OrderDetailEntity [orderID=" + orderID + ", studentId=" + studentId + ", sName=" + sName
+				+ ", orderDate=" + orderDate + ", courseTitle=" + courseTitle + ", tName=" + tName + ", expertiseId="
+				+ expertiseId + ", courseIntro=" + courseIntro + ", classAmount=" + classAmount + ", price=" + price
 				+ ", classRecord=" + classRecord + ", classStatus=" + classStatus + ", transStatus=" + transStatus
 				+ ", rate=" + rate + ", comment=" + comment + "]";
 	}
 
 	public Integer getOrderID() {
 		return orderID;
+	}
+
+	public Integer getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
 	}
 
 	public void setOrderID(Integer orderID) {
