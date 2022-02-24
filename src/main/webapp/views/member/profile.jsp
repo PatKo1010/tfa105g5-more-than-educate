@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <title>個人首頁</title>
+    <title>更新資料</title>
     <meta charset="UTF-8" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -497,12 +497,12 @@
                                             <div class="pr-15">
                                                 <div class="form-item">
                                                     <label for="input-name" class="form-label">E-mail</label>
-                                                    <input name="email" type="text" id="input-email" value="${member.email}" disabled>
+                                                    <input name="email" type="text" id="input-email" value="${member.email}">
                                                     <span class="error" style="color:red;"> ${errors.email} </span>
                                                 </div>
                                                 <div class="form-item">
                                                     <label for="input-lastname" class="form-label">密碼</label>
-                                                    <input name="password" type="text" id="input-password" value="${member.password}" disabled>
+                                                    <input name="password" type="text" id="input-password" value="${member.password}">
                                                     <span class="error" style="color:red;"> ${errors.password} </span>
                                                 </div>
                                             </div>
@@ -511,7 +511,7 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
                                                 <label for="input-mobile" class="form-label">使用者名稱</label>
-                                                <input name="username" type="text" id="input-username" class="text-left" value="${member.username}" disabled>
+                                                <input name="username" type="text" id="input-username" class="text-left" value="${member.username}">
                                             	<span class="error" style="color:red;"> ${errors.username} </span>
                                             </div>
                                         </div>
@@ -519,7 +519,7 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
                                                 <label for="input-email" class="form-label">電話</label>
-                                                <input name="phonenum" type="text" id="input-phonenum" class="text-left" value="${member.phonenum}" disabled>
+                                                <input name="phonenum" type="text" id="input-phonenum" class="text-left" value="${member.phonenum}">
                                             	<span class="error" style="color:red;"> ${errors.phonenum} </span>
                                             </div>
                                         </div>
@@ -527,7 +527,7 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-item">
                                                 <label for="input-birth" class="form-label">生日</label>
-                                                <input name="birth" type="date" id="input-birth" class="text-left" value="${member.birth}" disabled>
+                                                <input name="birth" type="date" id="input-birth" class="text-left" value="${member.birth}">
                                             	<span class="error" style="color:red;"> ${errors.birth} </span>
                                             </div>
                                         </div>

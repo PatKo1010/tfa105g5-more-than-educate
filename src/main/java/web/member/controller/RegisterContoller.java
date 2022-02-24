@@ -54,7 +54,7 @@ public class RegisterContoller {
 			// 帳號已存在的確認
 		MemberBean check = memberService.selectByEmail(email);
 		if (check != null) {
-			errors.put("email", "email已有人使用");
+			errors.put("email", "Email已有人使用");
 		}
 		
 		//驗證失敗的Action (e.g.轉導 +是否帶入下頁)
