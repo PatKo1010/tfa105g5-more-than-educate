@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
+<html lang="en" dir="ltr">
 
 <head>
-    <title>個人首頁</title>
+    <title>MoreThanEducate</title>
     <meta charset="UTF-8" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -14,7 +14,7 @@
     <meta name="msapplication-TileColor" content="#9f00a7">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="../">
-    
+
     <link rel="shortcut icon" href="<%=request.getContextPath() %>/public/favicon.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,500,600,700,900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -312,7 +312,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<%=request.getContextPath() %>views/orderDetail/StudentCourse.html">
+                                            <a href="#">
                                                 <span class="text">課程</span>
                                             </a>
                                         </li>
@@ -413,75 +413,380 @@
         </div>
     </header>
     <!--/-->
+    <!--Sidenav-->
+<div class="app-sidenav app-sidenav-1">
+    <div class="sidenav-menu">
+        <div class="sidenav-head">
+            <img src="assets/images/sidenav.jpg" alt="sidenav banner">
+            <button class="button button-close-sidenav"></button>
+        </div>
+        <div class="sidenav-body">
+            <div class="sidenav-body-inner">
+                <div class="sidenav-links">
+                    <a href="page-login.html" class="button button-md button-block button-line-primary">
+                        <span class="text">Sign In</span>
+                    </a>
+                    <a href="page-register.html" class="button button-md button-block button-primary">
+                        <span class="text">Sign Up</span>
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="home.html">
+                            <span class="text">Home</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                    </li>
+                    <li class="has-menu">
+                        <a href="#">
+                            <span class="text">All Pages</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                        <div class="mega-menu">
+                            <p class="title">Quick Access</p>
+                            <ul class="sidenav-menu-ul">
+                                <li>
+                                    <a href="page-blog.html">
+                                        <span class="text">Blog/News</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-single-post.html">
+                                        <span class="text">Single Post</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-cooperation.html">
+                                        <span class="text">Cooperation</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-start.html">
+                                        <span class="text">Getting Started!</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="title">Quick Access</p>
+                            <ul class="sidenav-menu-ul">
+                                <li>
+                                    <a href="page-teacher.html">
+                                        <span class="text">Teacher</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-teachers.html">
+                                        <span class="text">List of Teachers</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-course.html">
+                                        <span class="text">Course Details</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-courses.html">
+                                        <span class="text">List of Courses</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="title">Dashboard</p>
+                            <ul class="sidenav-menu-ul">
+                                <li>
+                                    <a href="teacher/dashboard.html">
+                                        <span class="text">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="teacher/dashboard-profile.html">
+                                        <span class="text">Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="teacher/dashboard-skills.html">
+                                        <span class="text">Edit Skills</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="teacher/dashboard-classrooms.html">
+                                        <span class="text">Classrooms</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="title">Communication</p>
+                            <ul class="sidenav-menu-ul">
+                                <li>
+                                    <a href="page-about.html">
+                                        <span class="text">About Us</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-contact.html">
+                                        <span class="text">Contact Us</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-faq.html">
+                                        <span class="text">FAQ</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-policy.html">
+                                        <span class="text">Policy</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="title">Other Pages</p>
+                            <ul class="sidenav-menu-ul">
+                                <li>
+                                    <a href="page-login.html">
+                                        <span class="text">Sign-In</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-register.html">
+                                        <span class="text">Sign-Up</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="page-departements.html">
+                                        <span class="text">Departements</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="has-menu">
+                        <a href="#">
+                            <span class="text">Languages</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                        <div class="mega-menu">
+                            <ul>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/uk.svg" alt="alt" />
+                                            <h3>English</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/germany.svg" alt="alt" />
+                                            <h3>German</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/france.svg" alt="alt" />
+                                            <h3>French</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/italy.svg" alt="alt" />
+                                            <h3>Italian</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/china.svg" alt="alt" />
+                                            <h3>Chinese</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/japan.svg" alt="alt" />
+                                            <h3>Japanese</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/south-korea.svg" alt="alt" />
+                                            <h3>Korean</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/russia.svg" alt="alt" />
+                                            <h3>Russian</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/arabic.svg" alt="alt" />
+                                            <h3>Arabic</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/turkey.svg" alt="alt" />
+                                            <h3>Turkish</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/iran.svg" alt="alt" />
+                                            <h3>Persian</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="el-flag">
+                                    <div class="inner">
+                                        <a href="page-departements.html">
+                                            <img src="assets/images/flags/spain.svg" alt="alt" />
+                                            <h3>Spanish</h3>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="page-teachers.html">
+                            <span class="text">Teachers</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="page-courses.html">
+                            <span class="text">Courses</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="page-cooperation.html">
+                            <span class="text">Join Now.</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="page-start.html">
+                            <span class="text">Let's get started</span>
+                            <span class="icon fa fa-angle-right"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="sidenav-close"></span>
+</div>
+<!--/-->
     <!--Wrapper-->
-<div class="app-wrapper">
+    <div class="app-wrapper">
 <div class="page page-dashboard page-dashboard-student">
     <!--Section-->
     <section class="section section-dashboard section-dashboard-student">
         <div class="container">
             <div class="display-spacing display-spacing-plus">
+                <!--Alert-->
+                <div class="el-alert alert-info">
+                    <div class="container">
+                        <div class="alert-flex d-flex align-items-center">
+                            <div class="alert-icon">
+                                <div class="icon">
+                                    <i class="fa fa-question"></i>
+                                </div>
+                            </div>
+                            <div class="alert-content">
+                                <p>Please update your profile, such as avatar and you recommend personal information.</p>
+                            </div>
+                            <div class="alert-links">
+                                <a href="teacher/dashboard-profile.html" class="button button-md">
+                                    <span class="text">Edit Profile</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/-->
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
     <aside class="sidebar">
         <div class="el-panel el-panel-teacher-widget">
             <div class="el-panel-body">
                 <div class="el-panel-title">
-                    <h2>個人中心</h2>
+                    <h2>教師中心</h2>
                 </div>
                 <ul class="el-list-icon">
+<!--                     <li> -->
+<!--                         <a href="teacher/dashboard.html"> -->
+<!--                             <i class="fa fa-cog"></i> -->
+<!--                             <span class="text">X Dashboard X</span> -->
+<!--                         </a> -->
+<!--                     </li> -->
                     <li>
-                        <a href="<%=request.getContextPath() %>/views/member/dashboard.jsp">
+                        <a href="<%=request.getContextPath() %>/views/member/teacherProfile.jsp">
                             <i class="fa fa-cog"></i>
-                            <span class="text">個人首頁</span>
+                            <span class="text">教師資料</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath() %>/views/member/profile.jsp">
+                        <a href="<%=request.getContextPath() %>/views/member/teacherSkills.jsp">
                             <i class="fa fa-cog"></i>
-                            <span class="text">更新資料</span>
+                            <span class="text">教授資格</span>
                         </a>
                     </li>
                     <li>
-                        <a href="student/dashboard-courses.html">
+                        <a href="<%=request.getContextPath() %>/views/member/teacherCourses.jsp">
                             <i class="fa fas fa-book"></i>
-                            <span class="text">課程</span>
+                            <span class="text">開設課程</span>
                         </a>
                     </li>
+<!--                     <li> -->
+<!--                         <a href="teacher/dashboard-classrooms.html"> -->
+<!--                             <i class="fa fas fa-book"></i> -->
+<!--                             <span class="text">Classrooms</span> -->
+<!--                         </a> -->
+<!--                     </li> -->
                 </ul>
             </div>
         </div>
-<!-- Wallet待做         -->
-<!--         <div class="el-panel el-panel-financial bg-primary"> -->
-<!--             <div class="el-panel-body"> -->
-<!--                 <p class="text-center text-light">Wallet</p> -->
-<!--                 <p class="price"> -->
-<!--                     <span class="value">$240.00</span> -->
-<!--                 </p> -->
-<!--                 <a href="student/dashboard-wallet.html" class="button button-md button-radius button-block button-light"> -->
-<!--                     <span class="text text-center text-primary">Details</span> -->
-<!--                 </a> -->
-<!--             </div> -->
-<!--         </div> -->
-        
+        <div class="el-panel el-panel-financial bg-primary">
+            <div class="el-panel-body">
+                <p class="text-center text-light">Earnings</p>
+                <p class="price">
+                    <span class="currency">$240.00</span>
+                </p>
+                <a href="student/dashboard-wallet.html" class="button button-md button-radius button-block button-light">
+                    <span class="text text-center text-primary">Set payout account</span>
+                </a>
+            </div>
+        </div>
     </aside>
 </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                         <div class="el-panel">
                             <div class="el-panel-body">
                                 <div class="el-panel-title">
-                                    <h2>歡迎!!</h2>  <h2 style="color: blue;">${member.username}</h2>
+                                    <h2>Profile</h2>
                                 </div>
-                                
-                                <!-- 上傳表單 -->
-                                <form class="form-3" action="<%= request.getContextPath() %>/views/member/update" method="post" enctype="multipart/form-data">
+                                <form class="form-3" action="http://httpbin.org/post" method="post" enctype="multipart/form-data">
                                     <div class="row row-sm">
-                                        <!-- 上傳頭貼 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-2">
                                             <div class="el-avatar">
                                                 <div class="avatar-upload">
                                                     <div class="avatar-edit">
-                                                    <input type="hidden" name="memID" value= "${member.memid}" />
-<!-- 上傳 -->												
                                                         <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
                                                         <label for="imageUpload"></label>
                                                     </div>
@@ -492,51 +797,64 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- 儲存email -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10">
                                             <div class="pr-15">
                                                 <div class="form-item">
-                                                    <label for="input-name" class="form-label">E-mail</label>
-                                                    <input name="email" type="text" id="input-email" value="${member.email}" disabled>
-                                                    <span class="error" style="color:red;"> ${errors.email} </span>
+                                                    <label for="input-name" class="form-label">Name</label>
+                                                    <input name="name" type="text" id="input-name">
                                                 </div>
                                                 <div class="form-item">
-                                                    <label for="input-lastname" class="form-label">密碼</label>
-                                                    <input name="password" type="text" id="input-password" value="${member.password}" disabled>
-                                                    <span class="error" style="color:red;"> ${errors.password} </span>
+                                                    <label for="input-lastname" class="form-label">Last Name</label>
+                                                    <input name="" type="text" id="input-lastname">
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- 儲存使用者名稱 -->
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
-                                                <label for="input-mobile" class="form-label">使用者名稱</label>
-                                                <input name="username" type="text" id="input-username" class="text-left" value="${member.username}" disabled>
-                                            	<span class="error" style="color:red;"> ${errors.username} </span>
+                                                <label for="input-mobile" class="form-label">Mobile</label>
+                                                <input name="" type="text" id="input-mobile" class="text-left">
                                             </div>
                                         </div>
-                                        <!-- 儲存電話 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
-                                                <label for="input-email" class="form-label">電話</label>
-                                                <input name="phonenum" type="text" id="input-phonenum" class="text-left" value="${member.phonenum}" disabled>
-                                            	<span class="error" style="color:red;"> ${errors.phonenum} </span>
+                                                <label for="input-email" class="form-label">E-Mail</label>
+                                                <input name="" type="email" id="input-email" class="text-left">
                                             </div>
                                         </div>
-                                        <!-- 儲存生日 -->
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                            <div class="form-item">
+                                                <label for="input-gender" class="form-label">Gender</label>
+                                                <div class="input-select">
+                                                    <select id="input-gender" class="el-select2-gender-empty">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">Male</option>
+                                                        <option value="2">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                            <div class="form-item">
+                                                <label for="input-username" class="form-label">Username</label>
+                                                <input name="" type="text" id="input-username" class="text-left">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-item">
-                                                <label for="input-birth" class="form-label">生日</label>
-                                                <input name="birth" type="date" id="input-birth" class="text-left" value="${member.birth}" disabled>
-                                            	<span class="error" style="color:red;"> ${errors.birth} </span>
+                                                <label for="input-description" class="form-label">Description</label>
+                                                <textarea name="" id="input-description" cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
-
-                                        <!-- 繳交按鈕 -->
                                         <div class="col-12">
                                             <div class="form-item mb-0">
                                                 <button class="button button-md button-block button-primary" type="submit">
-                                                    <span class="text">儲存</span>
+                                                    <span class="text">Save</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -555,7 +873,6 @@
     <script src="<%=request.getContextPath() %>/public/js/jquery.min.js"></script>
     <script src="<%=request.getContextPath() %>/public/js/plugins.min.js"></script>
     <script src="<%=request.getContextPath() %>/public/js/main-scripts.js"></script>
-    <script src="<%=request.getContextPath() %>/public/js/dashboard.js"></script>
+    <script src="<%=request.getContextPath() %>public/js/dashboard.js"></script>
 </body>
-
 </html>

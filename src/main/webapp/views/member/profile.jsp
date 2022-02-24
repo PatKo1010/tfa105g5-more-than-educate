@@ -51,189 +51,189 @@
                 </button>
                 <div class="header-menu">
     <ul>
+<!--         <li class="has-menu" data-megamenu-link="mega-menu-1"> -->
+<!--             <div class="mega-menu-link"> -->
+<!--                 <span class="title">Languages</span> -->
+<!--                 <span class="icon fa fa-angle-left"></span> -->
+<!--             </div> -->
+<!--             <div data-megamenu-id="mega-menu-1" class="mega-menu mega-menu-1"> -->
+<!--                 <div class="mega-menu-inner"> -->
+<!--                     <div> -->
+<!--                         <div class="megamenu-info mb-15"> -->
+<!--                             <p class="text-center mb-30">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p> -->
+<!--                         </div> -->
+<!--                         <div class="row row-lg-5 row-xl-5"> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/uk.svg" alt="alt"> -->
+<!--                                         <span class="title">English</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/germany.svg" alt="alt"> -->
+<!--                                         <span class="title">Germany</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/france.svg" alt="alt"> -->
+<!--                                         <span class="title">French</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/italy.svg" alt="alt"> -->
+<!--                                         <span class="title">Italian</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/spain.svg" alt="alt"> -->
+<!--                                         <span class="title">Spanish</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/portugal.svg" alt="alt"> -->
+<!--                                         <span class="title">Portuguese</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/china.svg" alt="alt"> -->
+<!--                                         <span class="title">Mandarin</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/japan.svg" alt="alt"> -->
+<!--                                         <span class="title">Japanese</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/south-korea.svg" alt="alt"> -->
+<!--                                         <span class="title">Korean</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/russia.svg" alt="alt"> -->
+<!--                                         <span class="title">Russian</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/india.svg" alt="alt"> -->
+<!--                                         <span class="title">Hindi</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/arabic.svg" alt="alt"> -->
+<!--                                         <span class="title">Arabic</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/iran.svg" alt="alt"> -->
+<!--                                         <span class="title">Persian</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/turkey.svg" alt="alt"> -->
+<!--                                         <span class="title">Turkish</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/iran.svg" alt="alt"> -->
+<!--                                         <span class="title">Kurdish</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/vietnam.svg" alt="alt"> -->
+<!--                                         <span class="title">Vietnamese</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/india.svg" alt="alt"> -->
+<!--                                         <span class="title">Urdu</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/poland.svg" alt="alt"> -->
+<!--                                         <span class="title">Polish</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/israel.svg" alt="alt"> -->
+<!--                                         <span class="title">Hebrew</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col el-flag"> -->
+<!--                                 <div class="inner"> -->
+<!--                                     <a href="page-departements.html"> -->
+<!--                                         <img src="assets/images/flags/bangladesh.svg" alt="alt"> -->
+<!--                                         <span class="title">Bengali</span> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </li> -->
         <li class="has-menu" data-megamenu-link="mega-menu-1">
-            <div class="mega-menu-link">
-                <span class="title">Languages</span>
-                <span class="icon fa fa-angle-left"></span>
-            </div>
-            <div data-megamenu-id="mega-menu-1" class="mega-menu mega-menu-1">
-                <div class="mega-menu-inner">
-                    <div>
-                        <div class="megamenu-info mb-15">
-                            <p class="text-center mb-30">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="row row-lg-5 row-xl-5">
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/uk.svg" alt="alt">
-                                        <span class="title">English</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/germany.svg" alt="alt">
-                                        <span class="title">Germany</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/france.svg" alt="alt">
-                                        <span class="title">French</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/italy.svg" alt="alt">
-                                        <span class="title">Italian</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/spain.svg" alt="alt">
-                                        <span class="title">Spanish</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/portugal.svg" alt="alt">
-                                        <span class="title">Portuguese</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/china.svg" alt="alt">
-                                        <span class="title">Mandarin</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/japan.svg" alt="alt">
-                                        <span class="title">Japanese</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/south-korea.svg" alt="alt">
-                                        <span class="title">Korean</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/russia.svg" alt="alt">
-                                        <span class="title">Russian</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/india.svg" alt="alt">
-                                        <span class="title">Hindi</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/arabic.svg" alt="alt">
-                                        <span class="title">Arabic</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/iran.svg" alt="alt">
-                                        <span class="title">Persian</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/turkey.svg" alt="alt">
-                                        <span class="title">Turkish</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/iran.svg" alt="alt">
-                                        <span class="title">Kurdish</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/vietnam.svg" alt="alt">
-                                        <span class="title">Vietnamese</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/india.svg" alt="alt">
-                                        <span class="title">Urdu</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/poland.svg" alt="alt">
-                                        <span class="title">Polish</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/israel.svg" alt="alt">
-                                        <span class="title">Hebrew</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col el-flag">
-                                <div class="inner">
-                                    <a href="page-departements.html">
-                                        <img src="assets/images/flags/bangladesh.svg" alt="alt">
-                                        <span class="title">Bengali</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="has-menu" data-megamenu-link="mega-menu-2">
             <div class="mega-menu-link">
                 <span class="title">前往</span>
                 <span class="icon fa fa-angle-left"></span>
             </div>
-            <div data-megamenu-id="mega-menu-2" class="mega-menu mega-menu-2">
+            <div data-megamenu-id="mega-menu-1" class="mega-menu mega-menu-1">
                 <div class="mega-menu-inner">
                     <div>
                         <div class="espard-menu">
@@ -312,8 +312,8 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <span class="text">Edit Skills</span>
+                                            <a href="<%=request.getContextPath() %>views/orderDetail/StudentCourse.html">
+                                                <span class="text">課程</span>
                                             </a>
                                         </li>
                                         <li>
@@ -385,8 +385,8 @@
             </div>
         </li>
         <li>
-            <a href="page-cooperation.html">
-                <span class="text">Join Now!</span>
+            <a href="<%=request.getContextPath()%>/views/member/teacherProfile.jsp">
+                <span class="text">成為老師</span>
                 <span class="icon fa fa-angle-left"></span>
             </a>
         </li>
@@ -442,7 +442,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="student/dashboard-courses.html">
+                        <a href="<%=request.getContextPath() %>/views/orderDetail/StudentCourse.html">
                             <i class="fa fas fa-book"></i>
                             <span class="text">課程</span>
                         </a>
