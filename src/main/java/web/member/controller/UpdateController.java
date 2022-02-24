@@ -1,17 +1,14 @@
 package web.member.controller;
 
 import java.sql.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 
 import web.member.entity.MemberBean;
@@ -26,10 +23,25 @@ public class UpdateController {
 	private MemberService memberService;
 	
 //1.處理request(url設置) +接收參數
-	@RequestMapping( path= {"views/member/update"} )
-	public String handlerUpdate(Model model, String email, String password, String username, String phonenum, String birth, @RequestPart(name="image", required=false) Part part, HttpSession httpSession) {
-		System.out.println("handlerUpdate進入成功"+ "," +part);
-		return "";
+	@RequestMapping( path= {"views/member/update"}, method = RequestMethod.POST, consumes = { "multipart/form-data" })
+	public String handlerUpdate(Model model, Integer memID,
+			 String email, String password, String username,String phonenum, String birth, @RequestPart(name="image", required=false) byte[] image, 
+			HttpSession httpSession) {
+
+		Date birthSql = Date.valueOf(birth);
+		MemberBean bean = new MemberBean();
+		bean.setMemid(memID);
+		bean.setEmail(email);
+		bean.setPassword(password);
+		bean.setUsername(username);
+		bean.setPhonenum(phonenum);
+		bean.setBirth(birthSql);
+		bean.setPhoto(image);
+		
+		MemberBean updateResult = memberService.update(bean);
+		System.out.println(updateResult);
+
+		return "member/dashboard";
 //	//???框架下怎麼String轉date.sql???
 //		Date birthSql = Date.valueOf(birth);
 //	//驗證
