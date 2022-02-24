@@ -25,17 +25,17 @@ public class UpdateController {
 //1.處理request(url設置) +接收參數
 	@RequestMapping( path= {"views/member/update"}, method = RequestMethod.POST, consumes = { "multipart/form-data" })
 	public String handlerUpdate(Model model, Integer memID,
-			 String email, String password, String username,String phonenum, String birth, @RequestPart(name="image", required=false) byte[] image, 
+			 String email, String password, String username,String phonenum, java.sql.Date birth, @RequestPart(name="image", required=false) byte[] image, 
 			HttpSession httpSession) {
 
-		Date birthSql = Date.valueOf(birth);
+//		Date birthSql = Date.valueOf(birth);
 		MemberBean bean = new MemberBean();
 		bean.setMemid(memID);
 		bean.setEmail(email);
 		bean.setPassword(password);
 		bean.setUsername(username);
 		bean.setPhonenum(phonenum);
-		bean.setBirth(birthSql);
+		bean.setBirth(birth);
 		bean.setPhoto(image);
 		
 		MemberBean updateResult = memberService.update(bean);
