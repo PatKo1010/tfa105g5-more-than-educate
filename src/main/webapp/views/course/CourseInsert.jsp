@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-Hant" dir="ltr">
 
 <head>
 <title>MoreThanEducate</title>
-<meta charset="UTF-8" />
 <meta name="theme-color" content="#ffffff">
 <meta name="msapplication-TileColor" content="#9f00a7">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,8 +17,14 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="../public/css/plugins.min.css" />
-<link rel="stylesheet" href="../public/css/styles.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/plugins.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/styles.css" />
+
+<style>
+	*{
+		color: black;
+	}
+</style>
 </head>
 
 <body>
@@ -92,18 +100,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="el-panel el-panel-financial bg-primary">
-										<div class="el-panel-body">
-											<p class="text-center text-light">近期收益</p>
-											<p class="price">
-												<span class="currency">$0</span>
-											</p>
-											<a href="student/dashboard-wallet.html"
-												class="button button-md button-radius button-block button-light">
-												<span class="text text-center text-primary">錢包</span>
-											</a>
-										</div>
-									</div>
+						
 								</aside>
 							</div>
 							<div class="col-12 col-sm-12 col-md-12 col-lg-8">
@@ -112,62 +109,69 @@
 										<div class="el-panel-title">
 											<h2>課程</h2>
 										</div>
-										<!--                                         http://localhost:7080/tfa105g5-more-than-educate/views/course/TeacherCourse.html -->
-										<!--                                          http://localhost:7080/tfa105g5-more-than-educate/views/course -->
-										<form action="course.insert" method="post">
+										<form action="<%=request.getContextPath()%>/views/course.insert" method="post">
 											<div>
-												<div class="row">
+												
 													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">會員編號：</label> <input
-															type="text" id="name" name="memid" required>
+														<label for="input-type" class="form-label">會員編號：</label> 
+                                                        <input type="text" name="courseid" value="${param.courseid}">
+                                                        <span class="errors">${errors.courseid}</span>
 													</div>
-												</div>
+												
 											</div>
 											<br>
 											<div>
-												<div class="row">
+												
 													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">專精編號：</label> <input
-															type="text" id="name" name="expertiseid" required>
+														<label for="input-type" class="form-label">會員編號：</label> 
+                                                        <input type="text" name="memid" value="${param.memid}">
+                                                        <span class="errors">${errors.memid}</span>
 													</div>
-												</div>
+												
 											</div>
 											<br>
 											<div>
-												<div class="row">
+												
 													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程名稱：</label> <input
-															type="text" id="name" name="coursetitle" required>
+														<label for="input-type" class="form-label">專精編號：</label>
+                                                        <input type="text" name="expertiseid" value="${param.expertiseid}">
+                                                        <span class="errors">${errors.expertiseid}</span>
 													</div>
-												</div>
+												
 											</div>
 											<br>
 											<div>
-												<div class="row">
 													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程簡介：</label> <input
-															type="text" id="name" name="courseintro" required>
+														<label for="input-type" class="form-label">課程名稱：</label> 
+                                                        <input type="text" name="coursetitle" value="${param.coursetitle}">
+                                                        <span class="errors">${errors.coursetitle}</span>
 													</div>
-												</div>
 											</div>
 											<br>
 											<div>
-												<div class="row">
+													<div class="col-12 col-sm-12 col-md-6">
+														<label for="input-type" class="form-label">課程簡介：</label> 
+                                                        <input type="text" name="courseintro" value="${param.courseintro}">
+                                                            <span class="errors">${errors.courseintro}</span>
+													</div>
+											</div>
+											<br>
+											<div>
 													<div class="col-12 col-sm-12 col-md-6">
 														<label for="input-type" class="form-label">課程總堂數：</label>
-														<input type="text" id="name" name="classamount" required>
+														<input type="text" name="classamount" value="${param.classamount}">
+                                                        <span class="errors">${errors.classamount}</span>
 													</div>
-												</div>
 											</div>
 											<br>
 											<div>
-												<div class="row">
 													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程價格：</label> <input
-															type="text" id="name" name="price" required>
+														<label for="input-type" class="form-label">課程價格：</label>
+                                                        <input type="text" name="price" value="${param.price}">
+                                                            <span class="errors">${errors.price}</span>
 													</div>
-												</div>
 											</div>
+											<h3><span class="errors">${errors.action}</span></h3>
 											<br>
 											<div class="col-12">
 												<div class="form-item mb-0">
@@ -189,10 +193,10 @@
 		<!--/-->
 	</div>
 
-	<script src="../public/js/jquery.min.js"></script>
-	<script src="../public/js/plugins.min.js"></script>
-	<script src="../public/js/main-scripts.js"></script>
-	<script src="../public/js/dashboard.js"></script>
+	<script src="<%=request.getContextPath()%>/public/js/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/public/js/plugins.min.js"></script>
+	<script src="<%=request.getContextPath()%>/public/js/main-scripts.js"></script>
+	<script src="<%=request.getContextPath()%>/public/js/dashboard.js"></script>
 </body>
 
 </html>
