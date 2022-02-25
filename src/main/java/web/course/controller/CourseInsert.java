@@ -24,9 +24,9 @@ public class CourseInsert {
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
 
-		if (courseid == null || courseid.length() == 0) {
-			errors.put("courseid", "請重新輸入");
-		}
+//		if (courseid == null || courseid.length() == 0) {
+//			errors.put("courseid", "請重新輸入");
+//		}
 
 		if (memid == null || memid.length() == 0) {
 			errors.put("memid", "請重新輸入");

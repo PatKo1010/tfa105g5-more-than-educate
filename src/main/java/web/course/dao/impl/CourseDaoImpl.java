@@ -35,8 +35,9 @@ public class CourseDaoImpl implements CourseDaoInterface {
 
 	@Override
 	public CourseBean insert(CourseBean bean) {
-		if (bean != null && bean.getCourseid() != null) {
-			CourseBean temp = this.getSession().get(CourseBean.class, bean.getCourseid());
+		if (bean != null && bean.getExpertiseid() != null) {
+			System.out.println("hehe");
+			CourseBean temp = this.getSession().get(CourseBean.class, bean.getExpertiseid());
 			if (temp == null) {
 				this.getSession().save(bean);
 				return bean;

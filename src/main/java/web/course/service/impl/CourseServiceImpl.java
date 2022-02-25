@@ -36,7 +36,7 @@ public class CourseServiceImpl implements CourseServiceInterface {
 	@Override
 	public CourseBean addCourse(CourseBean bean) {
 		CourseBean result = null;
-		if (bean != null && bean.getCourseid() != null) {
+		if (bean != null && bean.getExpertiseid() != null) {
 			result = courseDao.insert(bean);
 		}
 		return result;

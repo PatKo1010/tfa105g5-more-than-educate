@@ -20,13 +20,13 @@ public class CourseUpdate {
 	@RequestMapping(path = { "/views/course.update" })
 	public String update(Model model, CourseBean bean) {
 		
-		model.addAttribute("courseid",bean.getCourseid());
-		model.addAttribute("memid", bean.getMemid());
-		model.addAttribute("expertiseid", bean.getExpertiseid());
-		model.addAttribute("coursetitle", bean.getCoursetitle());
-		model.addAttribute("courseintro", bean.getCourseintro());
-		model.addAttribute("classamount", bean.getClassamount());
-		model.addAttribute("price", bean.getPrice());
+//		model.addAttribute("courseid",bean.getCourseid());
+//		model.addAttribute("memid", bean.getMemid());
+//		model.addAttribute("expertiseid", bean.getExpertiseid());
+//		model.addAttribute("coursetitle", bean.getCoursetitle());
+//		model.addAttribute("courseintro", bean.getCourseintro());
+//		model.addAttribute("classamount", bean.getClassamount());
+//		model.addAttribute("price", bean.getPrice());
 		
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
@@ -43,7 +43,7 @@ public class CourseUpdate {
 			errors.put("expertiseid", "請重新輸入");
 		}
 
-		if (bean.getCoursetitle() == null || bean.getCoursetitle().length() <= 10) {
+		if (bean.getCoursetitle() == null || bean.getCoursetitle().length() <= 10 ) {
 			errors.put("coursetitle", "標題不得少於10字");
 		}
 
@@ -64,6 +64,6 @@ public class CourseUpdate {
 		}
 		courseServiceInterface.modifyCourse(bean);
 
-		return "redirect:/views/course/course.jsp";
+		return "redirect:/views/course/CourseOverview1.html";
 	}
 }

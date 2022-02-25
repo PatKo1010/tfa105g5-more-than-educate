@@ -740,23 +740,23 @@
                                                 <!--                     </li> -->
                                                 <li>
                                                     <a
-                                                        href="<%=request.getContextPath() %>/views/member/teacherProfile.jsp">
+                                                        href="/tfa105g5-more-than-educate/views/member/teacherProfile.jsp">
                                                         <i class="fa fa-cog"></i>
                                                         <span class="text">教師資料</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a
-                                                        href="<%=request.getContextPath() %>/views/member/teacherSkills.jsp">
+                                                        href="/tfa105g5-more-than-educate/views/member/teacherSkills.jsp">
                                                         <i class="fa fa-cog"></i>
                                                         <span class="text">教授資格</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a
-                                                        href="<%=request.getContextPath() %>/views/member/teacherCourses.jsp">
+                                                        href="/tfa105g5-more-than-educate/views/course/CourseOverview1.html">
                                                         <i class="fa fas fa-book"></i>
-                                                        <span class="text">開設課程</span>
+                                                        <span class="text">課程總覽</span>
                                                     </a>
                                                 </li>
                                                 <!--                     <li> -->
@@ -793,15 +793,12 @@
                                                     <button type= "submit" class="button button-primary" style="width:100px;height:30px;">新增課程</button>       
                                             </form>
                                         </div>
-                                            <!-- <a href="<%=request.getContextPath()%>/views/course/CourseInsert.jsp"></a>
-                    <input type="button" value="一化網頁設計" name="按鈕名稱" style="width:100px;height:30px;"> -->
-
 
                                             <table id="all_course" class="table">
                                                 <tr>
                                                     <th>專精編號</th>
-                                                    <th>課程標題</th>
-                                                    <th>課程內容</th>
+                                                    <th class="overflow">課程標題</th>
+                                                    <th class="overflow">課程內容</th>
                                                     <th>堂數</th>
                                                     <th>價格</th>
                                                     <th>修改課程</th>
@@ -861,19 +858,19 @@
                         const expertiseid = data[i].expertiseid
 
                         courseTable.innerHTML += (
-                            `<tr>
+                            `<tr class="overflow">
                 <th>${expertiseid}</th>
     
-                <th>${coursetitle}</th>
+                <th class="overflow">${coursetitle}</th>
 
-                <th>${courseintro}</th>
+                <th class="overflow">${courseintro}</th>
     
                 <th>${classamount}</th>
     
                 <th>${price}</th>
                 
                 <th>
-                    <form action="/tfa105g5-more-than-educate/views/course.update" method= "post" >
+                    <form action="/tfa105g5-more-than-educate/views/course.jump.update" method= "post" >
                         <input name= "courseid" type= "hidden" value ='${courseid}'/> 
                         <input name= "memid" type= "hidden" value ='${memid}'/> 
                         <input name= "expertiseid" type="hidden" value ='${expertiseid}'/> 
@@ -915,6 +912,12 @@
         .table {
             table-layout: fixed;
             word-break: break-all;
+            overflow: hidden;
+        }
+        .overflow{
+            overflow: hidden;
+            white-space: nowrap;
+  			text-overflow: ellipsis;
         }
     </style>
 
