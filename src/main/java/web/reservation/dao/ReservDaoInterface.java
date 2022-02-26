@@ -9,7 +9,7 @@ public interface ReservDaoInterface {
 	
 	public abstract List<ReservTimeBean> selectByOrderID (Integer orderID);
 
-	public abstract ReservTimeBean insert(ReservTimeBean bean);
+	public abstract Integer insert(ReservTimeBean bean);
 
 	public abstract ReservTimeBean update(ReservTimeBean bean);
 
