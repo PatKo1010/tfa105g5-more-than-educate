@@ -744,7 +744,7 @@
                     <li>
                         <a href="<%=request.getContextPath() %>/views/member/teacherSkills.jsp">
                             <i class="fa fa-cog"></i>
-                            <span class="text">教授資格</span>
+                            <span class="text">專業資格</span>
                         </a>
                     </li>
                     <li>
@@ -762,17 +762,17 @@
                 </ul>
             </div>
         </div>
-        <div class="el-panel el-panel-financial bg-primary">
-            <div class="el-panel-body">
-                <p class="text-center text-light">Earnings</p>
-                <p class="price">
-                    <span class="currency">$240.00</span>
-                </p>
-                <a href="student/dashboard-wallet.html" class="button button-md button-radius button-block button-light">
-                    <span class="text text-center text-primary">Set payout account</span>
-                </a>
-            </div>
-        </div>
+<!--         <div class="el-panel el-panel-financial bg-primary"> -->
+<!--             <div class="el-panel-body"> -->
+<!--                 <p class="text-center text-light">Earnings</p> -->
+<!--                 <p class="price"> -->
+<!--                     <span class="currency">$240.00</span> -->
+<!--                 </p> -->
+<!--                 <a href="student/dashboard-wallet.html" class="button button-md button-radius button-block button-light"> -->
+<!--                     <span class="text text-center text-primary">Set payout account</span> -->
+<!--                 </a> -->
+<!--             </div> -->
+<!--         </div> -->
     </aside>
 </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-8">

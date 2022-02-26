@@ -744,7 +744,7 @@
                     <li>
                         <a href="<%=request.getContextPath() %>/views/member/teacherSkills.jsp">
                             <i class="fa fa-cog"></i>
-                            <span class="text">教授資格</span>
+                            <span class="text">專業資格</span>
                         </a>
                     </li>
                     <li>

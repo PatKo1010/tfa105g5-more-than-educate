@@ -85,6 +85,13 @@ public class MemberDAO implements MemberDAOInterface {
 					update.setPhoto(memberBean.getPhoto());
 					update.setPhonenum(memberBean.getPhonenum());
 					update.setUsername(memberBean.getUsername());
+					
+					update.setTeaqual(memberBean.getTeaqual());
+					update.setRegdate(memberBean.getRegdate());
+					update.setTeatitle(memberBean.getTeatitle());
+					update.setSubjectid(memberBean.getSubjectid());
+					update.setIntrocontent(memberBean.getIntrocontent());
+					
 					return (MemberBean)getSession().merge(update);
 				}
 			}
