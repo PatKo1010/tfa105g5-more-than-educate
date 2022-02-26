@@ -39,5 +39,4 @@ public class StateBean {
 	public void setUsers(Set<String> users) {
 		this.users = users;
 	}
-
 }
