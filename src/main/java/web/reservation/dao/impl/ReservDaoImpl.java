@@ -49,10 +49,9 @@ public class ReservDaoImpl implements ReservDaoInterface{
 		if (bean != null && bean.getReservID()!= null) {
 			ReservTimeBean updateBean =  this.getSession().get(ReservTimeBean.class,bean.getReservID());
 			if (updateBean != null) {
-				updateBean.setOrderID(bean.getOrderID());
 				updateBean.setReservDateStart(bean.getReservDateStart());
 				updateBean.setReservDateEnd(bean.getReservDateEnd());
-				updateBean.setIsReserved(bean.getIsReserved());
+				updateBean.setIsReserved(true);
 				return (ReservTimeBean)this.getSession().merge(updateBean);
 			}
 			

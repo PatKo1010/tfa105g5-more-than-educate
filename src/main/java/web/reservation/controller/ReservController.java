@@ -2,6 +2,7 @@ package web.reservation.controller;
 
 import java.util.List;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,14 @@ public class ReservController {
 //			System.out.println(b.toString());
 //		}
 		return service.selectMemberCourse(bean);
+	}
+	
+	@PostMapping("makeReserv")
+	public ReservTimeBean makeReserv (@RequestBody ReservTimeBean bean) {
+		 ReservTimeBean updateResult = service.updateOneReserv(bean);
+		 System.out.println(updateResult);
+		 return updateResult;
+		
 	}
 	
 }
