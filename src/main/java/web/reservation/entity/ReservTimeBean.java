@@ -21,25 +21,20 @@ public class ReservTimeBean implements Serializable{
 	private Integer reservID;
 	@Column(name = "order_id")
 	private Integer orderID;
-	@Column(name ="reservDate_start")
+	@Column(name ="reservDate_start",insertable = false)
 	private Date reservDateStart;
-	@Column(name = "reservDate_end")
+	@Column(name = "reservDate_end", insertable = false)
 	private Date reservDateEnd;
+	@Column(name = "is_reserved", insertable= false)
+	private Boolean isReserved;
 
 	public ReservTimeBean() {
 	}
-
-	public ReservTimeBean(Integer orderID, Date reservDateStart, Date reservDateEnd) {
-		super();
-		this.orderID = orderID;
-		this.reservDateStart = reservDateStart;
-		this.reservDateEnd = reservDateEnd;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "ReservTimeBean [reservID=" + reservID + ", orderID=" + orderID + ", reservDateStart=" + reservDateStart
-				+ ", reservDateEnd=" + reservDateEnd + "]";
+				+ ", reservDateEnd=" + reservDateEnd + ", isReserved=" + isReserved + "]";
 	}
 
 	public Integer getReservID() {
@@ -73,5 +68,15 @@ public class ReservTimeBean implements Serializable{
 	public void setReservDateEnd(Date reservDateEnd) {
 		this.reservDateEnd = reservDateEnd;
 	}
+
+	public Boolean getIsReserved() {
+		return isReserved;
+	}
+
+	public void setIsReserved(Boolean isReserved) {
+		this.isReserved = isReserved;
+	}
+
+	
 
 }
