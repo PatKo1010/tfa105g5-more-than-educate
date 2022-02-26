@@ -1,7 +1,6 @@
 package web.chat.controller;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,8 +21,6 @@ import web.chat.dao.impl.JedisMessageDAO;
 import web.chat.entity.ChatMessageBean;
 import web.chat.entity.StateBean;
 
-
-
 @ServerEndpoint("/FriendWS/{userName}")
 public class FriendServlet {
 	private static Map<String, Session> sessionsMap = new ConcurrentHashMap<>();
@@ -31,30 +28,12 @@ public class FriendServlet {
 
 	@OnOpen
 	public void onOpen(@PathParam("userName") String userName, Session userSession) throws IOException {
-		/* save the new user in the map */
 		sessionsMap.put(userName, userSession);
-		/* Sends all the connected users to the new user */
 		Set<String> userNames = JedisMessageDAO.getChatList(userName);
 		StateBean stateMessage = new StateBean("open", userName, userNames);
 		String stateMessageJson = gson.toJson(stateMessage);
-		
+
 		userSession.getAsyncRemote().sendText(stateMessageJson);
-		
-		
-		
-//		for (String name : onlineNames) {
-//			if (userNames.contains(name)) {
-//				Session session = sessionsMap.get(name);
-//				session.getAsyncRemote().sendText(stateMessageJson);	
-//			}
-//		}
-		
-//		Collection<Session> sessions = sessionsMap.values();
-//		for (Session session : sessions) {
-//			if (session.isOpen()) {
-//				session.getAsyncRemote().sendText(stateMessageJson);
-//			}
-//		}
 
 		String text = String.format("Session ID = %s, connected; userName = %s%nusers: %s", userSession.getId(),
 				userName, userNames);
@@ -66,7 +45,7 @@ public class FriendServlet {
 		ChatMessageBean chatMessage = gson.fromJson(message, ChatMessageBean.class);
 		String sender = chatMessage.getSender();
 		String receiver = chatMessage.getReceiver();
-		
+
 		if ("history".equals(chatMessage.getType())) {
 			List<String> historyData = JedisMessageDAO.getHistoryMsg(sender, receiver);
 			String historyMsg = gson.toJson(historyData);
@@ -77,8 +56,7 @@ public class FriendServlet {
 				return;
 			}
 		}
-		
-		
+
 		Session receiverSession = sessionsMap.get(receiver);
 		if (receiverSession != null && receiverSession.isOpen()) {
 			receiverSession.getAsyncRemote().sendText(message);
@@ -95,24 +73,13 @@ public class FriendServlet {
 
 	@OnClose
 	public void onClose(Session userSession, CloseReason reason) {
-		String userNameClose = null;
 		Set<String> userNames = sessionsMap.keySet();
 		for (String userName : userNames) {
 			if (sessionsMap.get(userName).equals(userSession)) {
-				userNameClose = userName;
 				sessionsMap.remove(userName);
 				break;
 			}
 		}
-
-//		if (userNameClose != null) {
-//			StateBean stateMessage = new StateBean("close", userNameClose, userNames);
-//			String stateMessageJson = gson.toJson(stateMessage);
-//			Collection<Session> sessions = sessionsMap.values();
-//			for (Session session : sessions) {
-//				session.getAsyncRemote().sendText(stateMessageJson);
-//			}
-//		}
 
 		String text = String.format("session ID = %s, disconnected; close code = %d%nusers: %s", userSession.getId(),
 				reason.getCloseCode().getCode(), userNames);

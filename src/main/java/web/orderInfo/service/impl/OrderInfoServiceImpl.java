@@ -46,8 +46,6 @@ public class OrderInfoServiceImpl implements OrderInfoServiceInterface {
 				for (int i = 0; i<classAmount; i++) {
 					ReservTimeBean reservBean = new ReservTimeBean();
 					reservBean.setOrderID(orderId);
-					reservBean.setReservDateStart(orderDate);
-					reservBean.setReservDateEnd(orderDate);
 					reservDao.insert(reservBean);
 				}
 				return reservDao.selectByOrderID(orderId);

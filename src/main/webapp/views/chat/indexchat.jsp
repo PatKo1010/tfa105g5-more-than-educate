@@ -65,14 +65,14 @@ html, body {
 %>
 </head>
 <body>
-	<jsp:useBean id="memberSvc" scope="page"
-		class="web.chat.service.MemberService" />
+<%-- 	<jsp:useBean id="memberSvc" scope="page" --%>
+<%-- 		class="web.chat.service.MemberService" /> --%>
 	<div id="outPopUp">
 		<h1 align="center">tibame最大的私聊上線囉～</h1>
 		<form id="myForm" action="<%=request.getContextPath()%>/chat.do"method="POST">
 
 			<li>
-				<FORM METHOD="post" ACTION="chat.do">
+				<form method="post" action="chat.do">
 <!-- 					<b>選擇身分:</b> <select size="1" name="mess_id"> -->
 <%-- 						<c:forEach var="memberVO" items="${memberSvc.all}"> --%>
 <%-- 							<option value="${memberVO.username}">${memberVO.username} --%>
@@ -83,11 +83,12 @@ html, body {
 					
 					
 					<b>選擇對話的人:</b> <select size="1" name="talkTo">
-						<c:forEach var="memberVO" items="${memberSvc.all}">
+<%-- 						<c:forEach var="memberVO" items="${memberSvc.all}"> --%>
+						<c:forEach var="memberVO" items="${list}">
 							<option value="${memberVO.username}">${memberVO.username}
 						</c:forEach>
 					<input type="submit" value="送出">
-				</FORM>
+				</form>
 			</li>
 
 		</form>
