@@ -24,7 +24,6 @@ public class JedisPoolUtil {
 		return pool;
 	}
 
-	// 可在ServletContextListener的contextDestroyed裡呼叫此方法註銷Redis連線池
 	public static void shutdownJedisPool() {
 		if (pool != null)
 			pool.destroy();
