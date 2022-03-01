@@ -47,7 +47,7 @@ public class SpringJavaConfig {
 		config.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		config.setJdbcUrl("jdbc:mysql://localhost:3306/more_than_educate?serverTimezone=Asia/Taipei");
 		config.setUsername("root");
-		config.setPassword("p19951010");
+		config.setPassword("password");
 		config.addDataSourceProperty("cachePrepStmts", "true");
 		config.addDataSourceProperty("prepStmtCacheSize", "250");
 		config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
@@ -85,7 +85,7 @@ public class SpringJavaConfig {
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "validate");
+//		props.setProperty("hibernate.hbm2ddl.auto", "validate");
 		
 		builder.addProperties(props);
 		

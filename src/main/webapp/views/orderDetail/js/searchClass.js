@@ -11,7 +11,6 @@ fetch(`http://localhost:7080/tfa105g5-more-than-educate/OrderDetail/selectCourse
 })
     .then(response => response.json())
     .then((data) => {
-        console.log(data);
         let elTable = document.querySelector(".el-table");
         if (data.length != 0) {
             for (let i = 0; i < data.length; i++) {
@@ -68,7 +67,6 @@ function read(e) {
     })
         .then(response => response.json())
         .then((data) => {
-            console.log(data)
             reservSection.innerHTML = ""
             modalWrapper.innerHTML = ""
             if (data.length != 0) {
@@ -82,21 +80,8 @@ function read(e) {
                         hour12: false   // 24 小時制
                     };
 
-                    console.log(data[i])
                     const reservID = data[i].reservID;
-                    const orderID = data[i].orderID;
                     const isReserved = data[i].isReserved;
-                    const reservDateStart = data[i].reservDateStart
-                    const reservDateEnd = data[i].reservDateEnd;
-
-                    const startTime = new Date(reservDateStart).toLocaleDateString("en-TW", options).split(",");
-                    const endTime = new Date(reservDateEnd).toLocaleDateString("en-TW", options).split(",");
-
-                    const startYear = startTime[1];
-                    const startMonthDay = startTime[0];
-                    const startHourMin = startTime[2]
-                    const endHourMin = endTime[2];
-
                     if (isReserved === false) {
                         reservSection.innerHTML +=
                             `<ul id='reservSection${reservID}' style="display:flex; justify-content:space-between;"> 
@@ -113,8 +98,7 @@ function read(e) {
                                     </li>
                                 </ul>`
 
-                        const nowDateTimeStamp = Date.now();
-                        const nowDate = new Date(nowDateTimeStamp);
+                        const nowDate = new Date(Date.now());
                         const nowDateString = nowDate.toLocaleDateString("en-TW", options)
                         const nowYearMonthDay = (nowDateString.split(","))[0].split("/")
                         const nowHourMin = (nowDateString.split(","))[1].split(":")
@@ -124,7 +108,6 @@ function read(e) {
                         const nowHour = nowHourMin[0].trimStart();
                         const nowMIn = nowHourMin[1];
 
-                        console.log(nowDateString)
                         modalWrapper.innerHTML += `
                                 <div class="modal fade" id="exampleModal${reservID}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -156,6 +139,26 @@ function read(e) {
                                     </div>
                                 </div> `
                     } else {
+                        const reservDateStart = data[i].reservDateStart
+                        const reservDateEnd = data[i].reservDateEnd;
+
+                        const startTime = new Date(reservDateStart).toLocaleDateString("en-TW", options).split(",");
+                        const endTime = new Date(reservDateEnd).toLocaleDateString("en-TW", options).split(",");
+                        //  ['01/1/1970', ' 08:00']
+
+                        const startYear = startTime[0].split("/")[2];
+                        const startMonth = startTime[0].split("/")[0];
+                        const startDate = startTime[0].split("/")[1];
+                        const startHour = startTime[1].split(":")[0].trimStart();
+                        const startMin = startTime[1].split(":")[1];
+
+                        const endYear = endTime[0].split("/")[2];
+                        const endMonth = endTime[0].split("/")[0];
+                        const endDate = endTime[0].split("/")[1];
+                        const endHour = endTime[1].split(":")[0].trimStart();
+                        const endMin = endTime[1].split(":")[1];
+
+
                         reservSection.innerHTML +=
                             `<ul id='reservSection${reservID}' style="display:flex; justify-content:space-between;"> 
                                     <li>
@@ -164,9 +167,7 @@ function read(e) {
                                         </button>
                                     </li>
                                     <li>
-                                        <span>${startYear}</span>
-                                        <span>${startMonthDay}</span> 
-                                        <span>${startHourMin}-${endHourMin}</span>
+                                        ${startYear}/${startMonth}/${startDate} ${startHour}:${startMin}-${endHour}:${endMin}
                                     </li>
                                     <li>
                                         第${i + 1}堂
@@ -189,16 +190,18 @@ function read(e) {
 
                                             <div class="modal-body">
                                                 <section type= "update-section-${reservID}">
-                                                    <input type="datetime-local" id="update-start-${reservID}"
-                                                        value="${reservDateStart}">
-                                                    <input type = "datetime-local" id= "update-end-${reservID}"
-                                                        value="${reservDateEnd}">
+                                                    <label for="updateStartTime">請修改開始預約時間</label>
+                                                    <input name="updateStartTime" type="datetime-local" id="update-start-${reservID}"
+                                                           value="${startYear}-${startMonth}-${startDate}T${startHour}:${startMin}">
+                                                    <label for="updateEndTime">請修改結束預約時間</label>
+                                                    <input name="updateEndTime" type="datetime-local" id= "update-end-${reservID}"
+                                                           value="${endYear}-${endMonth}-${endDate}T${endHour}:${endMin}">
                                                 </section>
                                             </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button id="make-reserv-${reservID}" type="button" class="btn btn-primary" onclick="makeReserv(event)">Save changes</button>
                                             </div>
         
                                         </div>
@@ -221,38 +224,56 @@ function read(e) {
 function makeReserv(e) {
 
     const reservSeq = e.target.id.split("-")[2];
-    console.log(reservSeq);
+    console.log(reservSeq)
+    // <section type= "update-section-${reservID}">
+    //     <label for="updateStartTime"> 請輸入開始日期 </label>
+    //     <input name="updateStartTime" type = "datetime-local" id= "update-start-${reservID}"
+    //         value="${nowYear}-${nowMonth}-${nowDayy}T${nowHour}:${nowMIn}">
+    //     <br>
+    //     <label for="updateEndTime"> 請輸入結束日期 </label> 
+    //     <input name="updateEndTime" type = "datetime-local" id= "update-end-${reservID}"
+    //            value="${nowYear}-${nowMonth}-${nowDayy}T${nowHour}:${nowMIn}">
+    // </section>
+
+    //     <section type= "update-section-${reservID}">
+    //     <label for="updateStartTime">請修改開始預約時間</label>
+    //     <input name="updateStartTime" type="datetime-local" id="update-start-${reservID}"
+    //            value="${startYear}-${startMonth}-${startDate}T${startHour}:${startMin}">
+    //     <label for="updateEndTime">請修改結束預約時間</label>
+    //     <input name="updateEndTime" type="datetime-local" id= "update-end-${reservID}"
+    //            value="${endYear}-${endMonth}-${endDate}T${endHour}:${endMin}">
+    // </section>
+
+    const updateTimeStart = document.querySelector(`#update-start-${reservSeq}`).value;
+    const updateTimeEnd = document.querySelector(`#update-end-${reservSeq}`).value;
+    const parsedUpdateTimeStart = new Date(updateTimeStart);
+    const parsedUpdateTimeEnd = new Date(updateTimeEnd);
 
 
-    // <div class="modal fade" id="exampleModal${reservID}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    //                                 <div class="modal-dialog" role="document">
-    //                                     <div class="modal-content">
-    //                                         <div class="modal-header">
-    //                                             <h5 class="modal-title" id="exampleModalLabel">
-    //                                                 預約時間
-    //                                              </h5>
-    //                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    //                                                 <span aria-hidden="true">&times;</span>
-    //                                              </button>
-    //                                         </div>
-    //                                         <div class="modal-body">
-    //                                             <section type= "update-section-${reservID}">
-    //                                                 <label for="updateStartTime"> 請輸入開始日期 </label>
-    //                                                 <input name="updateStartTime" type = "datetime-local" id= "update-start-${reservID}"
-    //                                                     value="${nowYear}-${nowMonth}-${nowDayy}T${nowHour}:${nowMIn}">
-    //                                                 <br>
-    //                                                 <label for="updateEndTime"> 請輸入結束日期 </label> 
-    //                                                 <input name="updateEndTime" type = "datetime-local" id= "update-end-${reservID}"
-    //                                                        value="${nowYear}-${nowMonth}-${nowDayy}T${nowHour}:${nowMIn}">
-    //                                             </section>
-    //                                         </div>
-    //                                         <div class="modal-footer">
-    //                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    //                                             <button type="button" class="btn btn-primary" onclick="updateReservTime(event)" >confirm reservation</button>
-    //                                         </div>
-    //                                     </div>
-    //                                 </div>
-    //                             </div> `
+
+    fetch("http://localhost:7080/tfa105g5-more-than-educate/reserv/makeReserv", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            reservID: reservSeq,
+            reservDateStart: parsedUpdateTimeStart,
+            reservDateEnd: parsedUpdateTimeEnd
+        })
+    })
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data);
+            alert("預約成功")
+            location.reload();
+
+
+
+        })
+
+
+
 
 
 

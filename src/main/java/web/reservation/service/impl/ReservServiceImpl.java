@@ -25,6 +25,15 @@ public class ReservServiceImpl implements ReservServiceInterface {
 		}
 		return null;
 	}
+
+	@Override
+	public ReservTimeBean updateOneReserv(ReservTimeBean bean) {
+		ReservTimeBean updateBean = dao.update(bean);
+		return updateBean;
+	}
+	
+	
+	
 	
 	
 

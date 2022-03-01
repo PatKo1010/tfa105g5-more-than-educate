@@ -1,7 +1,7 @@
 package web.member.entity;
 
-import java.sql.Date;
 import java.util.Arrays;
+import java.util.Date;//java.sql.date
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,8 +63,28 @@ public class MemberBean {
 
 	@Column(name = "rate_count")
 	private Integer ratecount;
+
+	public MemberBean() {
+	}
 	
-	public MemberBean () {};
+	public MemberBean(
+			byte[] photo,
+			String username,
+			String teatitle,
+			String introcontent,
+			Integer ratesum,
+			Integer ratecount,
+			Date regdate
+		) {
+		this.username = username;
+		this.photo = photo;
+		this.regdate = regdate;
+		this.teatitle = teatitle;
+		this.introcontent = introcontent;
+		this.ratesum = ratesum;
+		this.ratecount = ratecount;
+	}
+
 	public MemberBean(String email, String password, String username, String phonenum, Date birth, byte[] photo,
 			Boolean teaqual, Date regdate, String teatitle, Integer subjectid, String introcontent, byte[] introclip,
 			Integer ratesum, Integer ratecount) {
@@ -85,7 +105,6 @@ public class MemberBean {
 		this.ratecount = ratecount;
 	}
 
-
 	@Override
 	public String toString() {
 		return "MemberBean [memid=" + memid + ", email=" + email + ", password=" + password + ", username=" + username
@@ -95,7 +114,6 @@ public class MemberBean {
 				+ ratesum + ", ratecount=" + ratecount + "]";
 	}
 
-	
 	public Integer getMemid() {
 		return memid;
 	}
