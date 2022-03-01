@@ -3,6 +3,9 @@ package web.require.dao.impl;
 import java.util.List;
 
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
@@ -11,11 +14,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Repository;
 
 import configuration.SpringJavaConfig;
-import web.require.dao.RequireDao;
+import web.require.dao.RequireDaoInterface;
 import web.require.entity.RequireBean;
 
 @Repository
-public class RequireDaoImpl implements RequireDao {
+public class RequireDao implements RequireDaoInterface {
 
 	@PersistenceContext
 	private Session session;
@@ -51,24 +54,15 @@ public class RequireDaoImpl implements RequireDao {
 	
 	//查詢PK
 	@Override
-	public RequireBean findByPrimaryKey(Integer require_id) {
-		return session.get(RequireBean.class, require_id);
+	public RequireBean findByPrimaryKey(Integer mem_id) {
+		final String HQL = "FROM require_list where mem_id = :memid";
+		List<RequireBean>result = session.createQuery(HQL, RequireBean.class).setParameter("memid", mem_id).list();
+		for(RequireBean bean : result) {
+		
+		}
+		
+		return null;
 	}
-	
-	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
-		
-		//delete
-		RequireDao dao =  context.getBean("requireDaoImpl",RequireDaoImpl.class);
-		System.out.println(dao.delete(9));
-		
-		
-		((ConfigurableApplicationContext) context).close();
-		
-	}
-
-
-	
 	
 	
 }

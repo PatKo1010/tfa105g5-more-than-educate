@@ -13,28 +13,28 @@ public class RequireBean {
 	@Id
 	@Column(name = "require_id")
 	@GeneratedValue (strategy= GenerationType.IDENTITY)
-	private int require_id;
-	public int getRequire_id() {
+	private Integer require_id;
+	public Integer getRequire_id() {
 		return require_id;
 	}
 
-	public void setRequire_id(int require_id) {
+	public void setRequire_id(Integer require_id) {
 		this.require_id = require_id;
 	}
 
-	public int getMem_id() {
+	public Integer getMem_id() {
 		return mem_id;
 	}
 
-	public void setMem_id(int mem_id) {
+	public void setMem_id(Integer mem_id) {
 		this.mem_id = mem_id;
 	}
 
-	public int getSubject_id() {
+	public Integer getSubject_id() {
 		return subject_id;
 	}
 
-	public void setSubject_id(int subject_id) {
+	public void setSubject_id(Integer subject_id) {
 		this.subject_id = subject_id;
 	}
 
@@ -54,19 +54,19 @@ public class RequireBean {
 		this.avail_time = avail_time;
 	}
 
-	public int getPrice_min() {
+	public Integer getPrice_min() {
 		return price_min;
 	}
 
-	public void setPrice_min(int price_min) {
+	public void setPrice_min(Integer price_min) {
 		this.price_min = price_min;
 	}
 
-	public int getPrice_max() {
+	public Integer getPrice_max() {
 		return price_max;
 	}
 
-	public void setPrice_max(int price_max) {
+	public void setPrice_max(Integer price_max) {
 		this.price_max = price_max;
 	}
 
@@ -79,17 +79,17 @@ public class RequireBean {
 	}
 
 	@Column(name = "mem_id")
-	private int mem_id;
+	private Integer mem_id;
 	@Column(name = "subject_id")
-	private int subject_id;
+	private Integer subject_id;
 	@Column(name = "learning_purpose")
 	private String learning_purpose;
 	@Column(name = "avail_time")
 	private String avail_time;
 	@Column(name = "price_min")
-	private int price_min;
+	private Integer price_min;
 	@Column(name = "price_max")
-	private int price_max;
+	private Integer price_max;
 	@Column(name = "require_detail")
 	private String require_detail;
 	

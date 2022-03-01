@@ -6,9 +6,8 @@ import web.require.entity.RequireBean;
 
 	
 
-public interface RequireDao {
+public interface RequireDaoInterface {
 
-	
 	
 	public abstract RequireBean insert(RequireBean requireBean);
 	
