@@ -64,7 +64,7 @@ public class OrderInfoServiceImpl implements OrderInfoServiceInterface {
 		
 		OrderInfoEntity orderInfoEntity = new OrderInfoEntity();
 		orderInfoEntity.setMemId(10);
-		orderInfoEntity.setCourseId(4);
+		orderInfoEntity.setCourseId(5);
 		System.out.println(service.insertOrderReserved(orderInfoEntity));
 		
 		
