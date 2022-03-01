@@ -19,7 +19,7 @@ import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
-@WebServlet( urlPatterns= {"/views/update"} )
+//@WebServlet( urlPatterns= {"/views/update"} )
 @MultipartConfig
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -81,7 +81,7 @@ public class UpdateServlet extends HttpServlet {
 		}
 		//驗證失敗的action
 		if (!errors.isEmpty()) {
-			System.out.println("驗證失敗");
+//			System.out.println("驗證失敗");
 //			request.getRequestDispatcher( request.getContextPath() + "/views/member/dashboard.jsp").forward(request, response);
 			request.getRequestDispatcher( "../views/member/dashboard.jsp").forward(request, response); //BUG!!!!!!!!!!!!!!
 			return;

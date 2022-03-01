@@ -6,12 +6,14 @@ import web.course.entity.CourseBean;
 
 public interface CourseServiceInterface {
 
-	CourseBean addCourse(CourseBean bean);
+	public CourseBean addCourse(CourseBean bean);
 	
-	CourseBean modifyCourse(CourseBean bean);
+	public CourseBean modifyCourse(CourseBean bean);
 	
-	boolean rmoveCourse(CourseBean bean);
+	public boolean rmoveCourse(CourseBean bean);
 	
-	List<CourseBean> findAll();
+	public List<CourseBean> select(CourseBean bean);
+	
+	public List<CourseBean> selectByMemId (CourseBean bean);
 	
 }

@@ -16,7 +16,7 @@ import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
-@WebServlet( urlPatterns={"/views/member/register"} )
+//@WebServlet( urlPatterns={"/views/member/register"} )
 public class RegisterServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 

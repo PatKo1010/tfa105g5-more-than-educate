@@ -20,12 +20,18 @@
     Copyright (c) 2019 - AfraCode
     ========================================================================
     -->
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,500,600,700,900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../public/css/plugins.min.css" />
     <link rel="stylesheet" href="../public/css/styles.css" />
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,7 +63,7 @@
                 </button>
                 <div class="header-menu">
                     <ul>
-                        <li class="has-menu" data-megamenu-link="mega-menu-1">
+                        <!-- <li class="has-menu" data-megamenu-link="mega-menu-1">
                             <div class="mega-menu-link">
                                 <span class="title">Languages</span>
                                 <span class="icon fa fa-angle-left"></span>
@@ -234,13 +240,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="has-menu" data-megamenu-link="mega-menu-2">
+                        </li> -->
+                        <li class="has-menu" data-megamenu-link="mega-menu-1">
                             <div class="mega-menu-link">
                                 <span class="title">All Pages</span>
                                 <span class="icon fa fa-angle-left"></span>
                             </div>
-                            <div data-megamenu-id="mega-menu-2" class="mega-menu mega-menu-2">
+                            <div data-megamenu-id="mega-menu-1" class="mega-menu mega-menu-1">
                                 <div class="mega-menu-inner">
                                     <div>
                                         <div class="espard-menu">
@@ -451,57 +457,14 @@
                                 </aside>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-                                <input id="course_title_input" type="text" placeholder="請輸入您要查詢的課程名稱">
-                                <button id="select_course" type="submit">select</button>
                                 <!-- <br> -->
-                                <span id ="title_none_message"  style="color:red; display:none">查無此資料</span>
-                                <!-- <br> -->
-                                <span id="title_error_message" style="color:red; display:none">請輸入正確的格式</span>
                                 <div class="el-panel">
                                     <div class="el-panel-body">
-                                        <!-- <div class="el-panel-title">
+                                        <div class="el-panel-title">
                                             <h2>Lessons</h2>
-                                        </div> -->
-                                        <!-- <div class="el-table">
-                                            <table id="table_id" class="display">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th class="custom-hide">Teacher</th>
-                                                        <th>Start</th>
-                                                        <th>End</th>
-                                                        <th>Settings</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="name">Standard English</span>
-                                                        </td>
-                                                        <td class="custom-hide">
-                                                            <div class="teacher">
-                                                                <a href="page-teacher.html">
-                                                                    <img src="assets/images/people/1.jpg" alt="teacher">
-                                                                    <span class="text">Miranda Fox</span>
-                                                                </a>
-                                                            </div>
-                                                        </td>
-                                                        <td class="date">May 1, 2020</td>
-                                                        <td class="date">May 3, 2020</td>
-                                                        <td>
-                                                            <a href="page-teacher.html" class="btn text-success">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span class="text">View</span>
-                                                            </a>
-                                                            <a href="page-teacher.html" class="btn text-danger">
-                                                                <i class="fa fa-times"></i>
-                                                                <span class="text">Disable</span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> -->
+                                        </div>
+                                        <div class="el-table">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -512,12 +475,18 @@
             <!--/-->
         </div>
     </div>
+    <div id="modal-wrapper"></div>
     <script src="../public/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <script src="../public/js/plugins.min.js"></script>
     <script src="../public/js/main-scripts.js"></script>
     <script src="../public/js/dashboard.js"></script>
     <script src="orderDetail/js/searchClass.js"></script>
-<!--     http://localhost:7080/tfa105g5-more-than-educate/views/orderDetail/StudentCourse.html -->
 </body>
 
 </html>

@@ -1,10 +1,12 @@
 package web.reservation.controller;
 
+import java.util.List;
+
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import web.reservation.entity.ReservTimeBean;
@@ -16,9 +18,22 @@ public class ReservController {
 	@Autowired
 	private ReservServiceInterface service;
 	
-	@GetMapping("selectById")
-	public ReservTimeBean select(Integer id) {
-		return service.select(id);
+	@PostMapping("selectByOrderID")
+	public List<ReservTimeBean> select(@RequestBody ReservTimeBean bean) {
+		List<ReservTimeBean> beans = service.selectMemberCourse(bean);
+		System.out.println(beans);
+//		for(ReservTimeBean b: beans) {
+//			System.out.println(b.toString());
+//		}
+		return service.selectMemberCourse(bean);
 	}
-
+	
+	@PostMapping("makeReserv")
+	public ReservTimeBean makeReserv (@RequestBody ReservTimeBean bean) {
+		 ReservTimeBean updateResult = service.updateOneReserv(bean);
+		 System.out.println(updateResult);
+		 return updateResult;
+		
+	}
+	
 }
