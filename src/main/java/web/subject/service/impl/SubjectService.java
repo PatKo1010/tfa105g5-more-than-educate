@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import configuration.SpringJavaConfig;
-import web.subject.dao.*;
+import web.member.entity.MemberBean;
+import web.subject.dao.SubjectDAOInterface;
 import web.subject.entity.SubjectBean;
 
 @Service
@@ -22,6 +23,11 @@ public class SubjectService {
 	public SubjectService(SubjectDAOInterface subjectDAO) {
 		this.subjectDAO = subjectDAO;
 	}
+	
+	 public List<MemberBean> findTeacherTest(String subjectname) {
+		  return subjectDAO.findTeacher(subjectname);
+		 }
+	
 
 	public static void main(String[] args) {
 //		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

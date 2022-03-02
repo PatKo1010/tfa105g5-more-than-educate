@@ -11,7 +11,7 @@ import web.orderInfo.dao.OrderInfoDaoInterface;
 import web.orderInfo.entity.OrderInfoEntity;
 
 @Repository
-public class orderInfoDaoImpl implements OrderInfoDaoInterface {
+public class OrderInfoDaoImpl implements OrderInfoDaoInterface {
 	
 	@PersistenceContext
 	private Session session;
@@ -57,5 +57,6 @@ public class orderInfoDaoImpl implements OrderInfoDaoInterface {
 		return null;
 	}
 	
+
 	
 }
