@@ -4,7 +4,7 @@ import java.util.List;
 
 import web.favor.entity.FavorBean;
 
-public interface FavorDao {
+public interface FavorDaoInterface {
 
 	
 	

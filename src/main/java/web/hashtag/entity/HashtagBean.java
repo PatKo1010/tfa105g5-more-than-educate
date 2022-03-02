@@ -8,33 +8,33 @@ import javax.persistence.Table;
 public class HashtagBean {
 	@Id
 	@Column(name = "hashtag_id")
-	private int hashtag_id;
+	private int hashtagid;
 	@Column(name = "tea_id")
-	private int tea_id;
+	private int teaid;
 	
 	@Column(name = "hashtag")
 	private String hashtag;
 	
 	public int getHashtag_id() {
-		return hashtag_id;
+		return hashtagid;
 	}
 
 
 
-	public void setHashtag_id(int hashtag_id) {
-		this.hashtag_id = hashtag_id;
+	public void setHashtag_id(int hashtagid) {
+		this.hashtagid = hashtagid;
 	}
 
 
 
-	public int getTea_id() {
-		return tea_id;
+	public int getTeaid() {
+		return teaid;
 	}
 
 
 
-	public void setTea_id(int tea_id) {
-		this.tea_id = tea_id;
+	public void setTeaid(int teaid) {
+		this.teaid = teaid;
 	}
 
 
@@ -56,7 +56,7 @@ public class HashtagBean {
 
 	@Override
 	public String toString() {
-		return "HashtagBean [hashtag_id=" + hashtag_id + ", tea_id" + tea_id + ", hashtag=" + hashtag + "]";
+		return "HashtagBean [hashtagid=" + hashtagid + ", teaid" + teaid + ", hashtag=" + hashtag + "]";
 	}
 
 

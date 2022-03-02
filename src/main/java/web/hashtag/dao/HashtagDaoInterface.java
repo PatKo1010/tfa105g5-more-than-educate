@@ -3,8 +3,9 @@ package web.hashtag.dao;
 import java.util.List;
 
 import web.hashtag.entity.HashtagBean;
+import web.member.entity.MemberBean;
 
-public interface HashtagDao {
+public interface HashtagDaoInterface {
 
 	
 	
@@ -17,10 +18,10 @@ public interface HashtagDao {
 	public abstract HashtagBean findByPrimaryKey(Integer hashtag_id);
 	
 	public abstract List<HashtagBean> getAll();
-	 
-	 
-
-
 	
+	public abstract List<MemberBean> findTeacher2(String hashtag);
 	
+	public  List<MemberBean> findTeacher(String name);
+	
+	public abstract List<HashtagBean> findHashtagName(List <MemberBean> members);
 }
