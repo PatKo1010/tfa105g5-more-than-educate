@@ -14,35 +14,28 @@ document.querySelector(".personbar1").addEventListener("click", function(e) {
 		count = 0;
 	}
 });
-var  reserve1=document.querySelector(".reserve1");
-reserve1.addEventListener("click",function(e) {
-ㄚ
-console.log(1);
+
+
+document.querySelector(".bar1").addEventListener("click", function(e) {
+
+
+
+
+
+
+
+console.log(66666);
+
+
 });
+document.querySelector(".newpriority").addEventListener("click", function(e) {
 
-var  contact1=document.querySelector(".contact1");
-contact1.addEventListener("click",function(e) {
-	console.log(2);
+
+
+
+
+
+console.log(5555);
+
+
 });
-var  favorpriority=document.querySelector(".favorpriority");
-favorpriority.addEventListener("click",function(e) {
-	console.log(3);
-	
-});
-
-var  newpriority=document.querySelector(".newpriority");
-newpriority.addEventListener("click",function(e) {
-	console.log(4);
-});
-
-
-var membertitle=document.querySelector(".membertitle");
-membertitle.addEventListener("click",function(e) {
-	console.log(4);
-});
-
-
-
-
-
-

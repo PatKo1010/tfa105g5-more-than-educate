@@ -102,4 +102,22 @@ public class HashtagDao implements HashtagDaoInterface {
 						}
 			return null;
 		}
+		
+		@Override
+		public  List<HashtagBean> findHashtagName(List <MemberBean> members) {
+			List<Integer> list = new ArrayList<Integer>();
+			for(MemberBean result:members) {
+				list.add(result.getMemid());
+			}
+			
+//			for(Integer result2:list) {
+//				String hql="select "
+//				
+//				
+//			}
+//			String hql = "select teaid from HashtagBean where hashtag = :trimname";
+//			
+//			List<String>  result1 = session.createQuery(hql1).setParameter("trimname", trimname).list();
+			return null;
+		}
 }

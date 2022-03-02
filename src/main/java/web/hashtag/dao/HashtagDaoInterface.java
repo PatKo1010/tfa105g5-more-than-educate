@@ -21,7 +21,7 @@ public interface HashtagDaoInterface {
 	
 	public abstract List<MemberBean> findTeacher2(String hashtag);
 	
-	public abstract List<MemberBean> findTeacher(String name);
-
+	public  List<MemberBean> findTeacher(String name);
 	
+	public abstract List<HashtagBean> findHashtagName(List <MemberBean> members);
 }
