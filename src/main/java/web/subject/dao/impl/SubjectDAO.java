@@ -11,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Repository;
 
 import configuration.SpringJavaConfig;
+import web.member.entity.MemberBean;
 import web.subject.dao.SubjectDAOInterface;
 import web.subject.entity.SubjectBean;
 
@@ -104,6 +105,29 @@ public class SubjectDAO implements SubjectDAOInterface {
 	public List<SubjectBean> select() { //全選就不用判subjectid是否為空
 		return getSession().createQuery("FROM SubjectBean", SubjectBean.class).list(); //記得用的是createQuery(qureyString,resultType)
 	}
+	
+	@Override
+	 public  List<MemberBean> findTeacher(String subjectname){
+		String trimname=subjectname.trim();
+		if(trimname!=null) {
+			String sub= "英日中韓法";
+			String str="";
+			for(int i=0;i<trimname.length();i++) {
+				for(int j=0;j<sub.length();j++) {
+					if(trimname.charAt(i)==sub.charAt(j)) {
+						str+=sub.charAt(j);
+						System.out.println(str);
+						String hql1 = "select subjectid from SubjectBean where subject_name like :str";
+						Integer result1 = (Integer)(session.createQuery(hql1).setParameter("str", "%"+str+"%").uniqueResult());
+						String hql2="from MemberBean where subjectid=:result1";
+						List<MemberBean> result2= session.createQuery(hql2).setParameter("result1", result1).list();
+						return result2;
+					}
+				}
+			}
+		}
+	   return null;
+	 };
 
 	
 	//測試

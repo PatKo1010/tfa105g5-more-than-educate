@@ -6,7 +6,7 @@ $(function () {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            memid: 10
+            memid: 11
         })
     }).then(response => response.json())
         .then((data) => {
