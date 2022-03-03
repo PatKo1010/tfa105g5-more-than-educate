@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import web.education.dao.impl.EducationDAO;
 import web.education.entity.EducationBean;
+import web.member.entity.MemberBean;
 
 @Service
 @Transactional
@@ -17,15 +18,16 @@ public class EducationService {
 	@Autowired
 	//接收三行
 	private EducationDAO educationDAO;
-	public EducationService(EducationDAO educationDAO) {
-		this.educationDAO = educationDAO;
-	}
+//	public EducationService(EducationDAO educationDAO) {
+//		this.educationDAO = educationDAO;
+//	}
 	
 	//DAO方法擴充
 	//1.新增
 	public EducationBean insert(EducationBean educationBean) {
+		System.out.println(educationBean);
 //動作行:educationDAO.insert(educationBean);
-		if (educationBean != null && educationBean.getEduid() != null) {
+		if (educationBean != null && educationBean.getMemid() != null) {
 			EducationBean insertResult = educationDAO.insert(educationBean);
 			return insertResult;
 		}
@@ -45,7 +47,7 @@ public class EducationService {
 //動作行:educationDAO.update(educationBean);
 	public EducationBean update(EducationBean educationBean) {
 		if (educationBean != null && educationBean.getEduid() != null) { //檢查輸入
-			EducationBean updateResult = educationDAO.update(educationBean.getEduid(), educationBean.getTeaid(), educationBean.getEdustart(), educationBean.getEduend(), educationBean.getEduschool(), educationBean.getEdudepart() );
+			EducationBean updateResult = educationDAO.update(educationBean.getEduid(), educationBean.getMemid(), educationBean.getEdustart(), educationBean.getEduend(), educationBean.getEduschool(), educationBean.getEdudepart() );
 			return updateResult;
 		}
 		return null;
@@ -64,6 +66,14 @@ public class EducationService {
 	public List<EducationBean> select() {
 		List<EducationBean> selectAllResult = educationDAO.select();
 		return selectAllResult;
+	}
+	
+	//4c. select by member
+	public EducationBean selectByMember (Integer memid) {
+		if (memid != null) {
+			return educationDAO.selectByMemberid(memid);
+		}
+		return null;
 	}
 	
 	

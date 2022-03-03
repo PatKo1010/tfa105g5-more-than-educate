@@ -17,7 +17,7 @@ import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
 @Controller
-public class TeacherUpdateController {
+public class UpdateTeacherController {
 
 //0.用到的(AC, Service)
 	@Autowired
@@ -90,9 +90,9 @@ public class TeacherUpdateController {
 		
 //3.結局動作 (e.g. model結果)
 		if (tUpdateResult == null) {
-			return "/views/member/teacherProfile.jsp";
+			return "/views/member/updateTeacherProfile.jsp";
 		} else {
-			return "redirect:" + "/views/member/teacherSkills.jsp";
+			return "redirect:" + "/views/member/updateTeacherProfile.jsp";
 		}
 	}
 

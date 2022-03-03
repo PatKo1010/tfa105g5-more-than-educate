@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,9 @@ public class MemberService {
 	//0.接收環境 (包入DAO in Service)
 	@Autowired
 	private MemberDAO memberDAO;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	// Service接入dao  (再去DAO看:DAO接入sessionFactory)
 	public MemberService(MemberDAO memberDAO) { //建構子-"宣告"
 		this.memberDAO = memberDAO;
@@ -32,11 +36,12 @@ public class MemberService {
 		//"對的"驗證,放Service
 		MemberBean dbObject = memberDAO.selectByEmail(email); //檢查輸出(資料庫)
 		if (password != null && password.length()!= 0) {
-			String dbPassword = dbObject.getPassword();
-			if (dbPassword.equals(password)) {
+//			String dbPassword = dbObject.getPassword();
+//			if (dbPassword.equals(password)) {
+			if(passwordEncoder.matches(password, dbObject.getPassword()))
 				return dbObject;
 			}
-		}
+//		}
 		return null;
 	}
 	//B.只讀Email
