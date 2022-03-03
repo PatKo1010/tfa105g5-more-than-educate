@@ -6,6 +6,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.CloseReason;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -20,12 +26,25 @@ import com.google.gson.Gson;
 import web.chat.dao.impl.JedisMessageDAO;
 import web.chat.entity.ChatMessageBean;
 import web.chat.entity.StateBean;
+import web.member.entity.MemberBean;
 
 @ServerEndpoint("/FriendWS/{userName}")
-public class FriendServlet {
+@WebServlet("/chatservlet")
+public class FriendServlet extends HttpServlet{
 	private static Map<String, Session> sessionsMap = new ConcurrentHashMap<>();
 	Gson gson = new Gson();
 
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
+		String vakue = ((MemberBean)session.getAttribute("member")).getUsername();
+		System.out.println(vakue);
+		request.setAttribute("userName", vakue);
+		String talkTo = request.getParameter("talkTo");
+		System.out.println(talkTo);
+		request.setAttribute("talkTo", talkTo);
+		request.getRequestDispatcher("views/chat/chat.jsp").forward(request, response);
+	}
 	@OnOpen
 	public void onOpen(@PathParam("userName") String userName, Session userSession) throws IOException {
 		sessionsMap.put(userName, userSession);

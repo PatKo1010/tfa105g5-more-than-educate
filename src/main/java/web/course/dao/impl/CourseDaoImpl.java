@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import web.course.dao.CourseDaoInterface;
 import web.course.entity.CourseBean;
+import web.course.entity.vCourseMemberBean;
 
 @Repository
 public class CourseDaoImpl implements CourseDaoInterface {
@@ -21,9 +22,9 @@ public class CourseDaoImpl implements CourseDaoInterface {
 	}
 
 	@Override
-	public CourseBean select(Integer courseid) {
+	public vCourseMemberBean select(Integer courseid) {
 		if (courseid != null) {
-			return this.getSession().get(CourseBean.class, courseid);
+			return this.getSession().get(vCourseMemberBean.class, courseid);
 		}
 		return null;
 	}
@@ -36,7 +37,6 @@ public class CourseDaoImpl implements CourseDaoInterface {
 	@Override
 	public CourseBean insert(CourseBean bean) {
 		if (bean != null && bean.getExpertiseid() != null) {
-			System.out.println("hehe");
 			CourseBean temp = this.getSession().get(CourseBean.class, bean.getExpertiseid());
 			if (temp == null) {
 				this.getSession().save(bean);
@@ -58,18 +58,18 @@ public class CourseDaoImpl implements CourseDaoInterface {
 				temp.setCourseintro(courseintro);
 				temp.setClassamount(classamount);
 				temp.setPrice(price);
-				return (CourseBean)this.getSession().merge(temp);
+				return (CourseBean) this.getSession().merge(temp);
 			}
 		}
-		
+
 		return null;
 	}
 
 	@Override
 	public boolean delete(Integer courseid) {
-		if(courseid != null) {
+		if (courseid != null) {
 			CourseBean temp = this.getSession().get(CourseBean.class, courseid);
-			if(temp != null) {
+			if (temp != null) {
 				this.getSession().delete(temp);
 				return true;
 			}
@@ -79,8 +79,14 @@ public class CourseDaoImpl implements CourseDaoInterface {
 
 	@Override
 	public List<CourseBean> selectByMemID(Integer memId) {
-		return this.session.createQuery("From CourseBean where memid=:XXX", CourseBean.class)
-				.setParameter("XXX", memId).list();
+		return this.session.createQuery("From CourseBean where memid = :memid", CourseBean.class)
+				.setParameter("memid", memId).list();
+	}
+
+	@Override
+	public List<vCourseMemberBean> selectByCourseId(Integer courseid) {
+		return this.session.createQuery("from vCourseMemberBean where courseid = :courseid", vCourseMemberBean.class)
+				.setParameter("courseid", courseid).list();
 	}
 
 }

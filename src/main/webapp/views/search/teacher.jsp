@@ -586,7 +586,7 @@
 					<img src="assets/images/shapes/3.svg" alt="Image Description" />
 				</figure>
 				<div class="display-spacing display-spacing-double">
-					
+					<div class="outcontainer2">
 					<img class="person2"
 										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
 						<div class="membertitle2">老師名字和頭銜</div>				
@@ -610,7 +610,7 @@
 						<br>
 						<br>
 						<br>
-					
+					<div>
 				</div>
 		</div>
 		</section>

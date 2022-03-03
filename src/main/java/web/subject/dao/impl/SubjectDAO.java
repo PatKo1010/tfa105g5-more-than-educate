@@ -1,5 +1,6 @@
 package web.subject.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.PersistenceContext;
@@ -110,17 +111,24 @@ public class SubjectDAO implements SubjectDAOInterface {
 	 public  List<MemberBean> findTeacher(String subjectname){
 		String trimname=subjectname.trim();
 		if(trimname!=null) {
-			String sub= "英日中韓法";
+			String sub="";
+			String hql1 = "select subjectname from SubjectBean";
+			List <String>result = session.createQuery(hql1).list();
+			Integer size=result.size();
+			for(int i=0;i<size;i++)
+			{
+				sub+=result.get(i).substring(0,1);
+			}
 			String str="";
 			for(int i=0;i<trimname.length();i++) {
 				for(int j=0;j<sub.length();j++) {
 					if(trimname.charAt(i)==sub.charAt(j)) {
 						str+=sub.charAt(j);
 						System.out.println(str);
-						String hql1 = "select subjectid from SubjectBean where subject_name like :str";
-						Integer result1 = (Integer)(session.createQuery(hql1).setParameter("str", "%"+str+"%").uniqueResult());
-						String hql2="from MemberBean where subjectid=:result1";
-						List<MemberBean> result2= session.createQuery(hql2).setParameter("result1", result1).list();
+						String hql2 = "select subjectid from SubjectBean where subject_name like :str";
+						Integer result1 = (Integer)(session.createQuery(hql2).setParameter("str", "%"+str+"%").uniqueResult());
+						String hql3="from MemberBean where subjectid=:result1";
+						List<MemberBean> result2= session.createQuery(hql3).setParameter("result1", result1).list();
 						return result2;
 					}
 				}

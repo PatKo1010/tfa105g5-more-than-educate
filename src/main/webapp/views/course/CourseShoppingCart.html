@@ -701,113 +701,26 @@
             <section class="section section-dashboard section-dashboard-student">
                 <div class="container">
                     <div class="display-spacing display-spacing-plus">
-                        <!--Alert-->
-                        <div class="el-alert alert-danger">
-                            <div class="container">
-                                <div class="alert-flex d-flex align-items-center">
-                                    <div class="alert-icon">
-                                        <div class="icon">
-                                            <i class="fa fa-question"></i>
-                                        </div>
-                                    </div>
-                                    <div class="alert-content">
-                                        <p>Please update your profile, such as avatar and you recommend personal
-                                            information.</p>
-                                    </div>
-                                    <div class="alert-links">
-                                        <a href="teacher/dashboard-profile.html" class="button button-md">
-                                            <span class="text">Edit Profile</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/-->
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-                                <aside class="sidebar">
-                                    <div class="el-panel el-panel-teacher-widget">
-                                        <div class="el-panel-body">
-                                            <div class="el-panel-title">
-                                                <h2>教師中心</h2>
-                                            </div>
-                                            <ul class="el-list-icon">
-                                                <!--                     <li> -->
-                                                <!--                         <a href="teacher/dashboard.html"> -->
-                                                <!--                             <i class="fa fa-cog"></i> -->
-                                                <!--                             <span class="text">X Dashboard X</span> -->
-                                                <!--                         </a> -->
-                                                <!--                     </li> -->
-                                                <li>
-                                                    <a
-                                                        href="/tfa105g5-more-than-educate/views/member/teacherProfile.jsp">
-                                                        <i class="fa fa-cog"></i>
-                                                        <span class="text">教師資料</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="/tfa105g5-more-than-educate/views/member/teacherSkills.jsp">
-                                                        <i class="fa fa-cog"></i>
-                                                        <span class="text">教授資格</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="/tfa105g5-more-than-educate/views/course/CourseOverview1.html">
-                                                        <i class="fa fas fa-book"></i>
-                                                        <span class="text">課程總覽</span>
-                                                    </a>
-                                                </li>
-                                                <!--                     <li> -->
-                                                <!--                         <a href="teacher/dashboard-classrooms.html"> -->
-                                                <!--                             <i class="fa fas fa-book"></i> -->
-                                                <!--                             <span class="text">Classrooms</span> -->
-                                                <!--                         </a> -->
-                                                <!--                     </li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="el-panel el-panel-financial bg-primary">
-                                        <div class="el-panel-body">
-                                            <p class="text-center text-light">Earnings</p>
-                                            <p class="price">
-                                                <span class="currency">$240.00</span>
-                                            </p>
-                                            <a href="student/dashboard-wallet.html"
-                                                class="button button-md button-radius button-block button-light">
-                                                <span class="text text-center text-primary">Set payout account</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </aside>
-                            </div>
+                      
+  
                             <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-                                <div class="el-panel el-panel-admin-status">
+                                <div class="el-panel el-panel-admin-status" style="width:1000px">
                                     <div class="el-panel-body">
                                         <div class="el-panel-title">
-                                            <h2>課程總覽</h2>
-										<div style="text-align:right">
-                                            <form action="/tfa105g5-more-than-educate/views/course/CourseInsert.jsp"
-                                                method="post">
-                                                    <button type= "submit" class="button button-primary" style="width:100px;height:30px;">新增課程</button>       
-                                            </form>
-                                        </div>
+                                            <h2>購物車</h2>
 
-                                            <table id="all_course" class="table">
+                                            <table id="cart">
                                                 <tr>
-                                                    <th>專精科目</th>
-                                                    <th class="overflow">課程標題</th>
-                                                    <th class="overflow">課程內容</th>
-                                                    <th>堂數</th>
+                                                    <th>商品</th>
+                                                    <th>課程總堂數</th>
                                                     <th>價格</th>
-                                                    <th>修改課程</th>
-                                                    <th>下架課程</th>
+                                                    <th>刪除課程</th>
                                                 </tr>
 
 
                                                 <!-- </form> -->
                                             </table>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -825,7 +738,7 @@
     <script src="../public/js/dashboard.js"></script>
     <script>
         window.addEventListener("load", e => {
-            fetch("http://localhost:7080/tfa105g5-more-than-educate/views/course.overview", {
+            fetch("http://localhost:7080/tfa105g5-more-than-educate/course/shoppingCart", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -833,65 +746,57 @@
             })
                 .then(response => response.json())
                 .then((data) => {
-                    console.log(data);
-                    const courseTable = document.querySelector("#all_course")
-
-
-                    // 					classamount: 1
-                    // courseid: 36
-                    // courseintro: "11111111111111111111111111111111111111111111111111111111111111111111111111111"
-                    // coursetitle: "22222222222222"
-                    // expertiseid: 1
-                    // memid: 1
-                    // price: 300
-
-                    for (let i = 0; i < data.length; i++) {
+                    const cartTable = document.querySelector("#cart")
+                    for (let i = 0; i < data.length; i++){
+                    	
                         const courseid = data[i].courseid
                         const memid = data[i].memid
+                        const expertiseid = data[i].expertiseid
                         const coursetitle = data[i].coursetitle
                         const courseintro = data[i].courseintro
                         const classamount = data[i].classamount
                         const price = data[i].price
-                        const expertiseid = data[i].expertiseid
-                        const expertiseName = data[i].expertise.expertiseName;
-
-                        courseTable.innerHTML += (
-                            `<tr class="overflow">
-                <th>${expertiseName}</th>
-    
-                <th class="overflow"><a href="/tfa105g5-more-than-educate/views/courseDetail?courseId=${courseid}">${coursetitle}</a></th>
-
-                <th class="overflow">${courseintro}</th>
-    
-                <th>${classamount}</th>
-    
-                <th>${price}</th>
-                
-                <th>
-                    <form action="/tfa105g5-more-than-educate/views/course.jump.update" method= "post" >
-                        <input name= "courseid" type= "hidden" value ='${courseid}'/> 
-                        <input name= "memid" type= "hidden" value ='${memid}'/> 
-                        <input name= "expertiseid" type="hidden" value ='${expertiseid}'/> 
-                        <input name= "coursetitle" type= "hidden" value= "${coursetitle}" />
-                        <input name= "courseintro" type= "hidden" value= "${courseintro}" />
-                        <input name= "classamount" type= "hidden" value= "${classamount}" />
-                       	<input name= "price" type= "hidden" value= "${price}" />
-                       
-                        <button type= "submit" class="button button-primary" style="width:50px;height:30px;">修改</button>
-                    </form>
-                 </th>
-             
-                <th>
-                    <form action = "/tfa105g5-more-than-educate/views/course.delete" method = "post">
-                        <input name= "courseid" type= "hidden" value ='${courseid}'/> 
-                        <button type= "submit" class="button button-primary" style="width:50px;height:30px;">下架</button>
-                    </form>
-                </th>
-    </tr>	`
-                        )
+                        const username = data[i].username
+                    	const photo = data[i].photo
+                    	cartTable.innerHTML += 
+                            `<tr>
+                                <th class="overflow">
+                                    <a href="/tfa105g5-more-than-educate/views/courseDetail?courseId=${courseid}">
+                                        <img src="data:image/png;base64,${photo}" style="width:50px;height:50px"/>
+                                    </a>
+                                    ${coursetitle}
+                                </th>
+                                <th>${classamount}</th>
+                                <th>${price}</th>
+                                <th>
+                                    <input name= "courseid" type= "hidden" value ='${courseid}'/> 
+                                    <button onclick="sremCourse(${courseid})" class="button button-primary" style="width:50px;height:30px;">刪除</button>
+                                </th>
+                            </tr>    
+                            <br>                                                            
+                             `;
+                        
                     }
+                
+
                 })
         })
+        
+        function sremCourse(courseid) {
+        	const url = 'http://localhost:7080/tfa105g5-more-than-educate/course/sremCourse';
+        	fetch(url, {
+        		method: 'POST',
+        		headers: {
+        			'Content-Type': 'application/json'
+        		},
+        		body: JSON.stringify({courseid})
+        	})
+        	.then(response => response.json())
+        	.then(body => {
+        		location.reload();
+        	});
+        }
+	
 
 
     </script>
