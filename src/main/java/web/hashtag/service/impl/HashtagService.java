@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import configuration.SpringJavaConfig;
 import web.hashtag.dao.HashtagDaoInterface;
+import web.hashtag.entity.HashtagBean;
 import web.member.entity.MemberBean;
 
 
@@ -48,6 +49,7 @@ public class HashtagService {
 	public List<MemberBean> findTeacherTest2(String hashtag) {
 		return hashtagDao.findTeacher2(hashtag);
 	}
-//	
-	
+	public  List<HashtagBean> findHashtagName(List <MemberBean> members) {
+		return hashtagDao.findHashtagName(members);
+	}
 }

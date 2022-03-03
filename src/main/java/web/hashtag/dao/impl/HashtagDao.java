@@ -61,12 +61,13 @@ public class HashtagDao implements HashtagDaoInterface {
 		public  List<MemberBean> findTeacher(String name){
 			String trimname=name.trim();
 			if(trimname!=null) {
-				String hql2="select new MemberBean(photo,username,teatitle,introcontent,ratesum,ratecount,regdate) from MemberBean where username like:name and teaqual=1";
+				String hql2=" from MemberBean where username like:name and teaqual=1";
 				List<MemberBean> result= session.createQuery(hql2).setParameter("name","%"+name+"%").list();
 				return result;
 			}
 		return null;
 		}
+		
 		@Override
 		public  List<MemberBean> findTeacher2(String hashtag){
 			String trimname=hashtag.trim();
@@ -105,19 +106,12 @@ public class HashtagDao implements HashtagDaoInterface {
 		
 		@Override
 		public  List<HashtagBean> findHashtagName(List <MemberBean> members) {
-			List<Integer> list = new ArrayList<Integer>();
-			for(MemberBean result:members) {
-				list.add(result.getMemid());
-			}
-			
-//			for(Integer result2:list) {
-//				String hql="select "
-//				
-//				
+			List<HashtagBean> list = new ArrayList<>();
+//			for(MemberBean result:members) {
+//				int id=result.getMemid();
+//				String hql="select hashtag from HashtagBean where teaid=:id";
+//				 list.add((Hashtag) session.createQuery(hql).setParameter("id", id).uniqueResult());
 //			}
-//			String hql = "select teaid from HashtagBean where hashtag = :trimname";
-//			
-//			List<String>  result1 = session.createQuery(hql1).setParameter("trimname", trimname).list();
 			return null;
 		}
 }

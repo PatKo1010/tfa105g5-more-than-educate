@@ -48,6 +48,16 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.outcontainer2{
+	width:1080px;
+	border:red 1px solid;
+	margin:auto;
+}
+
+
+
+
 div.error{
 	
 	font-size:30px;

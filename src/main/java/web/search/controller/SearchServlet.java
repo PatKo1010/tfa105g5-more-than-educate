@@ -40,7 +40,7 @@ public class SearchServlet extends HttpServlet {
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 			SubjectService subjectSvc = ac.getBean("subjectService", SubjectService.class);
 			HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
-			
+	
 		
 			List<MemberBean> members =  hashtagSvc.findTeacherTest2(str);//關鍵字找老師
 			if(members.size() == 0){
@@ -57,6 +57,8 @@ public class SearchServlet extends HttpServlet {
 					}
 				}
 			}
+//			List<String> hashtag=hashtagSvc.findHashtagName(members);
+//			req.setAttribute("hashtag", hashtag);
 			req.setAttribute("members", members);
 			System.out.println(members.get(0));
 			RequestDispatcher successView = req.getRequestDispatcher("/views/search/searchresult.jsp");
