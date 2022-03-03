@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,9 @@ public class RegisterContoller {
 	private MemberService memberService;
 	@Autowired
 	ServletContext context; 
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@RequestMapping(path = { "/views/member/register" })
 	public String handleRegister(String email, String username, String password, String passwordConf, Model model,
@@ -70,7 +74,7 @@ public class RegisterContoller {
 		if (check == null) {
 			MemberBean memberBean = new MemberBean();
 			memberBean.setEmail(email);
-			memberBean.setPassword(password);
+			memberBean.setPassword(passwordEncoder.encode(password));
 			memberBean.setUsername(username);
 			insertResult = memberService.insert(memberBean); //"新增"
 		} 

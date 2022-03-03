@@ -385,12 +385,24 @@
                 </div>
             </div>
         </li>
+        <!-- 申請成老師 -->
+        <c:if test="${member.teaqual == false}">
         <li>
-            <a href="<%=request.getContextPath()%>/views/member/teacherProfile.jsp">
-                <span class="text">成為老師</span>
+            <a href="<%=request.getContextPath() %>/views/member/regiTeacherProfile.jsp">
+                <span class="text">申請成為教師</span>
                 <span class="icon fa fa-angle-left"></span>
             </a>
         </li>
+	    </c:if>
+        <!-- 已成為老師 -->
+		<c:if test="${member.teaqual == true}">
+		<li>
+            <a href="<%=request.getContextPath() %>/views/member/updateTeacherProfile.jsp">
+                <span class="text">教師中心</span>
+                <span class="icon fa fa-angle-left"></span>
+            </a>
+        </li>
+	    </c:if>    
     </ul>
 </div>
                 <div class="header-logo">
