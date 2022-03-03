@@ -27,7 +27,8 @@ public class UpdateController {
 	@RequestMapping( path= {"views/member/update"}, method = RequestMethod.POST, consumes = { "multipart/form-data" })
 	public String handlerUpdate(Model model, Integer memID,
 			 String email, String password, String username,String phonenum, java.sql.Date birth, @RequestPart(name="image", required=false) byte[] image, 
-			HttpSession httpSession) {
+			 //MemberBean memberBean
+			 HttpSession httpSession) {
 
 //		Date birthSql = Date.valueOf(birth);
 //		MemberBean bean = new MemberBean();

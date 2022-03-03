@@ -1,25 +1,17 @@
 package web.member.controller;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import web.member.dao.impl.MemberDAO;
 import web.member.entity.MemberBean;
 import web.member.service.impl.MemberService;
 
@@ -29,6 +21,9 @@ public class LoginController {
 //0.用到的 (AC, Service)
 	@Autowired  //注入??
 	private MemberService memberService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Autowired  //注入
 //	private ApplicationContext context;  //????
