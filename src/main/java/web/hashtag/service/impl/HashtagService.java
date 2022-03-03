@@ -26,22 +26,6 @@ public class HashtagService {
 		this.hashtagDao = hashtagDao;
 	}
 
-	public static void main(String[] args) {
-//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//		Session session = sessionFactory.getCurrentSession();
-//		Transaction transaction = session.beginTransaction();
-		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
-
-		HashtagService hashtagService = context.getBean("hashtagService", HashtagService.class);
-//		System.out.println(hashtagService.select());
-
-		((ConfigurableApplicationContext) context).close();
-
-	}
-//	public List<MemberBean> findTeacherTest(String hashtag) {
-//		return hashtagDao.findTeacher(hashtag);
-//	}
-	
 	public List<MemberBean> findTeacherTest(String name) {
 		return hashtagDao.findTeacher(name);
 	}

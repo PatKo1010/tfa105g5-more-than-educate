@@ -42,10 +42,12 @@ public class SearchServlet extends HttpServlet {
 			HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
 	
 		
-			List<MemberBean> members =  hashtagSvc.findTeacherTest2(str);//關鍵字找老師
-			if(members.size() == 0){
+//			List<MemberBean> members =  hashtagSvc.findTeacherTest2(str);//關鍵字找老師
+			List<MemberBean> members = null;
+//			if(members.size() == 0){
 				members =  subjectSvc.findTeacherTest(str);//科目找老師
-				if(members == null) {
+				System.out.println("findTeacherTest:"+members);
+				if( members == null || members.size() == 0) {
 					members =  hashtagSvc.findTeacherTest(str);//名字找老師
 					if(members.isEmpty()) {
 						List<String> errorMsgs = new LinkedList<String>();
@@ -56,11 +58,11 @@ public class SearchServlet extends HttpServlet {
 						return;
 					}
 				}
-			}
+//			}
 //			List<String> hashtag=hashtagSvc.findHashtagName(members);
 //			req.setAttribute("hashtag", hashtag);
 			req.setAttribute("members", members);
-			System.out.println(members.get(0));
+//			System.out.println(members.get(0));
 			RequestDispatcher successView = req.getRequestDispatcher("/views/search/searchresult.jsp");
 			successView.forward(req, res);
 		}

@@ -109,31 +109,38 @@ public class SubjectDAO implements SubjectDAOInterface {
 	
 	@Override
 	 public  List<MemberBean> findTeacher(String subjectname){
-		String trimname=subjectname.trim();
+		String trimname=subjectname.trim(); // English
 		if(trimname!=null) {
-			String sub="";
-			String hql1 = "select subjectname from SubjectBean";
-			List <String>result = session.createQuery(hql1).list();
-			Integer size=result.size();
-			for(int i=0;i<size;i++)
-			{
-				sub+=result.get(i).substring(0,1);
-			}
-			String str="";
-			for(int i=0;i<trimname.length();i++) {
-				for(int j=0;j<sub.length();j++) {
-					if(trimname.charAt(i)==sub.charAt(j)) {
-						str+=sub.charAt(j);
-						System.out.println(str);
-						String hql2 = "select subjectid from SubjectBean where subject_name like :str";
-						Integer result1 = (Integer)(session.createQuery(hql2).setParameter("str", "%"+str+"%").uniqueResult());
-						String hql3="from MemberBean where subjectid=:result1";
-						List<MemberBean> result2= session.createQuery(hql3).setParameter("result1", result1).list();
+//			String sub="";
+//			String hql1 = "select subjectname from SubjectBean";
+//			List <String>result = session.createQuery(hql1).list();
+//			System.out.println(result);
+//			Integer size=result.size();
+//			for(int i=0;i<size;i++)
+//			{
+//				sub+=result.get(i).substring(0,1); //E
+//				System.out.println("sub"+sub);
+//			}
+//			String str="";
+//			for(int i=0;i<trimname.length();i++) {
+//				for(int j=0;j<sub.length();j++) {
+//					if(trimname.charAt(i)==sub.charAt(j)) { // E == E
+//						str+=sub.charAt(j);// EE
+//						System.out.println("in for loop dao: " + str);
+						String hql2 = "select subjectid from SubjectBean where subject_name like :trimname";
+						List<MemberBean> result2 = null;
+						try {
+							Integer result1 = (Integer)(session.createQuery(hql2).setParameter("trimname", "%"+trimname+"%").uniqueResult());
+							String hql3="from MemberBean where subjectid=:result1";
+							result2 = session.createQuery(hql3).setParameter("result1", result1).list();
+							
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
 						return result2;
 					}
-				}
-			}
-		}
+				
 	   return null;
 	 };
 

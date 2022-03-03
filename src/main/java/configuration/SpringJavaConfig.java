@@ -10,6 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -22,6 +24,11 @@ import com.zaxxer.hikari.HikariDataSource;
 @ComponentScan(basePackages = {"web.*.*.impl"})
 @EnableTransactionManagement
 public class SpringJavaConfig {
+	
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
 	/*
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg>
@@ -47,7 +54,7 @@ public class SpringJavaConfig {
 		config.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		config.setJdbcUrl("jdbc:mysql://localhost:3306/more_than_educate?serverTimezone=Asia/Taipei");
 		config.setUsername("root");
-		config.setPassword("password");
+		config.setPassword("p19951010");
 		config.addDataSourceProperty("cachePrepStmts", "true");
 		config.addDataSourceProperty("prepStmtCacheSize", "250");
 		config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
