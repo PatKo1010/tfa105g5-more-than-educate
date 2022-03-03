@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.util.*" %>
 
 <html lang="en" dir="ltr">
 
 <head>
-    <title>MoreThanEducate</title>
+    <title></title>
     <meta charset="UTF-8" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -744,7 +745,7 @@
                     <li>
                         <a href="<%=request.getContextPath() %>/views/member/teacherSkills.jsp">
                             <i class="fa fa-cog"></i>
-                            <span class="text">教授資格</span>
+                            <span class="text">專業資格</span>
                         </a>
                     </li>
                     <li>
@@ -762,102 +763,142 @@
                 </ul>
             </div>
         </div>
-        <div class="el-panel el-panel-financial bg-primary">
-            <div class="el-panel-body">
-                <p class="text-center text-light">Earnings</p>
-                <p class="price">
-                    <span class="currency">$240.00</span>
-                </p>
-                <a href="student/dashboard-wallet.html" class="button button-md button-radius button-block button-light">
-                    <span class="text text-center text-primary">Set payout account</span>
-                </a>
-            </div>
-        </div>
+        <!-- 錢包 暫時關閉 -->
+<!--         <div class="el-panel el-panel-financial bg-primary"> -->
+<!--             <div class="el-panel-body"> -->
+<!--                 <p class="text-center text-light">Earnings</p> -->
+<!--                 <p class="price"> -->
+<!--                     <span class="currency">$240.00</span> -->
+<!--                 </p> -->
+<!--                 <a href="student/dashboard-wallet.html" class="button button-md button-radius button-block button-light"> -->
+<!--                     <span class="text text-center text-primary">Set payout account</span> -->
+<!--                 </a> -->
+<!--             </div> -->
+<!--         </div> -->
     </aside>
 </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                         <div class="el-panel">
                             <div class="el-panel-body">
                                 <div class="el-panel-title">
-                                    <h2>Profile</h2>
+                                    <h2>教師資料</h2>
                                 </div>
-                                <form class="form-3" action="http://httpbin.org/post" method="post" enctype="multipart/form-data">
+                                
+								<!-- 上傳表單 -->
+                                <form class="form-3" action="<%= request.getContextPath() %>/views/member/teacherUpdate" method="post" enctype="multipart/form-data">
                                     <div class="row row-sm">
+                                   		<!-- 頭貼區塊 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-2">
                                             <div class="el-avatar">
                                                 <div class="avatar-upload">
                                                     <div class="avatar-edit">
+                                                    	<!-- 偷塞memID -->
+                                                    	<input type="hidden" name="memID" value= "${member.memid}" />
+														<!-- 頭貼input -->
                                                         <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
                                                         <label for="imageUpload"></label>
                                                     </div>
+                                                    	<!-- 頭貼顯示 -->
                                                     <div class="avatar-preview">
-                                                        <div id="imagePreview" style="background-image: url(assets/images/people/default.jpg);">
-                                                        </div>
+                                                        <c:if test="${not empty member.photo}">
+                                                            <c:set var="image" scope="page" value="${member.photo}"/>
+									                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);">
+	                                                        	</div>
+                                                        </c:if>
+                                                        <c:if test="${empty member.photo}">
+                                                            <div id="imagePreview" style="background-image: url(https://i.pinimg.com/564x/1d/83/a6/1d83a6d88d8be5b041a9a98fd5048311.jpg);">
+                                                        	</div>
+                                                        </c:if>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- 儲存email -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10">
                                             <div class="pr-15">
                                                 <div class="form-item">
-                                                    <label for="input-name" class="form-label">Name</label>
-                                                    <input name="name" type="text" id="input-name">
+                                                    <label for="input-name" class="form-label">E-mail</label>
+                                                    <input name="email" type="text" id="input-email" value="${member.email}">
+                                                    <span class="error" style="color:red;"> ${errors.email} </span>
                                                 </div>
+                                        <!-- 儲存password -->
                                                 <div class="form-item">
-                                                    <label for="input-lastname" class="form-label">Last Name</label>
-                                                    <input name="" type="text" id="input-lastname">
+                                                    <label for="input-lastname" class="form-label">密碼</label>
+                                                    <input name="password" type="text" id="input-password" value="${member.password}">
+                                                    <span class="error" style="color:red;"> ${errors.password} </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <hr>
-                                        </div>
+                                        <!-- 儲存使用者名稱 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
-                                                <label for="input-mobile" class="form-label">Mobile</label>
-                                                <input name="" type="text" id="input-mobile" class="text-left">
+                                                <label for="input-mobile" class="form-label">使用者名稱</label>
+                                                <input name="username" type="text" id="input-username" class="text-left" value="${member.username}">
+                                            	<span class="error" style="color:red;"> ${errors.username} </span>
                                             </div>
                                         </div>
+                                        <!-- 儲存電話 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
-                                                <label for="input-email" class="form-label">E-Mail</label>
-                                                <input name="" type="email" id="input-email" class="text-left">
+                                                <label for="input-email" class="form-label">電話</label>
+                                                <input name="phonenum" type="text" id="input-phonenum" class="text-left" value="${member.phonenum}">
+                                            	<span class="error" style="color:red;"> ${errors.phonenum} </span>
                                             </div>
                                         </div>
+
+
+                                        <!-- 儲存教師頭銜  為排版而上移至此 -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <div class="form-item">
-                                                <label for="input-gender" class="form-label">Gender</label>
+                                                <label for="input-teatitle" class="form-label">江湖稱號</label>
+                                                <input name="teatitle" type="text" id="input-teatitle" class="text-left" value="${param.teatitle}${member.teatitle}">
+                                            	<span class="error" style="color:red;"> ${errors.teatitle} </span>
+                                            </div>
+                                        </div>
+                                        <!-- 儲存科目 -->
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                            <div class="form-item">
+                                                <label for="input-type" class="form-label">科目</label>
                                                 <div class="input-select">
-                                                    <select id="input-gender" class="el-select2-gender-empty">
-                                                        <option value="">&nbsp;</option>
-                                                        <option value="1">Male</option>
-                                                        <option value="2">Female</option>
+<%--                                                 	<input name="subjectid" type="number" id="input-teatitle" class="text-left" value="${member.subjectid}"> --%>
+	                                           		<select class="el-select2-select-hour" name="subjectid" required>
+                                                    	<option value="" >&nbsp;</option>
+                                                    	<option value="1" <c:if test="${subjectid == 1}">selected</c:if> >變形學</option>
+                                                    	<option value="2" <c:if test="${subjectid == 2}">selected</c:if> >奇獸飼育學</option>
+                                                    	<option value="3" <c:if test="${subjectid == 3}">selected</c:if> >魔藥學</option>
+                                                    	<option value="4" <c:if test="${subjectid == 4}">selected</c:if> >黑魔法防禦術</option>
+                                                    	<option value="5" <c:if test="${subjectid == 5}">selected</c:if> >English</option>
+                                                    	<option value="6" <c:if test="${subjectid == 6}">selected</c:if> >Japanese</option>
+                                                    	<option value="7" <c:if test="${subjectid == 7}">selected</c:if> >Chinese</option>
+                                                    	<option value="8" <c:if test="${subjectid == 8}">selected</c:if> >Korean</option>
+                                                    	<option value="9" <c:if test="${subjectid == 9}">selected</c:if> >German</option>
                                                     </select>
+                                                    <span class="error" style="color:red;"> ${errors.subjectid} </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                            <div class="form-item">
-                                                <label for="input-username" class="form-label">Username</label>
-                                                <input name="" type="text" id="input-username" class="text-left">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <hr>
-                                        </div>
+                                        
+                                <!-- 老師部分 -->
+                                        <!-- 儲存introContent -->
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-item">
-                                                <label for="input-description" class="form-label">Description</label>
-                                                <textarea name="" id="input-description" cols="30" rows="10"></textarea>
+                                            	<!-- 偷塞teaqual -->
+	                                            <input type="hidden" name="teaqual" value="${member.teaqual}" />
+                                                <label for="input-description" class="form-label">自介內容</label>
+                                                <textarea name="introcontent" id="input-description" cols="30" rows="10"> ${param.introcontent} </textarea>
+                                                <span class="error" style="color:red;"> ${errors.introcontent} </span>
                                             </div>
                                         </div>
+                                        
+                                        <!-- 繳交按鈕 -->
                                         <div class="col-12">
                                             <div class="form-item mb-0">
                                                 <button class="button button-md button-block button-primary" type="submit">
-                                                    <span class="text">Save</span>
+                                                    <span class="text">前往填寫專業資格</span>
                                                 </button>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </form>
                             </div>

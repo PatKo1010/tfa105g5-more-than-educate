@@ -49,22 +49,22 @@ public class UpdateController {
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
 		if (email.length() == 0) {
-			errors.put("email", "請輸入email");
+			errors.put("email", "email不可為空");
 		}
 		if (password.length() == 0) {
-			errors.put("password", "請輸入密碼");
+			errors.put("password", "密碼不可為空");
 		}
 		if (username.length() == 0) {
-			errors.put("username", "請輸入使用者名稱");
+			errors.put("username", "使用者名稱不可為空");
 		}
-		if (phonenum.length() == 0) {
-			errors.put("phoenum", "請輸入電話");
+		if (phonenum.length() == 0 || phonenum == null) {
+			errors.put("phonenum", "電話不可為空");
 		}
 		if (birth == null) {
-			errors.put("birth", "請輸入生日");
+			errors.put("birth", "生日不可為空");
 		}
 		if (!errors.isEmpty()) {
-			return "/views/member/dashboard.jsp";
+			return "/views/member/profile.jsp";
 		}
 		
 //2.呼叫model
@@ -79,11 +79,11 @@ public class UpdateController {
 		memberBean.setBirth(birth);
 		memberBean.setPhoto(image);
 		MemberBean updateResult = memberService.update(memberBean);
+		httpSession.setAttribute("member", updateResult);
 	
 	//結果的"action" (by值結果)
-		httpSession.setAttribute("member", updateResult);
-		if(updateResult == null) {
-			return "/views/member/dashboard.jsp";
+		if(updateResult == null) {  
+			return "/views/member/profile.jsp";
 		} else {
 			return "redirect:" + "/views/member/dashboard.jsp";
 		}

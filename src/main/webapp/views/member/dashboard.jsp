@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ page import="java.util.*" %>
 <html>
 
 <head>
@@ -479,15 +479,25 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-2">
                                             <div class="el-avatar">
                                                 <div class="avatar-upload">
+                                                	<!-- 頭貼上傳 -->
                                                     <div class="avatar-edit">
-                                                    <input type="hidden" name="memID" value= "${member.memid}" />
-<!-- 上傳 -->												
+                                                    	<input type="hidden" name="memID" value= "${member.memid}" />
                                                         <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
-                                                        <label for="imageUpload"></label>
+<!--                                                         <label for="imageUpload"></label> -->
                                                     </div>
+                                                    <!-- 頭貼預覽 -->
                                                     <div class="avatar-preview">
-                                                        <div id="imagePreview" style="background-image: url(assets/images/people/default.jpg);">
-                                                        </div>
+                                                    	
+                                                            <c:if test="${not empty member.photo}">
+                                                                <c:set var="image" scope="page" value="${member.photo}"/>
+									                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);">
+	                                                        	</div>
+                                                            </c:if>
+                                                            <c:if test="${empty member.photo}">
+                                                                <div id="imagePreview" style="background-image: url(https://i.pinimg.com/564x/1d/83/a6/1d83a6d88d8be5b041a9a98fd5048311.jpg);">
+	                                                        	</div>
+                                                            </c:if>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -533,13 +543,13 @@
                                         </div>
 
                                         <!-- 繳交按鈕 -->
-                                        <div class="col-12">
-                                            <div class="form-item mb-0">
-                                                <button class="button button-md button-block button-primary" type="submit">
-                                                    <span class="text">儲存</span>
-                                                </button>
-                                            </div>
-                                        </div>
+<!--                                         <div class="col-12"> -->
+<!--                                             <div class="form-item mb-0"> -->
+<!--                                                 <button class="button button-md button-block button-primary" type="submit"> -->
+<!--                                                     <span class="text">儲存</span> -->
+<!--                                                 </button> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
                                     </div>
                                 </form>
                             </div>
