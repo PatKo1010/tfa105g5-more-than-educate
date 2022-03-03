@@ -1,6 +1,6 @@
 package web.education.dao.impl;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.PersistenceContext;
@@ -13,9 +13,9 @@ import web.education.dao.EducationDAOInterface;
 
 @Repository
 public class EducationDAO implements EducationDAOInterface {
-// 環境建立  實作DAOInterface  測試
-	
-	//環境建立
+//環境建立  實作DAOInterface  測試
+
+//環境建立
 //	private SessionFactory sessionFactory;
 //	public EducationDAO(SessionFactory sessionFactory) {
 //		this.sessionFactory = sessionFactory;
@@ -29,19 +29,17 @@ public class EducationDAO implements EducationDAOInterface {
 	public Session getSession() {
 		return this.session;
 	}
-	
-	
-	//實作DAOInterface
-	//1.新增
 
+
+//實作DAOInterface
+	//1.新增
+	@Override
 	public EducationBean insert(EducationBean educationBean) {
-		if (educationBean != null && educationBean.getEduid() != null) { //檢查輸入:是否為空
-			EducationBean tempObject = getSession().get( EducationBean.class, educationBean.getEduid() );
-			if(tempObject == null) { //檢查資料庫:是否為空
-				getSession().save(educationBean);
-				return educationBean;
+		System.out.println(educationBean);
+		if (educationBean.getMemid() != null) { //檢查輸入:是否為空
+			session.save(educationBean);
+			return educationBean;
 			}
-		}
 		return null; 
 	}
 	
@@ -59,12 +57,13 @@ public class EducationDAO implements EducationDAOInterface {
 	}
 	
 	//3.修改  //沒用merge: a.不會自動"新增流水號"  b.但每項還是要有值
-	public EducationBean update(Integer eduid, Integer teaid, Date edustart, Date eduend, String eduschool, String edudepart) {
+	@Override
+	public EducationBean update(Integer eduid, Integer memid, Date edustart, Date eduend, String eduschool, String edudepart) {
 		if(eduid != null) {  //先檢查輸入 
 			EducationBean tempObject = getSession().get(EducationBean.class, eduid);
 			if (tempObject != null) {
 				tempObject.setEduid(eduid);
-				tempObject.setTeaid(teaid);
+				tempObject.setMemid(memid);
 				tempObject.setEdustart(edustart);
 				tempObject.setEduend(eduend);
 				tempObject.setEduschool(eduschool);
@@ -74,7 +73,7 @@ public class EducationDAO implements EducationDAOInterface {
 		}
 		return null;
 	}
-	
+
 	//4a.查詢(單)
 	@Override
 	public EducationBean select(Integer eduid) {
@@ -90,10 +89,17 @@ public class EducationDAO implements EducationDAOInterface {
 		return getSession().createQuery("FROM EducationBean", EducationBean.class).list();
 	}
 
+	//4c.select by member id
+	@Override
+	public EducationBean selectByMemberid(Integer memid) {
+		if (memid != null ) {
+			return this.session.createQuery("FROM EducationBean where memid =:XXX",EducationBean.class)
+				.setParameter("XXX", memid)
+				.uniqueResult();
+		}
+		return null;
+	}
 
-
-
-	
 	
 	
 //	//測試
