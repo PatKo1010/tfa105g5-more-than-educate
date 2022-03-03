@@ -764,7 +764,7 @@
 <%--                         <a href="<%=request.getContextPath() %>/views/member/updateTeacherSkills.jsp"> --%>
                         <a href="<%=request.getContextPath() %>/views/member/getTeaSkills/id/${member.memid}">
                             <i class="fa fa-cog"></i>
-                            <span class="text">專業資格  ${member.memid}</span>
+                            <span class="text">專業資格</span>
                         </a>
                     </li>
                     <li>
