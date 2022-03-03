@@ -1,21 +1,20 @@
 package web.course.entity;
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "course")
-public class CourseBean {
-
+@Table(name = "v_course_member")
+public class vCourseMemberBean {
+	
 	@Id
 	@Column(name = "course_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer courseid;
 
 	@Column(name = "mem_id")
@@ -35,24 +34,18 @@ public class CourseBean {
 
 	@Column(name = "price")
 	private Integer price;
-
-	@OneToOne
-	@JoinColumn(name = "expertise_id", insertable = false, updatable = false)
-	private Expertise expertise;
-
-	public Expertise getExpertise() {
-		return expertise;
-	}
-
-	public void setExpertise(Expertise expertise) {
-		this.expertise = expertise;
-	}
+	
+	@Column(name = "username")
+	private String username;
+	
+	@Column(name = "photo")
+	private byte[] photo;
 
 	@Override
 	public String toString() {
-		return "CourseBean [courseid=" + courseid + ", memid=" + memid + ", expertiseid=" + expertiseid
+		return "vCourseMemberBean [courseid=" + courseid + ", memid=" + memid + ", expertiseid=" + expertiseid
 				+ ", coursetitle=" + coursetitle + ", courseintro=" + courseintro + ", classamount=" + classamount
-				+ ", price=" + price + "]";
+				+ ", price=" + price + ", username=" + username + ", photo=" + Arrays.toString(photo) + "]";
 	}
 
 	public Integer getCourseid() {
@@ -111,4 +104,19 @@ public class CourseBean {
 		this.price = price;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
 }

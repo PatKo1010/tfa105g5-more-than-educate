@@ -20,17 +20,11 @@ public class CourseUpdate {
 	@RequestMapping(path = { "/views/course.update" })
 	public String update(Model model, CourseBean bean) {
 		
-//		model.addAttribute("courseid",bean.getCourseid());
-//		model.addAttribute("memid", bean.getMemid());
-//		model.addAttribute("expertiseid", bean.getExpertiseid());
-//		model.addAttribute("coursetitle", bean.getCoursetitle());
-//		model.addAttribute("courseintro", bean.getCourseintro());
-//		model.addAttribute("classamount", bean.getClassamount());
-//		model.addAttribute("price", bean.getPrice());
-		
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
-
+		
+		model.addAttribute("expertiseid", bean.getExpertiseid());
+		
 		if (bean.getCourseid() == null) {
 			errors.put("courseid", "請重新輸入");
 		}
@@ -48,7 +42,7 @@ public class CourseUpdate {
 		}
 
 		if (bean.getCourseintro() == null || bean.getCourseintro().length() <= 30) {
-			errors.put("courseintro", "簡介不得少於30字");
+			errors.put("courseintro", "介紹不得少於30字");
 		}
 
 		if (bean.getClassamount() == null) {

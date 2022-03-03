@@ -3,10 +3,11 @@ package web.course.dao;
 import java.util.List;
 
 import web.course.entity.CourseBean;
+import web.course.entity.vCourseMemberBean;
 
 public interface CourseDaoInterface {
 
-	public CourseBean select(Integer courseid);
+	public vCourseMemberBean select(Integer courseid);
 
 	public List<CourseBean> select();
 
@@ -16,6 +17,9 @@ public interface CourseDaoInterface {
 			Integer classamount, Integer price, Integer courseid);
 
 	public boolean delete(Integer courseid);
+
+	public List<CourseBean> selectByMemID(Integer memId);
 	
-	List<CourseBean> selectByMemID (Integer memId);
+	public List<vCourseMemberBean> selectByCourseId(Integer courseid);
+
 }
