@@ -846,7 +846,7 @@
 		                                                        	</div>
 	                                                        </c:if>
 	                                                        <c:if test="${empty member.photo}">
-	                                                            <div id="imagePreview" style="background-image: url(https://i.pinimg.com/564x/1d/83/a6/1d83a6d88d8be5b041a9a98fd5048311.jpg);">
+	                                                            <div id="imagePreview" style="background-image: url(https://pat.webatm.citibank.com.tw/mgrfunc29/static/lib/images/upload-close.png);">
 	                                                        	</div>
 	                                                        </c:if>
 	                                                        <span class="error" style="color:red;"> ${errors.eduphoto} </span>

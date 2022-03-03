@@ -52,6 +52,7 @@ fetch(`http://localhost:7080/tfa105g5-more-than-educate/OrderDetail/selectCourse
     });
 
 function read(e) {
+    console.log(e);
     const seq = e.target.id.substring(1);
     const reservSection = document.querySelector(`#r${seq}`);
     const modalWrapper = document.querySelector("#modal-wrapper");
@@ -67,7 +68,6 @@ function read(e) {
         .then(response => response.json())
         .then((data) => {
             reservSection.innerHTML = ""
-            modalWrapper.innerHTML = ""
             if (data.length != 0) {
                 for (let i = 0; i < data.length; i++) {
                     const reservID = data[i].reservID;

@@ -59,10 +59,12 @@ public class HashtagDao implements HashtagDaoInterface {
 
 		@Override
 		public  List<MemberBean> findTeacher(String name){
+
 			String trimname=name.trim();
 			if(trimname!=null) {
+				System.out.println("dao: trimName:"+trimname);
 				String hql2=" from MemberBean where username like:name and teaqual=1";
-				List<MemberBean> result= session.createQuery(hql2).setParameter("name","%"+name+"%").list();
+				List<MemberBean> result= session.createQuery(hql2).setParameter("name","%"+trimname+"%").list();
 				return result;
 			}
 		return null;
@@ -70,29 +72,12 @@ public class HashtagDao implements HashtagDaoInterface {
 		
 		@Override
 		public  List<MemberBean> findTeacher2(String hashtag){
+			System.out.println(hashtag);
 			String trimname=hashtag.trim();
 			if(trimname!=null) {
 							String hql1 = "select teaid from HashtagBean where hashtag = :trimname";
 							List<Integer>  result1 = session.createQuery(hql1).setParameter("trimname", trimname).list();
-//							System.out.println(result1);
-//							
-//							int size=result1.size();
-//							for(int i=0;i<size;i++) {
-//								result1.add(String.valueOf(result1.get(i)));	
-//							}
-//							for(int i=0;i<size;i++) {
-//								result1.remove(i);	
-//							}
-//							for(int i=1;i<size;i++) {
-//								i=i*2-1;
-//								result1.add(i," or ");	
-//							}
-//							String str="";
-//							for(int i=0;i<result1.size();i++)
-//							{
-//							str+=result1.get(i);
-//							}
-//							System.out.println(str);
+
 							String hql2="from MemberBean where memid=:result1";
 							List<MemberBean> result2 = new ArrayList<>();
 							for(Integer memid : result1) {
