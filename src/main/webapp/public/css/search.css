@@ -43,23 +43,31 @@
 
 
 
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+div.error{
+	
+	font-size:30px;
+	color:red;
+}
+
+
 
 .person2{
   position: relative;
   width:80px;
   height:80px;
   top:15px;
-  left:45px;
+  left:80px;
   display:block;
   border-radius: 160px;
 }
 .membertitle2{
  position:relative;
- left:135px;
+ left:205px;
  top:-65px;
 width:250px;
 white-space: nowrap;
@@ -70,8 +78,9 @@ overflow:hidden;
 
 .introduction2{
   position: relative;
+  left:100px;
   top:-71px;
-margin: auto;
+  left:-30px;
 width: 250px;
 height:150px;
   overflow : hidden;
@@ -80,21 +89,89 @@ height:150px;
   width:14px;
   position: relative;
   top:4px;
-  left:7px;
+  left:70px;
 }
+.onebyone{
+		 position: relative;
+  left:100px;
+  top:-71px;
+}
+.resume{
+	 position: relative;
+  left:100px;
+  top:-71px;
+}
+.educatebackground{
+	
+	 position: relative;
+  left:100px;
+  top:-71px;
+	
+}
+.comment2{
+	
+	 position: relative;
+  left:100px;
+  top:-71px;
+	
+}
+.studentimg{
+	 position: relative;
+  left:100px;
+  top:-71px;
+	
+	
+}
+.date{
+	 position: relative;
+  left:100px;
+  top:-71px;
+	
+
+}
+
 .contact2{
+
   width:80px;
   height:40px;
   font-size: 14px;
   position: relative;
   top:-171px;
-  left:340px;
+  left:600px;
   border-radius:5px;
   border:grey 1px solid;
   color:#5C5C5C;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+.nowtitle{
+	font-size:16px;
+	color:#717F94;
+}
+.favorpriority{
+	font-size:16px;
+	color:#5C5C5C;
+	border: rgb(196, 195, 195) 1px solid;
+	border-radius:5px;
+}
+.newpriority{
+	font-size:16px;
+	color:#5C5C5C;
+	border: rgb(196, 195, 195) 1px solid;
+	border-radius:5px;
+	position:relative;
+	left:10px;
+}
 
 
 .outfavor{
@@ -167,6 +244,15 @@ height:150px;
 
 
 
+
+
+
+
+.error{
+	color:red;
+	font-size:30px;
+	float: left;
+}
 
 
 

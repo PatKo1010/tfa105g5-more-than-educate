@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../../public/favicon.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,500,600,700,900&display=swap">
-    <link rel="stylesheet" href="../../public/css/plugins.min.css" />
-    <link rel="stylesheet" href="../../public/css/search.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/public/css/plugins.min.css" />
+   <link rel="stylesheet"
+	href="<%=request.getContextPath()%>/public/css/search.css">
 </head>
 
 <body>
@@ -510,14 +511,14 @@
                                 <div class="container">
                                     <div class="el-cta el-cta-4">
                                         <form name="form1" method="post" action="<%=request.getContextPath()%>/search.controller" >
-                                        <input class=input name ="subject" placeholder="輸入想學習的科目或想找的老師或關鍵字"> </input>
+                                        <input class=input name ="keyword" placeholder="輸入想學習的科目或想找的老師或關鍵字"> </input>
                                         <input type="hidden" name="action" value="getTeacher"></input>
                                         <button type="sumit"  class="button button-md button-secondary">
                                             <span class="text text-light">搜尋</span>
                                         </botton>
                                     </form>
                                     </div>
-                                    <div>${errorMsgs}</div>
+                                    <div class="error">${errorMsgs}</div>
                                 </div>
                             </div>
 

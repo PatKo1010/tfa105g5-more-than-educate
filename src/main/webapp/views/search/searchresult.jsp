@@ -591,17 +591,13 @@
 							<div class="section-navbar">
 								<div class="row">
 									<div class="col-12 col-sm-12 col-md-6">
-										<div>
-											<button class="learningneed">學習需求</button>
-										</div>
 										<div class="el-sortination">
 											<p>
-												 <span class="title">目前排序</span>
+												 <span class="nowtitle">目前排序</span>
 											</p>
 											<ul>
-												<li class="favorpriority">優質教師優先</li>
-												<li class="newpriority">新教師優先</li>
-												
+												<button class="favorpriority">優質教師優先</button>
+												<button class="newpriority">新教師優先</button>
 											</ul>
 										</div>
 									</div>
@@ -633,6 +629,7 @@
 										<form name="form3" method="post"  action="<%=request.getContextPath()%>/search.controller" >
 										<button class="contact1">聯繫老師</button>
 										<input type="hidden" name="action" value="contact"></input>
+										<input type="hidden" name="talkTo" value="${member.username}">
 										</form>
 									</div>
 								</div>

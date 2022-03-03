@@ -2,6 +2,8 @@ package web.course.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +20,12 @@ public class CourseInsert {
 	private CourseServiceInterface courseServiceImpl;
 
 	@RequestMapping(path = { "/views/course.insert" })
-	public String insert (Model model, String courseid, String memid, String expertiseid, String coursetitle,
+	public String insert(Model model, String courseid, String memid, String expertiseid, String coursetitle,
 			String courseintro, String classamount, String price, CourseBean bean) {
-
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
 
+		model.addAttribute("expertiseid", expertiseid);
 //		if (courseid == null || courseid.length() == 0) {
 //			errors.put("courseid", "請重新輸入");
 //		}
@@ -41,11 +43,11 @@ public class CourseInsert {
 		}
 
 		if (courseintro == null || courseintro.length() <= 30) {
-			errors.put("courseintro", "簡介不得少於30字");
+			errors.put("courseintro", "介紹不得少於30字");
 		}
 
-		if (classamount == null || classamount.length() == 0) {
-			errors.put("classamount", "重新輸入");
+		if (classamount == null || classamount.length() == 0 ) {
+				errors.put("classamount", "重新輸入");
 		}
 
 		if (price == null || price.length() == 0) {

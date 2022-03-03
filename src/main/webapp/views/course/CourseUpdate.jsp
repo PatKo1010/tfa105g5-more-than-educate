@@ -775,76 +775,93 @@
         </div>
     </aside>
 </div>
-							<div class="col-12 col-sm-12 col-md-12 col-lg-8">
-								<div class="el-panel">
-									<div class="el-panel-body">
-										<div class="el-panel-title">
-											<h2>課程</h2>
-										</div>
-										<form action="<%=request.getContextPath()%>/views/course.update" method="post">
+<div class="col-12 col-sm-12 col-md-12 col-lg-8">
+	<div class="el-panel">
+		<div class="el-panel-body">
+			<div class="el-panel-title">
+				<h2>修改課程</h2>
+			</div>
+			<form class="form-3" action="<%=request.getContextPath()%>/views/course.update" method="post">
+			
+				  	<input type="hidden" name="courseid" value="${param.courseid}">
+                        <span class="errors">${errors.courseid}</span>
+												
+                    <input type="hidden" name="memid" value="${param.memid}">
+          	            <span class="errors">${errors.memid}</span>
+			
+				<div class="row">
 					
-                                                    <input type="hidden" name="courseid" value="${param.courseid}">
-                                                    <span class="errors">${errors.courseid}</span>
-												
-                                                    <input type="hidden" name="memid" value="${param.memid}">
-          	                                        <span class="errors">${errors.memid}</span>
-									
-											<div>
-												
-													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">專精編號：</label>
-                                                        <input type="text" name="expertiseid" value="${param.expertiseid}">
-                                                        <span class="errors">${errors.expertiseid}</span>
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="form-item">
+							<label for="input-type" class="form-label">課程名稱：</label> 
+                            <input type="text" name="coursetitle" value="${param.coursetitle}">
+                            <span class="errors" style="color:red;">${errors.coursetitle}</span>
+						</div>
+					</div>
+					<div class="col-12">
+						<hr>
+					</div>
+					<div class="col-12 col-sm-12 col-md-6">
+												<div class="form-item">
+													<label for="input-type" class="form-label">專精科目：</label>
+													<div class="input-select">
+														<select class="el-select2-select-hour" name="expertiseid" required>
+															<option value="">&nbsp;</option>
+															<option <c:if test='${expertiseid == 1}'>selected</c:if> value="1">TOEIC</option>
+															<option <c:if test='${expertiseid == 2}'>selected</c:if> value="2">TOEFL</option>
+															<option <c:if test='${expertiseid == 3}'>selected</c:if> value="3">IELTS</option>
+															<option <c:if test='${expertiseid == 4}'>selected</c:if> value="4">GEPT</option>
+															<option <c:if test='${expertiseid == 5}'>selected</c:if> value="5">兒童美語</option>
+														</select>
+														<span class="errors" style="color:red;">${errors.expertiseid}</span>
 													</div>
-												
-											</div>
-											<br>
-											<div>
-													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程名稱：</label> 
-                                                        <input type="text" name="coursetitle" value="${param.coursetitle}">
-                                                        <span class="errors">${errors.coursetitle}</span>
-													</div>
-											</div>
-											<br>
-											<div>
-													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程總堂數：</label>
-														<input type="text" name="classamount" value="${param.classamount}">
-                                                        <span class="errors">${errors.classamount}</span>
-													</div>
-											</div>
-											<br>
-											<div>
-													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程價格：</label>
-                                                        <input type="text" name="price" value="${param.price}">
-                                                            <span class="errors">${errors.price}</span>
-													</div>
-											</div>
-											<br>
-											<div>
-													<div class="col-12 col-sm-12 col-md-6">
-														<label for="input-type" class="form-label">課程簡介：</label> 
-                                                        <textarea name="courseintro">${param.courseintro}</textarea>
-                                                            <span class="errors">${errors.courseintro}</span>
-													</div>
-											</div>
-											<h3><span class="errors">${errors.action}</span></h3>
-											<br>
-											<div class="col-12">
-												<div class="form-item mb-0">
-													<input type="hidden" name="production" value="修改">
-													<input type="submit"
-														class="button button-md button-block button-primary"
-														value="修改">
 												</div>
 											</div>
-										</form>
-									</div>
-								</div>
+					<div class="col-12 col-sm-12 col-md-3">
+						<div class="form-item">
+								<label for="input-type" class="form-label">課堂總堂數：</label>
+							<div>
+                               <input onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" type="number" name="classamount" value="${param.classamount}">
+                               <span class="errors" style="color:red;">${errors.classamount}</span>
 							</div>
 						</div>
+					</div>
+					<div class="col-12 col-sm-12 col-md-3">
+						<div class="form-item">
+								<label for="input-type" class="form-label">課程價格：</label>
+							<div>
+                              <input onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" type="number" name="price" value="${param.price}">
+                              <span class="errors" style="color:red;">${errors.price}</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<hr>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 pt-15">
+						<div class="form-item">
+							<label class="form-label">課程介紹：</label>
+							<textarea name="courseintro">${param.courseintro}</textarea>
+                            <span class="errors" style="color:red;">${errors.courseintro}</span>
+						</div>
+					</div>
+					<h3><span class="errors">${errors.action}</span></h3>
+					<div class="col-12">
+						<hr>
+					</div>
+					<div class="col-12">
+						<div class="form-item mb-0">
+							<input type="hidden" value="修改">
+							<input type="submit" class="button button-md button-block button-primary" value="修改">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>		
+
+
 					</div>
 				</div>
 			</section>
@@ -864,19 +881,18 @@
 	
 	
 	<style>
-		input{
-			color:black;
-			background:#ccc;
-			border:1 none;
-			border-radius:5px;
-		}
+/* 		input{ */
+/* 			color:black; */
+/* 			background:#ccc; */
+/* 			border:1 none; */
+/* 			border-radius:5px; */
+/* 		} */
 		
 		textarea{
 			color:black;
-			background:#ccc;
 			resize:none;
 			width:300px;
-			height:100px;
+			height:300px;
 			border-radius:5px;
 		}
 	</style>

@@ -17,6 +17,6 @@ public interface SubjectDAOInterface {
 
 	public abstract List<SubjectBean> select(); //查詢(多筆)
 	
-	
 	public abstract List<MemberBean> findTeacher(String subjectname);
+	
 }

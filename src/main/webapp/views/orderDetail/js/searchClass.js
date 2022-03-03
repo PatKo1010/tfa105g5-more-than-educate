@@ -53,9 +53,8 @@ fetch(`http://localhost:7080/tfa105g5-more-than-educate/OrderDetail/selectCourse
 
 function read(e) {
     const seq = e.target.id.substring(1);
-    const table = document.querySelector(`#t${seq}`);
-    const reservSection = document.querySelector(`#r${seq}`)
-    const modalWrapper = document.querySelector(`#modal-wrapper`)
+    const reservSection = document.querySelector(`#r${seq}`);
+    const modalWrapper = document.querySelector("#modal-wrapper");
     fetch(`http://localhost:7080/tfa105g5-more-than-educate/reserv/selectByOrderID`, {
         method: 'POST',
         headers: {
@@ -71,17 +70,9 @@ function read(e) {
             modalWrapper.innerHTML = ""
             if (data.length != 0) {
                 for (let i = 0; i < data.length; i++) {
-                    let options = {
-                        year: 'numeric',   //(e.g., 2019)
-                        month: '2-digit',    //(e.g., Oct)
-                        day: 'numeric',    //(e.g., 1)
-                        hour: '2-digit',   //(e.g., 02)
-                        minute: '2-digit', //(e.g., 02)          
-                        hour12: false   // 24 小時制
-                    };
-
                     const reservID = data[i].reservID;
                     const isReserved = data[i].isReserved;
+
                     if (isReserved === false) {
                         reservSection.innerHTML +=
                             `<ul id='reservSection${reservID}' style="display:flex; justify-content:space-between;"> 
@@ -97,16 +88,6 @@ function read(e) {
                                         第${i + 1}堂
                                     </li>
                                 </ul>`
-
-                        const nowDate = new Date(Date.now());
-                        const nowDateString = nowDate.toLocaleDateString("en-TW", options)
-                        const nowYearMonthDay = (nowDateString.split(","))[0].split("/")
-                        const nowHourMin = (nowDateString.split(","))[1].split(":")
-                        const nowYear = nowYearMonthDay[2]
-                        const nowDayy = nowYearMonthDay[1]
-                        const nowMonth = nowYearMonthDay[0]
-                        const nowHour = nowHourMin[0].trimStart();
-                        const nowMIn = nowHourMin[1];
 
                         modalWrapper.innerHTML += `
                                 <div class="modal fade" id="exampleModal${reservID}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,11 +105,11 @@ function read(e) {
                                                 <section type= "update-section-${reservID}">
                                                     <label for="updateStartTime"> 請輸入開始日期 </label>
                                                     <input name="updateStartTime" type = "datetime-local" id= "update-start-${reservID}"
-                                                        value="${nowYear}-${nowMonth}-${nowDayy}T${nowHour}:${nowMIn}">
+                                                        value="${getParsedNowTime()}">
                                                     <br>
                                                     <label for="updateEndTime"> 請輸入結束日期 </label> 
                                                     <input name="updateEndTime" type = "datetime-local" id= "update-end-${reservID}"
-                                                           value="${nowYear}-${nowMonth}-${nowDayy}T${nowHour}:${nowMIn}">
+                                                           value="${getParsedNowTime()}">
                                                 </section>
                                             </div>
                                             <div class="modal-footer">
@@ -139,25 +120,9 @@ function read(e) {
                                     </div>
                                 </div> `
                     } else {
-                        const reservDateStart = data[i].reservDateStart
+                        const reservDateStart = data[i].reservDateStart;
                         const reservDateEnd = data[i].reservDateEnd;
-
-                        const startTime = new Date(reservDateStart).toLocaleDateString("en-TW", options).split(",");
-                        const endTime = new Date(reservDateEnd).toLocaleDateString("en-TW", options).split(",");
-                        //  ['01/1/1970', ' 08:00']
-
-                        const startYear = startTime[0].split("/")[2];
-                        const startMonth = startTime[0].split("/")[0];
-                        const startDate = startTime[0].split("/")[1];
-                        const startHour = startTime[1].split(":")[0].trimStart();
-                        const startMin = startTime[1].split(":")[1];
-
-                        const endYear = endTime[0].split("/")[2];
-                        const endMonth = endTime[0].split("/")[0];
-                        const endDate = endTime[0].split("/")[1];
-                        const endHour = endTime[1].split(":")[0].trimStart();
-                        const endMin = endTime[1].split(":")[1];
-
+                        console.log(reservDateStart);
 
                         reservSection.innerHTML +=
                             `<ul id='reservSection${reservID}' style="display:flex; justify-content:space-between;"> 
@@ -167,7 +132,8 @@ function read(e) {
                                         </button>
                                     </li>
                                     <li>
-                                        ${startYear}/${startMonth}/${startDate} ${startHour}:${startMin}-${endHour}:${endMin}
+                                        <p>-${getParsedReservTime(reservDateStart)}</p>
+                                        <p>${getParsedReservTime(reservDateEnd)}</p>
                                     </li>
                                     <li>
                                         第${i + 1}堂
@@ -192,10 +158,10 @@ function read(e) {
                                                 <section type= "update-section-${reservID}">
                                                     <label for="updateStartTime">請修改開始預約時間</label>
                                                     <input name="updateStartTime" type="datetime-local" id="update-start-${reservID}"
-                                                           value="${startYear}-${startMonth}-${startDate}T${startHour}:${startMin}">
+                                                           value="${getParsedReservTime(reservDateStart)}">
                                                     <label for="updateEndTime">請修改結束預約時間</label>
                                                     <input name="updateEndTime" type="datetime-local" id= "update-end-${reservID}"
-                                                           value="${endYear}-${endMonth}-${endDate}T${endHour}:${endMin}">
+                                                           value="${getParsedReservTime(reservDateEnd)}">
                                                 </section>
                                             </div>
 
@@ -207,17 +173,58 @@ function read(e) {
                                         </div>
                                     </div>
                                 </div> `
-
-
                     }
                 }
-
             } else {
                 reservSection.innerHTML += `<p>尚無預定</p>`
-
             }
-
         })
+}
+
+function getParsedNowTime() {
+    const options = {
+        year: 'numeric',   //(e.g., 2019)
+        month: '2-digit',    //(e.g., Oct)
+        day: '2-digit',    //(e.g., 1)
+        hour: '2-digit',   //(e.g., 02)
+        minute: '2-digit', //(e.g., 02)          
+        hour12: false   // 24 小時制
+    };
+
+    const nowDate = new Date(Date.now());
+    const nowDateString = nowDate.toLocaleDateString("en-TW", options)
+
+    const nowYearMonthDay = (nowDateString.split(","))[0].split("/")
+    const nowHourMin = (nowDateString.split(","))[1].split(":")
+
+    const nowYear = nowYearMonthDay[2]
+    const nowMonth = nowYearMonthDay[0]
+    const nowDay = nowYearMonthDay[1]
+
+    const nowHour = nowHourMin[0].trimStart();
+    const nowMIn = nowHourMin[1];
+
+    return `${nowYear}-${nowMonth}-${nowDay}T${nowHour}:${nowMIn}`
+}
+
+function getParsedReservTime(reservDate) {
+    const options = {
+        year: 'numeric',   //(e.g., 2019)
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',   //(e.g., 02)
+        minute: '2-digit', //(e.g., 02)          
+        hour12: false   // 24 小時制
+    };
+    console.log(reservDate);
+    const Time = new Date(reservDate).toLocaleDateString("en-TW", options).split(",");
+    //  ['01/1/1970', ' 08:00']
+    const year = Time[0].split("/")[2];
+    const month = Time[0].split("/")[0];
+    const date = Time[0].split("/")[1];
+    const hour = Time[1].split(":")[0].trimStart();
+    const min = Time[1].split(":")[1];
+    return `${year}-${month}-${date}T${hour}:${min}`
 
 }
 

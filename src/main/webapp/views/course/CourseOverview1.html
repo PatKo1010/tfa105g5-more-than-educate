@@ -796,7 +796,7 @@
 
                                             <table id="all_course" class="table">
                                                 <tr>
-                                                    <th>專精編號</th>
+                                                    <th>專精科目</th>
                                                     <th class="overflow">課程標題</th>
                                                     <th class="overflow">課程內容</th>
                                                     <th>堂數</th>
@@ -829,10 +829,7 @@
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    memid: 1
-                })
+                }
             })
                 .then(response => response.json())
                 .then((data) => {
@@ -856,12 +853,13 @@
                         const classamount = data[i].classamount
                         const price = data[i].price
                         const expertiseid = data[i].expertiseid
+                        const expertiseName = data[i].expertise.expertiseName;
 
                         courseTable.innerHTML += (
                             `<tr class="overflow">
-                <th>${expertiseid}</th>
+                <th>${expertiseName}</th>
     
-                <th class="overflow">${coursetitle}</th>
+                <th class="overflow"><a href="/tfa105g5-more-than-educate/views/courseDetail?courseId=${courseid}">${coursetitle}</a></th>
 
                 <th class="overflow">${courseintro}</th>
     
@@ -892,17 +890,8 @@
     </tr>	`
                         )
                     }
-
-
-
                 })
-
-
         })
-
-
-
-
 
 
     </script>

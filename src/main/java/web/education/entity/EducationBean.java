@@ -1,6 +1,7 @@
 package web.education.entity;
 
-import java.util.Date;
+import java.util.Arrays;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,9 +19,9 @@ public class EducationBean {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer eduid;
 	
-	@Column(name = "tea_id")
-	private Integer teaid;
-	
+	@Column(name = "tea_id") // == tea_id
+	private Integer memid;
+
 	@Column(name = "edu_start")
 	private Date edustart;
 	
@@ -32,15 +33,19 @@ public class EducationBean {
 	
 	@Column(name = "edu_depart")
 	private String edudepart;
-
+	
+	@Column(name = "edu_photo")
+	private byte[] eduphoto;
+	
+	
 	@Override
 	public String toString() {
-		return "EducationBean [eduid=" + eduid + ", teaid=" + teaid + ", edustart=" + edustart + ", eduend=" + eduend
-				+ ", eduschool=" + eduschool + ", edudepart=" + edudepart + "]";
+		return "EducationBean [eduid=" + eduid + ", memid=" + memid + ", edustart=" + edustart + ", eduend=" + eduend
+				+ ", eduschool=" + eduschool + ", edudepart=" + edudepart + ", eduphoto=" + Arrays.toString(eduphoto)
+				+ "]";
 	}
 
-	
-	
+
 	public Integer getEduid() {
 		return eduid;
 	}
@@ -49,12 +54,12 @@ public class EducationBean {
 		this.eduid = eduid;
 	}
 
-	public Integer getTeaid() {
-		return teaid;
+	public Integer getMemid() {
+		return memid;
 	}
 
-	public void setTeaid(Integer teaid) {
-		this.teaid = teaid;
+	public void setMemid(Integer teaid) {
+		this.memid = teaid;
 	}
 
 	public Date getEdustart() {
@@ -88,5 +93,12 @@ public class EducationBean {
 	public void setEdudepart(String edudepart) {
 		this.edudepart = edudepart;
 	}
-	
+
+	public byte[] getEduphoto() {
+		return eduphoto;
+	}
+
+	public void setEduphoto(byte[] eduphoto) {
+		this.eduphoto = eduphoto;
+	}
 }

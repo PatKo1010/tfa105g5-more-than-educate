@@ -1,6 +1,5 @@
 package web.course.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,28 +8,28 @@ import org.springframework.transaction.annotation.Transactional;
 
 import web.course.dao.CourseDaoInterface;
 import web.course.entity.CourseBean;
+import web.course.entity.vCourseMemberBean;
 import web.course.service.CourseServiceInterface;
+import web.member.dao.impl.MemberDAO;
+import web.member.entity.MemberBean;
 
 @Service
 @Transactional
 public class CourseServiceImpl implements CourseServiceInterface {
-
 	@Autowired
 	private CourseDaoInterface courseDao;
+	@Autowired
+	private MemberDAO memberDao;
+
 
 	@Transactional
-	public List<CourseBean> select(CourseBean bean) {
-		List<CourseBean> result = null;
-		if (bean != null && bean.getCourseid() != null && !bean.getCourseid().equals(0)) {
-			CourseBean temp = courseDao.select(bean.getCourseid());
-			if (temp != null) {
-				result = new ArrayList<CourseBean>();
-				result.add(temp);
-			}
-		} else {
-			result = courseDao.select();
+	@Override
+	public vCourseMemberBean selectByCourseId(Integer courseId) {
+		if (courseId == null) {
+			return null;
 		}
-		return result;
+		
+		return courseDao.select(courseId);
 	}
 
 	@Override
@@ -62,9 +61,28 @@ public class CourseServiceImpl implements CourseServiceInterface {
 	}
 
 	@Override
-	public List<CourseBean> selectByMemId(CourseBean bean) {
+	public List<CourseBean> selectByMemId(MemberBean bean) {
 		if (bean != null) {
 			return courseDao.selectByMemID(bean.getMemid());
+		}
+		return null;
+	}
+
+	@Override
+	public byte[] findMemberImg(Integer courseid) {
+		if (courseid != null) {
+			vCourseMemberBean bean = courseDao.select(courseid);
+			if (bean != null) {
+				return bean.getPhoto();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public List<vCourseMemberBean> selectByCourseId(vCourseMemberBean bean) {
+		if(bean != null) {
+			return courseDao.selectByCourseId(bean.getCourseid());
 		}
 		return null;
 	}

@@ -27,16 +27,14 @@ public class SearchServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		String action = req.getParameter("action");
 		if ("getTeacher".equals(action)) {
-			String str = req.getParameter("subject");
-//			if(str=="") {
-//				List<String> errorMsgs = new LinkedList<String>();
-//				req.setAttribute("errorMsgs", "請輸入想學習的科目或想找的老師或關鍵字");
-//				RequestDispatcher failureView = req.getRequestDispatcher("/views/search/search.jsp");
-//				failureView.forward(req, res);
-//				return;
-//			}
-			List<String> errorMsgs = new LinkedList<String>();
-			req.setAttribute("errorMsgs", "找不到「"+str+"」相關資料");
+			String str = req.getParameter("keyword");
+			if(str=="") {
+				List<String> errorMsgs = new LinkedList<String>();
+				req.setAttribute("errorMsgs", "請輸入想學習的科目或想找的老師或關鍵字");
+				RequestDispatcher failureView = req.getRequestDispatcher("/views/search/failpage.jsp");
+				failureView.forward(req, res);
+				return;
+			}
 			ServletContext ctx = getServletContext();
 			ApplicationContext ac = (ApplicationContext) ctx
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
@@ -50,6 +48,8 @@ public class SearchServlet extends HttpServlet {
 				if(members == null) {
 					members =  hashtagSvc.findTeacherTest(str);//名字找老師
 					if(members.isEmpty()) {
+						List<String> errorMsgs = new LinkedList<String>();
+						req.setAttribute("errorMsgs", "找不到「"+str+"」相關資料");
 						RequestDispatcher failureView = req
 								.getRequestDispatcher("/views/search/failpage.jsp");
 						failureView.forward(req, res);
@@ -58,6 +58,7 @@ public class SearchServlet extends HttpServlet {
 				}
 			}
 			req.setAttribute("members", members);
+			System.out.println(members.get(0));
 			RequestDispatcher successView = req.getRequestDispatcher("/views/search/searchresult.jsp");
 			successView.forward(req, res);
 		}
@@ -73,10 +74,10 @@ public class SearchServlet extends HttpServlet {
 			ServletContext ctx = getServletContext();
 			ApplicationContext ac = (ApplicationContext) ctx
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-
-			RequestDispatcher directView = req.getRequestDispatcher("/views/search/teacher.jsp");
+			RequestDispatcher directView = req.getRequestDispatcher("/chatservlet");
 			directView.forward(req, res);
 		}
+
 		
 	}
 }
