@@ -68,13 +68,13 @@ public class UpdateTeacherSkillsController {
 		educationBean.setEdudepart(edudepart);
 		educationBean.setEduphoto(eduphoto);
 		
-		EducationBean insertSkillResult = educationService.insert(educationBean);
+		EducationBean insertSkillResult = educationService.update(educationBean);
 		
 ////3.結局動作
 		if (insertSkillResult == null) {
-			return "/views/member/teacherSkills.jsp";  
+			return "/views/member/updateTeacherSkills.jsp";  
 		} else {
-			return "redirect:" + "/views/member/teacherSkills.jsp";  //暫定跳回teacherProfile
+			return "redirect:" + "/views/member/updateTeacherSkills.jsp";  //暫定跳回teacherProfile
 		}
 
 	}

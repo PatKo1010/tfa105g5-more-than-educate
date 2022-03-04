@@ -14,7 +14,7 @@ public interface EducationDAOInterface {
 	public abstract boolean delete(Integer eduid);
 
 	//3.修改
-	public abstract EducationBean update(Integer eduid, Integer teaid, Date edustart, Date eduend, String eduschool, String edudepart);
+	public abstract EducationBean update(EducationBean educationBean);
 
 	//4a.查詢(單)
 	public abstract EducationBean select(Integer eduid);
@@ -23,6 +23,6 @@ public interface EducationDAOInterface {
 	public abstract List<EducationBean> select();
 	
 	//4c select by memid
-	EducationBean selectByMemberid(Integer memid); 
+	EducationBean selectByMemberid(Integer memid);
 
 }
