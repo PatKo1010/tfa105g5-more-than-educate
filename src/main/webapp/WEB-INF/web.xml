@@ -34,11 +34,7 @@
 			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-		<multipart-config>
-			<location>C:\Users\Tibame_T14\Desktop</location>
-			<max-file-size>2097152</max-file-size>
-			<max-request-size>4194304</max-request-size>
-		</multipart-config>
+		<multipart-config/>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>

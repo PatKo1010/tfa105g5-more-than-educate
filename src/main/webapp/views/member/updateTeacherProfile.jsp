@@ -515,6 +515,7 @@
 												<div class="pr-15">
 													<div class="form-item">
 														<label for="input-name" class="form-label">E-mail</label>
+														<input name="eduid" type="hidden" id="input-eduid" class="text-left" value="${education.eduid}" >
 														<input name="email" type="text" id="input-email"
 															value="${member.email}"> <span class="error"
 															style="color: red;"> ${errors.email} </span>

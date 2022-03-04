@@ -30,7 +30,6 @@ public class GetTeaSkillsController {
 		EducationBean bean = educationService.selectByMember(id);
 		session.setAttribute("education", bean);
 		System.out.println(bean);
-		
-		return "/views/member/updateTeacherSkills.jsp";
+		return "redirect:" + "/views/member/updateTeacherSkills.jsp";
 	}
 }
