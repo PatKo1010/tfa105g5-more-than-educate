@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
+import web.course.entity.CourseBean;
 import web.hashtag.service.impl.HashtagService;
 import web.member.entity.MemberBean;
 import web.subject.entity.SubjectBean;
@@ -21,11 +22,26 @@ public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		doPost(req, res);
+		
+		HttpSession session = req.getSession();
+		ServletContext ctx = getServletContext();
+		ApplicationContext ac = (ApplicationContext) ctx
+				.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+		HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
+		String str=req.getParameter("id");
+		Integer id=Integer.parseInt(str);
+		MemberBean members3 =  hashtagSvc.showTeacher(id);
+		req.setAttribute("members3", members3);	
+		
+		List<CourseBean> findcourse = hashtagSvc.showCourse(id);
+		req.setAttribute("findcourse", findcourse);
+		RequestDispatcher successView = req.getRequestDispatcher("/views/search/teacher.jsp");
+		successView.forward(req, res);
 	}
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		String action = req.getParameter("action");
+		HttpSession session = req.getSession();
 		if ("getTeacher".equals(action)) {
 			String str = req.getParameter("keyword");
 			if(str=="") {
@@ -40,8 +56,6 @@ public class SearchServlet extends HttpServlet {
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 			SubjectService subjectSvc = ac.getBean("subjectService", SubjectService.class);
 			HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
-	
-		
 //			List<MemberBean> members =  hashtagSvc.findTeacherTest2(str);//關鍵字找老師
 			List<MemberBean> members = null;
 //			if(members.size() == 0){
@@ -58,11 +72,12 @@ public class SearchServlet extends HttpServlet {
 						return;
 					}
 				}
+				
 //			}
 //			List<String> hashtag=hashtagSvc.findHashtagName(members);
 //			req.setAttribute("hashtag", hashtag);
+				session.setAttribute("members",members);
 			req.setAttribute("members", members);
-//			System.out.println(members.get(0));
 			RequestDispatcher successView = req.getRequestDispatcher("/views/search/searchresult.jsp");
 			successView.forward(req, res);
 		}
@@ -71,17 +86,40 @@ public class SearchServlet extends HttpServlet {
 			ApplicationContext ac = (ApplicationContext) ctx
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 
-			RequestDispatcher directView = req.getRequestDispatcher("/views/course/course.jsp");
+			RequestDispatcher directView = req.getRequestDispatcher("/views/course/CourseShoppingCart.html");
 			directView.forward(req, res);
 		}
 		if ("contact".equals(action)) {
 			ServletContext ctx = getServletContext();
 			ApplicationContext ac = (ApplicationContext) ctx
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-			RequestDispatcher directView = req.getRequestDispatcher("/chatservlet");
+			RequestDispatcher directView = req.getRequestDispatcher("/views/search/teacher.jsp");
 			directView.forward(req, res);
 		}
+		if ("goodOrder".equals(action)) {
+			ServletContext ctx = getServletContext();
+			ApplicationContext ac = (ApplicationContext) ctx
+					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+			
+			List<MemberBean> members1=(List<MemberBean>) session.getAttribute("members");
+			HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
+			 members1 =  hashtagSvc.orderGoodTeacher(members1);
 
+			req.setAttribute("members1", members1);	
+			RequestDispatcher directView =req.getRequestDispatcher("/views/search/searchgoodorder.jsp");
+			directView.forward(req, res);
+		}
+		if ("newOrder".equals(action)) {
+			ServletContext ctx = getServletContext();
+			ApplicationContext ac = (ApplicationContext) ctx
+					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 		
+			List<MemberBean> members2=(List<MemberBean>) session.getAttribute("members");
+			HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
+			 members2 =  hashtagSvc.orderNewTeacher(members2);
+			req.setAttribute("members2", members2);	
+			RequestDispatcher directView = req.getRequestDispatcher("/views/search/searchneworder.jsp");
+			directView.forward(req, res);
+		}
 	}
 }

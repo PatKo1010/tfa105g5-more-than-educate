@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import configuration.SpringJavaConfig;
+import web.course.entity.CourseBean;
 import web.hashtag.dao.HashtagDaoInterface;
 import web.hashtag.entity.HashtagBean;
 import web.member.entity.MemberBean;
@@ -33,7 +34,18 @@ public class HashtagService {
 	public List<MemberBean> findTeacherTest2(String hashtag) {
 		return hashtagDao.findTeacher2(hashtag);
 	}
-	public  List<HashtagBean> findHashtagName(List <MemberBean> members) {
-		return hashtagDao.findHashtagName(members);
+	public  List<MemberBean> orderGoodTeacher(List <MemberBean> members){
+		return hashtagDao.orderGoodTeacher(members);
+	}
+	public  List<MemberBean> orderNewTeacher(List <MemberBean> members){
+		return hashtagDao.orderNewTeacher(members);
+	}
+	public MemberBean showTeacher(Integer id){
+		return hashtagDao.showTeacher(id);
+	}
+	
+	public List<CourseBean> showCourse(Integer id){
+		
+		return hashtagDao.showCourse(id);
 	}
 }
