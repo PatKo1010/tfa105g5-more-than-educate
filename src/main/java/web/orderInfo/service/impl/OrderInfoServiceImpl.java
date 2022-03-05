@@ -63,8 +63,8 @@ public class OrderInfoServiceImpl implements OrderInfoServiceInterface {
 				context.getBean("orderInfoServiceImpl", OrderInfoServiceInterface.class);
 		
 		OrderInfoEntity orderInfoEntity = new OrderInfoEntity();
-		orderInfoEntity.setMemId(10);
-		orderInfoEntity.setCourseId(5);
+		orderInfoEntity.setMemId(24);
+		orderInfoEntity.setCourseId(8);
 		System.out.println(service.insertOrderReserved(orderInfoEntity));
 		
 		
