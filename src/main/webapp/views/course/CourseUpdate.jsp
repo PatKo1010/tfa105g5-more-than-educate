@@ -557,10 +557,8 @@
 			<form class="form-3" action="<%=request.getContextPath()%>/views/course.update" method="post">
 			
 				  	<input type="hidden" name="courseid" value="${param.courseid}">
-                        <span class="errors">${errors.courseid}</span>
 												
                     <input type="hidden" name="memid" value="${param.memid}">
-          	            <span class="errors">${errors.memid}</span>
 			
 				<div class="row">
 					
