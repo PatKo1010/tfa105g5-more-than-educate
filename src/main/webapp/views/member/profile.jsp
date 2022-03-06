@@ -501,10 +501,12 @@
                                                     <!-- 頭貼預覽 -->
                                                     <div class="avatar-preview">
                                                         <c:if test="${not empty member.photo}">
-                                                            <c:set var="image" scope="page" value="${member.photo}"/>
-									                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);">
-	                                                        	</div>
-                                                        	</c:if>
+<%--                                                             <c:set var="image" scope="page" value="${member.photo}"/> --%>
+<%-- 									                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);"> --%>
+<!-- 	                                                        	</div> -->
+															<div id="imagePreview" style="background-image: url(/tfa105g5-more-than-educate/views/member/getProfilePhotoController);">
+															</div>
+                                                       	</c:if>
                                                         <c:if test="${empty member.photo}">
                                                             <div id="imagePreview" style="background-image: url(https://i.pinimg.com/564x/1d/83/a6/1d83a6d88d8be5b041a9a98fd5048311.jpg);">
                                                         	</div>
