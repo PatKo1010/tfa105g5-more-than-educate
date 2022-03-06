@@ -456,16 +456,7 @@
 										action="<%=request.getContextPath()%>/views/course.insert"
 										method="post">
 
-										<div>
-											<div class="col-12 col-sm-12 col-md-6">
-												<div class="form-item">
-													<label for="input-type" class="form-label">會員編號：</label> 
-													<input type="text" name="memid" value="${param.memid}"> 
-													<span class="errors" style="color:red;">${errors.memid}</span>
-												</div>
-											</div>
-
-										</div>
+													<input type="hidden" name="memid" value="${member.memid}">
 										<br>
 
 										<div class="row">

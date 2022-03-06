@@ -617,17 +617,17 @@
 
                         courseTable.innerHTML += (
                             `<tr class="overflow">
-                <th>${expertiseName}</th>
+                <td>${expertiseName}</td>
     
-                <th class="overflow"><a href="/tfa105g5-more-than-educate/views/courseDetail?courseId=${courseid}">${coursetitle}</a></th>
+                <td class="overflow"><a href="/tfa105g5-more-than-educate/views/courseDetail?courseId=${courseid}">${coursetitle}</a></td>
 
-                <th class="overflow">${courseintro}</th>
+                <td class="overflow">${courseintro}</td>
     
-                <th>${classamount}</th>
+                <td>${classamount}</td>
     
-                <th>${price}</th>
+                <td>${price}</td>
                 
-                <th>
+                <td>
                     <form action="/tfa105g5-more-than-educate/views/course.jump.update" method= "post" >
                         <input name= "courseid" type= "hidden" value ='${courseid}'/> 
                         <input name= "memid" type= "hidden" value ='${memid}'/> 
@@ -639,14 +639,14 @@
                        
                         <button type= "submit" class="button button-primary" style="width:50px;height:30px;">修改</button>
                     </form>
-                 </th>
+                 </td>
              
-                <th>
+                <td>
                     <form action = "/tfa105g5-more-than-educate/views/course.delete" method = "post">
                         <input name= "courseid" type= "hidden" value ='${courseid}'/> 
                         <button type= "submit" class="button button-primary" style="width:50px;height:30px;">下架</button>
                     </form>
-                </th>
+                </td>
     </tr>	`
                         )
                     }
