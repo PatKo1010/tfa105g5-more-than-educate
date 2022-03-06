@@ -634,16 +634,6 @@
 	                                                <input name="eduid" type="hidden" id="input-eduid" class="text-left" value="${education.eduid}" >
 													<input name="eduschool" type="text" id="input-eduschool" class="text-left" value="${education.eduschool}" >
 													<span class="error" style="color:red;"> ${errors.eduschool} </span>
-<!--                                                 <div class="input-select"> -->
-<!--                                                     <select class="el-select2-teacher-languages" name="flag"> -->
-<!--                                                         <option value="">&nbsp;</option> -->
-<!--                                                         <option value="uk">English</option> -->
-<!--                                                         <option value="france">French</option> -->
-<!--                                                         <option value="spain">Spanish</option> -->
-<!--                                                         <option value="germany">German</option> -->
-<!--                                                         <option value="italy">Italian</option> -->
-<!--                                                     </select> -->
-<!--                                                 </div> -->
                                             </div>
                                         </div>
 										<!-- 畢業系所 -->
@@ -687,8 +677,11 @@
 	                                                    	<!-- 頭貼顯示 -->
 	                                                    <div class="avatar-preview">
 	                                                        <c:if test="${not empty education.eduphoto}">
-	                                                            <c:set var="image" scope="page" value="${education.eduphoto}"/>
-										                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);">
+<%-- 	                                                            <c:set var="image" scope="page" value="${education.eduphoto}"/> --%>
+<%-- 										                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);"> --%>
+<!-- 		                                                        	</div> -->
+										                        	<div id="imagePreview" style="background-image: url(/tfa105g5-more-than-educate/views/education/getPhotoController)">
+<!-- 										                        		<img src="/tfa105g5-more-than-educate/views/education/getPhotoController"> -->
 		                                                        	</div>
 	                                                        </c:if>
 	                                                        <c:if test="${empty education.eduphoto}">
