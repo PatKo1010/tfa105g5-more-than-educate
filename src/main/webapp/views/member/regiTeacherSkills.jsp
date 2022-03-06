@@ -841,9 +841,11 @@
 	                                                    	<!-- 頭貼顯示 -->
 	                                                    <div class="avatar-preview">
 	                                                        <c:if test="${not empty member.photo}">
-	                                                            <c:set var="image" scope="page" value="${member.photo}"/>
-										                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);">
-		                                                        	</div>
+<%-- 	                                                            <c:set var="image" scope="page" value="${member.photo}"/> --%>
+<%-- 										                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);"> --%>
+<!-- 		                                                        	</div> -->
+																<div id="imagePreview" style="background-image: url(/tfa105g5-more-than-educate/views/education/getPhotoController);">
+																</div>
 	                                                        </c:if>
 	                                                        <c:if test="${empty member.photo}">
 	                                                            <div id="imagePreview" style="background-image: url(https://pat.webatm.citibank.com.tw/mgrfunc29/static/lib/images/upload-close.png);">
