@@ -526,7 +526,7 @@
 
                                             <table id="cart">
                                                 <tr>
-                                                    <th>商品</th>
+                                                    <th>課程</th>
                                                     <th>課程總堂數</th>
                                                     <th>價格</th>
                                                     <th>刪除課程</th>
@@ -535,6 +535,13 @@
 
                                                 <!-- </form> -->
                                             </table>
+                                            
+                                            <div class="sum " >總計：<span id="totalPrice"></span></div>
+                                            <br>
+                                            <div>
+                                            	<input type="hidden">
+                                            </div>
+                                            
                                             
                                         </div>
                                     </div>
@@ -552,6 +559,7 @@
     <script src="../public/js/main-scripts.js"></script>
     <script src="../public/js/dashboard.js"></script>
     <script>
+        const totalPriceEle = document.querySelector('#totalPrice');
         window.addEventListener("load", e => {
             fetch("http://localhost:7080/tfa105g5-more-than-educate/course/shoppingCart", {
                 method: "POST",
@@ -561,6 +569,7 @@
             })
                 .then(response => response.json())
                 .then((data) => {
+                    const sumPrice = document.querySelector('#totalPrice')
                     const cartTable = document.querySelector("#cart")
                     for (let i = 0; i < data.length; i++){
                     	
@@ -575,28 +584,30 @@
                     	const photo = data[i].photo
                     	cartTable.innerHTML += 
                             `<tr>
-                                <th class="overflow">
+                                <td class="overflow">
+                                    <input type="checkbox" data-price="${price}" onclick="checkboxChange(event)" checked >
                                     <a href="/tfa105g5-more-than-educate/views/courseDetail?courseId=${courseid}">
                                         <img src="data:image/png;base64,${photo}" style="width:50px;height:50px"/>
                                     </a>
                                     ${coursetitle}
-                                </th>
-                                <th>${classamount}</th>
-                                <th>${price}</th>
-                                <th>
+                                </td>
+                                <td>${classamount}</td>
+                                <td>${price}</td>
+                                <td>
                                     <input name= "courseid" type= "hidden" value ='${courseid}'/> 
+                                    
                                     <button onclick="sremCourse(${courseid})" class="button button-primary" style="width:50px;height:30px;">刪除</button>
-                                </th>
+                                </td>
                             </tr>    
                             <br>                                                            
                              `;
-                        
+                        sumPrice.innerHTML = +sumPrice.innerHTML + price
                     }
-                
+                        return sumPrice;                    
 
                 })
         })
-        
+
         function sremCourse(courseid) {
         	const url = 'http://localhost:7080/tfa105g5-more-than-educate/course/sremCourse';
         	fetch(url, {
@@ -611,7 +622,16 @@
         		location.reload();
         	});
         }
-	
+        
+        function checkboxChange(e){
+            const curPrice = +e.target.dataset.price;
+            const totalPrice = +totalPriceEle.textContent
+            if (e.target.checked) {
+                totalPriceEle.textContent = curPrice + totalPrice;
+            } else {
+                totalPriceEle.textContent = totalPrice - curPrice;
+            }
+        }
 
 
     </script>
@@ -627,6 +647,12 @@
             overflow: hidden;
             white-space: nowrap;
   			text-overflow: ellipsis;
+        }
+        .sum{
+        	float: right; 
+        	font-family:Microsoft JhengHei; 
+        	font-weight:bold; 
+        	font-size:16px;
         }
     </style>
 
