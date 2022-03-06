@@ -1,13 +1,10 @@
 // http://localhost:7080/tfa105g5-more-than-educate/views/teacher/teacherSchedule.html
 $(function () {
-    fetch("./teacher/reservedTime", {
-        method: 'POST',
+    fetch("/tfa105g5-more-than-educate/views/teacher/reservedTime", {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            memid: 11
-        })
+        }
     }).then(response => response.json())
         .then((data) => {
             console.log(data);

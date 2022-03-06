@@ -614,24 +614,21 @@
 							</div>
 						</div>
 						<div class="sysRecBar">
-							<c:forEach var="member" items="${members}">
-							
-                                <form name="form" method="post" action="<%=request.getContextPath()%>/search.controller" >    
-								<div class="bar1" onclick="direct(${member.memid})"   >
-								 <input type="hidden" name="action" value="showTeacher"></input>
-								  </form>
+							<c:forEach var="member2" items="${members2}">
+								<div class="bar1" onclick="direct()">
 									<img class="person1"
 										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
-									<div class="membertitle">${member.username}  ${member.teatitle}</div>
-									<div class="comment"><img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member.ratesum} · ${member.ratecount}個評論</div>
+								
+									<div class="membertitle">${member2.username}  ${member2.teatitle}</div>
+									<div class="comment"><img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member2.ratesum} · ${member2.ratecount}個評論</div>
 									<div class=personbar1>
 										<img class="favorimg1"
 											src="https://pic.sucaibar.com/pic/201307/08/028acf7310.png">
 										<span class="favorclick1">收藏</span>
 									</div>
-									<div class="introduction1">${member.introcontent}
-										${member.photo} 
-										${member.regdate}</div>
+									<div class="introduction1">${member2.introcontent}
+										${member2.photo} 
+										${member2.regdate}</div>
 									<div class="selfbotton">
 									 <form name="form2" method="post"  action="<%=request.getContextPath()%>/search.controller" >
 										<button class="reserve1">預約體驗</button>
@@ -640,6 +637,7 @@
 										<form name="form3" method="post"  action="<%=request.getContextPath()%>/search.controller" >
 										<button class="contact1">聯繫老師</button>
 										<input type="hidden" name="action" value="contact"></input>
+										<input type="hidden" name="talkTo" value="${member.username}">
 										</form>
 									</div>
 								</div>
@@ -825,7 +823,7 @@
 	</footer>
 	</div>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/public/js/searchresult.js"></script>
-	  <script src="<%=request.getContextPath() %>/public/js/jquery-3.4.1.min.js"></script>
+	 
     <scirpt src="<%=request.getContextPath()%>/public/js/searchresult.js"></scirpt>
 	<script src="<%=request.getContextPath()%>/public/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/public/js/plugins.min.js"></script>

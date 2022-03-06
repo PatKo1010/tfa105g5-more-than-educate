@@ -31,14 +31,10 @@ public class OrderDetailDaoImpl implements OrderDetailDaoInterface {
 	
 	@Override
 	public List<OrderDetailEntity> selectByStudentId(Integer Id) {
-//		if (title!=null) {
 			Query<OrderDetailEntity> query = this.getSession()
 					.createQuery("from OrderDetailEntity where studentId = :X",OrderDetailEntity.class);
 			query.setParameter("X", Id);
 			return query.list();
-					
-//		}
-//		return null;
 	}
 	
 	@Override

@@ -65,11 +65,11 @@ public class EducationDAO implements EducationDAOInterface {
 			if(update == null) {
 				return (EducationBean)getSession().merge(educationBean);
 			} else {
-				update.setEdudepart(educationBean.getEdudepart());
-				update.setEduend(educationBean.getEduend());
-				update.setEduphoto(educationBean.getEduphoto());
-				update.setEduschool(educationBean.getEduschool());
 				update.setEdustart(educationBean.getEdustart());
+				update.setEduend(educationBean.getEduend());
+				update.setEduschool(educationBean.getEduschool());
+				update.setEdudepart(educationBean.getEdudepart());
+				update.setEduphoto(educationBean.getEduphoto());
 				return (EducationBean)getSession().merge(update);
 			}
 		}
