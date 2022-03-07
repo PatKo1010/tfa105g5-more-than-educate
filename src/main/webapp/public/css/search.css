@@ -48,6 +48,36 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.coursebar{
+    width: 400px;
+    word-wrap: break-word;
+    position: relative;
+    top: -5px;
+	
+}
+.member3title{
+	position: relative;
+    top: -5px;
+	
+	
+}
+
+
+.outcontainer2{
+	width:920px;
+	border:red 1px solid;
+	margin:auto;
+}
+.outcontainer3{
+width:620px;
+border:rgb(86, 7, 233) 1px solid;
+
+
+}
+
+
+
 div.error{
 	
 	font-size:30px;
@@ -58,77 +88,140 @@ div.error{
 
 .person2{
   position: relative;
-  width:80px;
   height:80px;
-  top:15px;
+  top:32px;
   left:80px;
   display:block;
+  width:80px;
   border-radius: 160px;
 }
 .membertitle2{
  position:relative;
  left:205px;
- top:-65px;
+ top:-44px;
 width:250px;
 white-space: nowrap;
 text-overflow : ellipsis;
 overflow:hidden;
  font-size:18px;
  }
+.introduction2title{
+  position: relative;
+  left: 81px;
+  top: 33px;
+  font-size: 20px;
 
+
+}
 .introduction2{
   position: relative;
-  left:100px;
-  top:-71px;
-  left:-30px;
-width: 250px;
-height:150px;
-  overflow : hidden;
+  left: 81px;
+  top: 50px;
+  width: 450px;
+  height: 464px;
+  overflow: hidden;
 }
 .favorimg2{
-  width:14px;
+  width: 30px;
   position: relative;
-  top:4px;
-  left:70px;
+  left: 100px;
+  top: 100px;
 }
-.onebyone{
-		 position: relative;
-  left:100px;
-  top:-71px;
+.rightoutcontainer{
+width: 250px;
+    border: green 1px solid;
+    position: relative;
+    top: -1020px;
+    left: 645px;
+
+}
+.onebyone {
+  position: relative;
+ font-size: 20px;
+}
+
+.resumetitle{
+  position: relative;
+    left: 81px;
+    top: 85px;
+    font-size: 20px;
+
+
+
+
 }
 .resume{
-	 position: relative;
-  left:100px;
-  top:-71px;
+      width: 600px;
+    position: relative;
+    left: 81px;
+    top: 90px;
+    font-size: 16px;
 }
+
+.educatebackgroundtitle{
+    width: 600px;
+    position: relative;
+    left: 81px;
+    top: 97px;
+    font-size: 20px;
+
+
+
+}
+
 .educatebackground{
-	
+	width:500px;
 	 position: relative;
-  left:100px;
-  top:-71px;
-	
+  left:81px;
+  top:101px;
+	font-size: 16px;
 }
+
+
 .comment2{
 	
-	 position: relative;
-  left:100px;
-  top:-71px;
+	position: relative;
+    left: 81px;
+    top: 70px;
+ font-size: 20px;
 	
 }
 .studentimg{
-	 position: relative;
-  left:100px;
-  top:-71px;
-	
-	
+  position: relative;
+  height:60px;
+  top:85px;
+  left:80px;
+  display:block;
+  width:60px;
+  border-radius: 120px;
 }
+.studentname{
+  position: relative;
+    left: 151px;
+    top: 26px;
+    position: relative;
+    font-size: 18px;
+}
+
 .date{
-	 position: relative;
-  left:100px;
-  top:-71px;
-	
+  position: relative;
+  left: 153px;
+  top: 23px;
+  position: relative;
 
 }
+
+.studentcomment{
+width:400px;
+position: relative;
+  left: 81px;
+  top:50px;
+  width: 450px;
+  overflow: hidden;
+
+}
+
+
 
 .contact2{
 
@@ -136,8 +229,7 @@ height:150px;
   height:40px;
   font-size: 14px;
   position: relative;
-  top:-171px;
-  left:600px;
+  top:130px;
   border-radius:5px;
   border:grey 1px solid;
   color:#5C5C5C;
@@ -159,10 +251,14 @@ height:150px;
 	color:#717F94;
 }
 .favorpriority{
-	font-size:16px;
-	color:#5C5C5C;
-	border: rgb(196, 195, 195) 1px solid;
-	border-radius:5px;
+	    font-size: 16px;
+    position: relative;
+    left: 5px;
+    top: 28px;
+    color: #5C5C5C;
+    border: rgb(196, 195, 195) 1px solid;
+    border-radius: 5px;
+   
 }
 .newpriority{
 	font-size:16px;
@@ -170,7 +266,8 @@ height:150px;
 	border: rgb(196, 195, 195) 1px solid;
 	border-radius:5px;
 	position:relative;
-	left:10px;
+	    left: 130px;
+	 
 }
 
 
@@ -386,11 +483,11 @@ border:red solid 1px;
 }
 
 .input{
-  width:670px;
-  height:50px;
-  position: relative;
-  right:200px;
-font-size: 20px;
+        width: 956px;
+    height: 46px;
+    position: relative;
+    right: 15px;
+    font-size: 20px;
 }
 
 input::placeholder { 
@@ -921,7 +1018,9 @@ textarea:active {
 }
 
 .button:not(:disabled):not(.disabled) {
-  cursor: pointer;
+    cursor: pointer;
+    position: relative;
+    top: -2px;
 }
 
 img {

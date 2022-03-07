@@ -1,10 +1,7 @@
 package web.orderInfo.service;
 
-import java.util.List;
-
-import web.orderInfo.entity.OrderInfoEntity;
-import web.reservation.entity.ReservTimeBean;
+import java.util.Map;
 
 public interface OrderInfoServiceInterface {
-	List<ReservTimeBean> insertOrderReserved(OrderInfoEntity orderInfoEntity);
+	Map<Integer, java.util.Date> insertOrderReserved(Integer courseId, Integer memId);
 }

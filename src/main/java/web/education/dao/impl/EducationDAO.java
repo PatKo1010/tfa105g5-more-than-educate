@@ -58,17 +58,19 @@ public class EducationDAO implements EducationDAOInterface {
 	
 	//3.修改  //沒用merge: a.不會自動"新增流水號"  b.但每項還是要有值
 	@Override
-	public EducationBean update(Integer eduid, Integer memid, Date edustart, Date eduend, String eduschool, String edudepart) {
-		if(eduid != null) {  //先檢查輸入 
-			EducationBean tempObject = getSession().get(EducationBean.class, eduid);
-			if (tempObject != null) {
-				tempObject.setEduid(eduid);
-				tempObject.setMemid(memid);
-				tempObject.setEdustart(edustart);
-				tempObject.setEduend(eduend);
-				tempObject.setEduschool(eduschool);
-				tempObject.setEdudepart(edudepart);
-				return tempObject;
+	public EducationBean update(EducationBean educationBean) {
+		if(educationBean != null) {  //先檢查輸入 
+			EducationBean update = session.createQuery("FROM EducationBean where edu_id= :edu_id", EducationBean.class)
+														.setParameter("edu_id", educationBean.getEduid()).uniqueResult();
+			if(update == null) {
+				return (EducationBean)getSession().merge(educationBean);
+			} else {
+				update.setEdustart(educationBean.getEdustart());
+				update.setEduend(educationBean.getEduend());
+				update.setEduschool(educationBean.getEduschool());
+				update.setEdudepart(educationBean.getEdudepart());
+				update.setEduphoto(educationBean.getEduphoto());
+				return (EducationBean)getSession().merge(update);
 			}
 		}
 		return null;

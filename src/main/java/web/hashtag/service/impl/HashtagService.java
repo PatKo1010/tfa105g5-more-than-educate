@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import configuration.SpringJavaConfig;
+import web.course.entity.CourseBean;
 import web.hashtag.dao.HashtagDaoInterface;
+import web.hashtag.entity.HashtagBean;
 import web.member.entity.MemberBean;
 
 
@@ -25,22 +27,6 @@ public class HashtagService {
 		this.hashtagDao = hashtagDao;
 	}
 
-	public static void main(String[] args) {
-//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//		Session session = sessionFactory.getCurrentSession();
-//		Transaction transaction = session.beginTransaction();
-		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
-
-		HashtagService hashtagService = context.getBean("hashtagService", HashtagService.class);
-//		System.out.println(hashtagService.select());
-
-		((ConfigurableApplicationContext) context).close();
-
-	}
-//	public List<MemberBean> findTeacherTest(String hashtag) {
-//		return hashtagDao.findTeacher(hashtag);
-//	}
-	
 	public List<MemberBean> findTeacherTest(String name) {
 		return hashtagDao.findTeacher(name);
 	}
@@ -48,6 +34,18 @@ public class HashtagService {
 	public List<MemberBean> findTeacherTest2(String hashtag) {
 		return hashtagDao.findTeacher2(hashtag);
 	}
-//	
+	public  List<MemberBean> orderGoodTeacher(List <MemberBean> members){
+		return hashtagDao.orderGoodTeacher(members);
+	}
+	public  List<MemberBean> orderNewTeacher(List <MemberBean> members){
+		return hashtagDao.orderNewTeacher(members);
+	}
+	public MemberBean showTeacher(Integer id){
+		return hashtagDao.showTeacher(id);
+	}
 	
+	public List<CourseBean> showCourse(Integer id){
+		
+		return hashtagDao.showCourse(id);
+	}
 }

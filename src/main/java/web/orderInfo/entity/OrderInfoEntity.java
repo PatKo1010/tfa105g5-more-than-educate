@@ -9,10 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
-@Table
-@Entity(name = "order_info")
+@Entity
+@Table(name = "order_info")
 public class OrderInfoEntity {
 	@Id
 	@Column(name = "order_id")

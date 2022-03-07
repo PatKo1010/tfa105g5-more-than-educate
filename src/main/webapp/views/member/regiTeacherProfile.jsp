@@ -52,183 +52,6 @@
                 </button>
                 <div class="header-menu">
     <ul>
-<!--         <li class="has-menu" data-megamenu-link="mega-menu-1"> -->
-<!--             <div class="mega-menu-link"> -->
-<!--                 <span class="title">Languages</span> -->
-<!--                 <span class="icon fa fa-angle-left"></span> -->
-<!--             </div> -->
-<!--             <div data-megamenu-id="mega-menu-1" class="mega-menu mega-menu-1"> -->
-<!--                 <div class="mega-menu-inner"> -->
-<!--                     <div> -->
-<!--                         <div class="megamenu-info mb-15"> -->
-<!--                             <p class="text-center mb-30">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p> -->
-<!--                         </div> -->
-<!--                         <div class="row row-lg-5 row-xl-5"> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/uk.svg" alt="alt"> -->
-<!--                                         <span class="title">English</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/germany.svg" alt="alt"> -->
-<!--                                         <span class="title">Germany</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/france.svg" alt="alt"> -->
-<!--                                         <span class="title">French</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/italy.svg" alt="alt"> -->
-<!--                                         <span class="title">Italian</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/spain.svg" alt="alt"> -->
-<!--                                         <span class="title">Spanish</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/portugal.svg" alt="alt"> -->
-<!--                                         <span class="title">Portuguese</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/china.svg" alt="alt"> -->
-<!--                                         <span class="title">Mandarin</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/japan.svg" alt="alt"> -->
-<!--                                         <span class="title">Japanese</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/south-korea.svg" alt="alt"> -->
-<!--                                         <span class="title">Korean</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/russia.svg" alt="alt"> -->
-<!--                                         <span class="title">Russian</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/india.svg" alt="alt"> -->
-<!--                                         <span class="title">Hindi</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/arabic.svg" alt="alt"> -->
-<!--                                         <span class="title">Arabic</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/iran.svg" alt="alt"> -->
-<!--                                         <span class="title">Persian</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/turkey.svg" alt="alt"> -->
-<!--                                         <span class="title">Turkish</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/iran.svg" alt="alt"> -->
-<!--                                         <span class="title">Kurdish</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/vietnam.svg" alt="alt"> -->
-<!--                                         <span class="title">Vietnamese</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/india.svg" alt="alt"> -->
-<!--                                         <span class="title">Urdu</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/poland.svg" alt="alt"> -->
-<!--                                         <span class="title">Polish</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/israel.svg" alt="alt"> -->
-<!--                                         <span class="title">Hebrew</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col el-flag"> -->
-<!--                                 <div class="inner"> -->
-<!--                                     <a href="page-departements.html"> -->
-<!--                                         <img src="assets/images/flags/bangladesh.svg" alt="alt"> -->
-<!--                                         <span class="title">Bengali</span> -->
-<!--                                     </a> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </li> -->
         <li class="has-menu" data-megamenu-link="mega-menu-1">
             <div class="mega-menu-link">
                 <span class="title">前往</span>
@@ -795,9 +618,11 @@
                                                     	<!-- 頭貼顯示 -->
                                                     <div class="avatar-preview">
                                                         <c:if test="${not empty member.photo}">
-                                                            <c:set var="image" scope="page" value="${member.photo}"/>
-									                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);">
-	                                                        	</div>
+<%--                                                             <c:set var="image" scope="page" value="${member.photo}"/> --%>
+<%-- 									                        	<div id="imagePreview" style="background-image: url(data:image/png;base64,<%=Base64.getEncoder().encodeToString((byte[])pageContext.getAttribute("image")) %>);"> --%>
+<!-- 	                                                        	</div> -->
+															<div id="imagePreview" style="background-image: url(/tfa105g5-more-than-educate/views/member/getProfilePhotoController);">
+															</div>
                                                         </c:if>
                                                         <c:if test="${empty member.photo}">
                                                             <div id="imagePreview" style="background-image: url(https://i.pinimg.com/564x/1d/83/a6/1d83a6d88d8be5b041a9a98fd5048311.jpg);">
@@ -857,15 +682,15 @@
 <%--                                                 	<input name="subjectid" type="number" id="input-teatitle" class="text-left" value="${member.subjectid}"> --%>
 	                                           		<select class="el-select2-select-hour" name="subjectid" required>
                                                     	<option value="" >&nbsp;</option>
-                                                    	<option value="1" <c:if test="${subjectid == 1 || member.subjectid == 1}">selected</c:if> >變形學</option>
-                                                    	<option value="2" <c:if test="${subjectid == 2 || member.subjectid == 2}">selected</c:if> >奇獸飼育學</option>
-                                                    	<option value="3" <c:if test="${subjectid == 3 || member.subjectid == 3}">selected</c:if> >魔藥學</option>
-                                                    	<option value="4" <c:if test="${subjectid == 4 || member.subjectid == 4}">selected</c:if> >黑魔法防禦術</option>
-                                                    	<option value="5" <c:if test="${subjectid == 5 || member.subjectid == 5}">selected</c:if> >English</option>
-                                                    	<option value="6" <c:if test="${subjectid == 6 || member.subjectid == 6}">selected</c:if> >Japanese</option>
-                                                    	<option value="7" <c:if test="${subjectid == 7 || member.subjectid == 7}">selected</c:if> >Chinese</option>
-                                                    	<option value="8" <c:if test="${subjectid == 8 || member.subjectid == 8}">selected</c:if> >Korean</option>
-                                                    	<option value="9" <c:if test="${subjectid == 9 || member.subjectid == 9}">selected</c:if> >German</option>
+<%--                                                     	<option value="1" <c:if test="${subjectid == 1 || member.subjectid == 1}">selected</c:if> >變形學</option> --%>
+<%--                                                     	<option value="2" <c:if test="${subjectid == 2 || member.subjectid == 2}">selected</c:if> >奇獸飼育學</option> --%>
+<%--                                                     	<option value="3" <c:if test="${subjectid == 3 || member.subjectid == 3}">selected</c:if> >魔藥學</option> --%>
+<%--                                                     	<option value="4" <c:if test="${subjectid == 4 || member.subjectid == 4}">selected</c:if> >黑魔法防禦術</option> --%>
+                                                    	<option value="1001" <c:if test="${subjectid == 1001 || member.subjectid == 1001}">selected</c:if> >English</option>
+                                                    	<option value="1002" <c:if test="${subjectid == 1002 || member.subjectid == 1002}">selected</c:if> >Japanese</option>
+                                                    	<option value="1003" <c:if test="${subjectid == 1003 || member.subjectid == 1003}">selected</c:if> >Chinese</option>
+                                                    	<option value="1004" <c:if test="${subjectid == 1004 || member.subjectid == 1004}">selected</c:if> >Korean</option>
+                                                    	<option value="1005" <c:if test="${subjectid == 1005 || member.subjectid == 1005}">selected</c:if> >German</option>
                                                     </select>
                                                     <span class="error" style="color:red;"> ${errors.subjectid} </span>
                                                 </div>

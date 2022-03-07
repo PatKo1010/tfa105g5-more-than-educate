@@ -47,8 +47,7 @@ public class EducationService {
 //動作行:educationDAO.update(educationBean);
 	public EducationBean update(EducationBean educationBean) {
 		if (educationBean != null && educationBean.getEduid() != null) { //檢查輸入
-			EducationBean updateResult = educationDAO.update(educationBean.getEduid(), educationBean.getMemid(), educationBean.getEdustart(), educationBean.getEduend(), educationBean.getEduschool(), educationBean.getEdudepart() );
-			return updateResult;
+			return educationDAO.update(educationBean);
 		}
 		return null;
 	}

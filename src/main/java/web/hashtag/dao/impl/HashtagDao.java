@@ -11,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Repository;
 import configuration.SpringJavaConfig;
-
+import web.course.entity.CourseBean;
 import web.hashtag.dao.HashtagDaoInterface;
 import web.hashtag.entity.HashtagBean;
 import web.member.entity.MemberBean;
@@ -47,8 +47,10 @@ public class HashtagDao implements HashtagDaoInterface {
 		
 		//查詢(全部)
 		@Override
-		public List<HashtagBean> getAll() {
-			return session.createQuery("SELECT * FROM REQUIRE_LIST").list() ;
+		public MemberBean showTeacher(Integer id) {
+			String hql=" from MemberBean where memid=:id and teaqual=1";
+			MemberBean result= (MemberBean) session.createQuery(hql).setParameter("id",id).uniqueResult();
+			return result;
 		}
 		
 		//查詢PK
@@ -59,39 +61,25 @@ public class HashtagDao implements HashtagDaoInterface {
 
 		@Override
 		public  List<MemberBean> findTeacher(String name){
+
 			String trimname=name.trim();
 			if(trimname!=null) {
-				String hql2="select new MemberBean(photo,username,teatitle,introcontent,ratesum,ratecount,regdate) from MemberBean where username like:name and teaqual=1";
-				List<MemberBean> result= session.createQuery(hql2).setParameter("name","%"+name+"%").list();
+				System.out.println("dao: trimName:"+trimname);
+				String hql2=" from MemberBean where username like:name and teaqual=1";
+				List<MemberBean> result= session.createQuery(hql2).setParameter("name","%"+trimname+"%").list();
 				return result;
 			}
 		return null;
 		}
+		
 		@Override
 		public  List<MemberBean> findTeacher2(String hashtag){
+			System.out.println(hashtag);
 			String trimname=hashtag.trim();
 			if(trimname!=null) {
 							String hql1 = "select teaid from HashtagBean where hashtag = :trimname";
 							List<Integer>  result1 = session.createQuery(hql1).setParameter("trimname", trimname).list();
-//							System.out.println(result1);
-//							
-//							int size=result1.size();
-//							for(int i=0;i<size;i++) {
-//								result1.add(String.valueOf(result1.get(i)));	
-//							}
-//							for(int i=0;i<size;i++) {
-//								result1.remove(i);	
-//							}
-//							for(int i=1;i<size;i++) {
-//								i=i*2-1;
-//								result1.add(i," or ");	
-//							}
-//							String str="";
-//							for(int i=0;i<result1.size();i++)
-//							{
-//							str+=result1.get(i);
-//							}
-//							System.out.println(str);
+
 							String hql2="from MemberBean where memid=:result1";
 							List<MemberBean> result2 = new ArrayList<>();
 							for(Integer memid : result1) {
@@ -103,21 +91,47 @@ public class HashtagDao implements HashtagDaoInterface {
 			return null;
 		}
 		
-		@Override
-		public  List<HashtagBean> findHashtagName(List <MemberBean> members) {
-			List<Integer> list = new ArrayList<Integer>();
-			for(MemberBean result:members) {
-				list.add(result.getMemid());
-			}
-			
-//			for(Integer result2:list) {
-//				String hql="select "
-//				
-//				
+//		@Override
+//		public  List<HashtagBean> findHashtagName(List <MemberBean> members) {
+//			List<Integer> list = new ArrayList<>();
+//			List<Object> list2 = new ArrayList<>();
+//			for(MemberBean result:members) {
+//				list.add(result.getMemid());
 //			}
-//			String hql = "select teaid from HashtagBean where hashtag = :trimname";
-//			
-//			List<String>  result1 = session.createQuery(hql1).setParameter("trimname", trimname).list();
-			return null;
+//			int size=list.size();
+//			for(int i=0;i<size;i++) {
+//				String hql="select hashtag from HashtagBean where teaid=:id";
+//				 list2.add(session.createQuery(hql).setParameter("id", i).uniqueResult());
+//			}
+//				int id=result.getMemid();
+//				String hql="select hashtag from HashtagBean where teaid=:id";
+//				 list.add((Hashtag) session.createQuery(hql).setParameter("id", id).uniqueResult());
+//			}
+//			return null;
+//		}
+		@Override
+		public  List<MemberBean> orderGoodTeacher(List <MemberBean> members){
+			Integer subjectid=members.get(0).getSubjectid();
+			String hql1 = " from MemberBean where teaqual=1 and subjectid=:subjectid order by ratesum desc";
+			List<MemberBean>  result = session.createQuery(hql1).setParameter("subjectid", subjectid).list();
+			return result;
 		}
+		@Override
+		public  List<MemberBean> orderNewTeacher(List <MemberBean> members){
+			Integer subjectid=members.get(0).getSubjectid();
+			String hql1 = " from MemberBean where teaqual=1 and subjectid=:subjectid order by regdate ";
+			List<MemberBean>  result = session.createQuery(hql1).setParameter("subjectid", subjectid).list();
+			return result;
+		};
+		
+		@Override
+		public List<CourseBean> showCourse(Integer id) {
+			String hql1 = " from CourseBean where memid=:id";
+			List<CourseBean>  result = session.createQuery(hql1).setParameter("id", id).list();
+			return result;
+		}
+		
+		
+		
+		
 }

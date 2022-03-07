@@ -3,10 +3,11 @@ package web.reservDetail.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,9 +21,9 @@ public class ReservDetailController {
 	@Autowired
 	ReservDetailServiceInterface reservDetailService;
 	
-	@PostMapping("reservedTime")
-	public List<ReservDetailWithRank> getReservedTime(Model model, @RequestBody MemberBean bean ) {
-		System.out.println(bean);
+	@GetMapping("reservedTime")
+	public List<ReservDetailWithRank> getReservedTime(HttpSession session) {
+		MemberBean bean = (MemberBean) session.getAttribute("member");
 		if (bean != null) {
 			List<ReservDetailWithRank> reservedTimes = reservDetailService.getTeacherReservedTime(bean);
 			return reservedTimes == null? new ArrayList<ReservDetailWithRank>(): reservedTimes;

@@ -510,8 +510,8 @@
                             <div class="footer-info">
                                 <div class="container">
                                     <div class="el-cta el-cta-4">
-                                        <form name="form1" method="post" action="<%=request.getContextPath()%>/search.controller" >
-                                        <input class=input name ="keyword" placeholder="輸入想學習的科目或想找的老師或關鍵字"> </input>
+                                        <form name="form" method="post" action="<%=request.getContextPath()%>/search.controller" >
+                                        <input class=input name ="keyword" placeholder="輸入想學習的科目或想找的老師"> </input>
                                         <input type="hidden" name="action" value="getTeacher"></input>
                                         <button type="sumit"  class="button button-md button-secondary">
                                             <span class="text text-light">搜尋</span>
@@ -537,12 +537,7 @@
         <br>
     </div>
 
-                            <h2>智能推薦找老師</h2>
-                            <div class="intRecBar">
-               
-                            </div>
-
-                            <h2>個性化推薦</h2>
+                         <h2>個性化推薦</h2>
                             <div class="sysRecBar">
                                 
                             </div>

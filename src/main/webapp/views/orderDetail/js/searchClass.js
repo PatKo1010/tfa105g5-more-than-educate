@@ -1,13 +1,13 @@
 const reserv = document.querySelector(".reserv_button")
 
-fetch(`http://localhost:7080/tfa105g5-more-than-educate/OrderDetail/selectCourse`, {
-    method: 'POST',
+fetch(`/tfa105g5-more-than-educate/OrderDetail/selectCourse`, {
+    method: 'GET',
     headers: {
         'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        studentId: 10
-    })
+    }
+    // body: JSON.stringify({
+    //     studentId: 10
+    // })
 })
     .then(response => response.json())
     .then((data) => {
@@ -49,13 +49,18 @@ fetch(`http://localhost:7080/tfa105g5-more-than-educate/OrderDetail/selectCourse
                 <div id="r${orderID}"></div>`
             }
         }
+
+        if (data.length == 0) {
+            elTable.innerHTML += `<p>尚無課程</p>`
+        }
     });
 
 function read(e) {
+    console.log(e);
     const seq = e.target.id.substring(1);
     const reservSection = document.querySelector(`#r${seq}`);
     const modalWrapper = document.querySelector("#modal-wrapper");
-    fetch(`http://localhost:7080/tfa105g5-more-than-educate/reserv/selectByOrderID`, {
+    fetch(`/tfa105g5-more-than-educate/reserv/selectByOrderID`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -67,7 +72,6 @@ function read(e) {
         .then(response => response.json())
         .then((data) => {
             reservSection.innerHTML = ""
-            modalWrapper.innerHTML = ""
             if (data.length != 0) {
                 for (let i = 0; i < data.length; i++) {
                     const reservID = data[i].reservID;
@@ -258,7 +262,7 @@ function makeReserv(e) {
 
 
 
-    fetch("http://localhost:7080/tfa105g5-more-than-educate/reserv/makeReserv", {
+    fetch("/tfa105g5-more-than-educate/reserv/makeReserv", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -28,7 +28,7 @@ public class UpdateTeacherSkillsController {
 //	@RequestMapping( path = {"/views/member/updateTeacherSkills"}, method = RequestMethod.POST)
 	public String handlerUpdateTeacherSkills(
 		Model model, 
-		java.sql.Date edustart, java.sql.Date eduend, String eduschool, String edudepart,
+		java.sql.Date edustart, java.sql.Date eduend, String eduschool, String edudepart, Integer eduid,
 		@RequestPart(name="eduphoto", required=false) byte[] eduphoto, 
 		HttpSession httpSession
 	) {
@@ -55,26 +55,32 @@ public class UpdateTeacherSkillsController {
 		}
 
 		if (!errors.isEmpty()) {
-			return "/views/member/teacherSkills.jsp";
+			System.out.println("UpdateTeacherSkillsErrors");
+			return "/views/member/updateTeacherSkills.jsp";
 		}
 		
 //2.呼叫model
 		//值的存取 (byXXXService)
 		EducationBean educationBean = new EducationBean();
 		educationBean.setMemid(memberBean.getMemid());
+		educationBean.setEduid(eduid);
 		educationBean.setEdustart(edustart);
 		educationBean.setEduend(eduend);
 		educationBean.setEduschool(eduschool);
 		educationBean.setEdudepart(edudepart);
 		educationBean.setEduphoto(eduphoto);
 		
-		EducationBean insertSkillResult = educationService.insert(educationBean);
+//		System.out.println(educationBean);
+		EducationBean updateSkillResult = educationService.update(educationBean);
+		httpSession.setAttribute("education", educationBean);
 		
 ////3.結局動作
-		if (insertSkillResult == null) {
-			return "/views/member/teacherSkills.jsp";  
+		if (updateSkillResult == null) {
+			System.out.println("insertSkillFailed");
+			return "/views/member/updateTeacherSkills.jsp";  
 		} else {
-			return "redirect:" + "/views/member/teacherSkills.jsp";  //暫定跳回teacherProfile
+			System.out.println("insertSkillSuccess");
+			return "redirect:" + "/views/member/updateTeacherSkills.jsp";  //暫定跳回teacherProfile
 		}
 
 	}
