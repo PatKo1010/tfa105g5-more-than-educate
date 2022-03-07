@@ -57,6 +57,9 @@ public class OrderInfoDaoImpl implements OrderInfoDaoInterface {
 		return null;
 	}
 	
-
+	public java.util.Date getInfoDate(Integer orderId){
+		String HQL = "select orderDate FROM OrderInfoEntity where orderId =:XXX";
+		return (java.util.Date)session.createQuery(HQL).setParameter("XXX", orderId).uniqueResult(); 
+	}
 	
 }

@@ -1,18 +1,13 @@
 package web.orderInfo.service.impl;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import configuration.SpringJavaConfig;
 import web.orderInfo.dao.CourseDaoInterface;
 import web.orderInfo.dao.OrderInfoDaoInterface;
 import web.orderInfo.entity.CourseEntity;
@@ -34,12 +29,13 @@ public class OrderInfoServiceImpl implements OrderInfoServiceInterface {
 	private ReservDaoInterface reservDao;
 
 	@Override
-	public List<ReservTimeBean> insertOrderReserved(OrderInfoEntity orderInfoEntity) {
+	public Map<Integer, java.util.Date> insertOrderReserved(Integer courseId, Integer memId) {
+		Map<Integer, java.util.Date> result = new HashMap<>();
+		OrderInfoEntity orderInfoEntity = new OrderInfoEntity();
+		orderInfoEntity.setMemId(memId);
+		orderInfoEntity.setCourseId(courseId);
 		if (orderInfoEntity != null) {
 			Integer orderId = orderInfoDao.insert(orderInfoEntity);
-			Integer courseId = orderInfoEntity.getCourseId();
-			Date orderDate = orderInfoEntity.getOrderDate();
-			
 			CourseEntity courseEntity = courseDao.select(courseId);
 			if (courseEntity != null) {
 				Integer classAmount = courseEntity.getClassamount();
@@ -48,30 +44,12 @@ public class OrderInfoServiceImpl implements OrderInfoServiceInterface {
 					reservBean.setOrderID(orderId);
 					reservDao.insert(reservBean);
 				}
-				return reservDao.selectByOrderID(orderId);
+				result.put(orderId, orderInfoDao.getInfoDate(orderId));
+				return result;
 			}		
 		}
-		return null;
-			
+		return null;	
 	}
-	
-	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(SpringJavaConfig.class);
-		
-		
-		OrderInfoServiceInterface service = 
-				context.getBean("orderInfoServiceImpl", OrderInfoServiceInterface.class);
-		
-		OrderInfoEntity orderInfoEntity = new OrderInfoEntity();
-		orderInfoEntity.setMemId(24);
-		orderInfoEntity.setCourseId(8);
-		System.out.println(service.insertOrderReserved(orderInfoEntity));
-		
-		
-		
-		((ConfigurableApplicationContext)context).close();
-	}
-	
 	
 
 }

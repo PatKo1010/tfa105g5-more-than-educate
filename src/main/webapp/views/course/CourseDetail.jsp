@@ -511,7 +511,7 @@
 
 					$(".btn_addCart").on("click", e => {
 						if ("${member.memid}") {
-							fetch("http://localhost:7080/tfa105g5-more-than-educate/course/addShoppingCart", {
+							fetch("/tfa105g5-more-than-educate/course/addShoppingCart", {
 								method: "POST",
 								headers: {
 									'Content-Type': 'application/json'
