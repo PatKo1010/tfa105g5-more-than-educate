@@ -324,17 +324,17 @@
                                                                     <div class="form-item">
                                                                         <label for="input-name"
                                                                             class="form-label">E-mail</label>
-                                                                        <input name="email" type="text" id="input-email"
-                                                                            value="${member.email}" disabled>
+                                                                        <input name="email" type="hidden" id="input-email"
+                                                                            value=${member.email}>
                                                                         <span class="error" style="color:red;">
                                                                             ${errors.email} </span>
                                                                     </div>
                                                                     <div class="form-item">
                                                                         <label for="input-lastname"
                                                                             class="form-label">密碼</label>
-                                                                        <input name="password" type="text"
+                                                                        <input name="password" type="hidden"
                                                                             id="input-password"
-                                                                            value="${member.password}" disabled>
+                                                                            value="${member.password}">
                                                                         <span class="error" style="color:red;">
                                                                             ${errors.password} </span>
                                                                     </div>
@@ -347,7 +347,7 @@
                                                                         class="form-label">使用者名稱</label>
                                                                     <input name="username" type="text"
                                                                         id="input-username" class="text-left"
-                                                                        value="${member.username}" disabled>
+                                                                        value=${member.username} disabled>
                                                                     <span class="error" style="color:red;">
                                                                         ${errors.username} </span>
                                                                 </div>

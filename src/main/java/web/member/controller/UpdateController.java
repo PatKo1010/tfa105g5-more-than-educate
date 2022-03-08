@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +24,21 @@ public class UpdateController {
 	@Autowired
 	private MemberService memberService;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 //1.處理request(url設置) +接收參數
 	@RequestMapping( path= {"views/member/update"}, method = RequestMethod.POST, consumes = { "multipart/form-data" })
-	public String handlerUpdate(Model model, Integer memID,
-			 String email, String password, String username,String phonenum, java.sql.Date birth, @RequestPart(name="image", required=false) byte[] image, 
-			 //MemberBean memberBean
-			 HttpSession httpSession) {
+	public String handlerUpdate(
+			Model model, 
+			Integer memID,
+			String email, 
+			String password, 
+			String username,
+			String phonenum, 
+			java.sql.Date birth, 
+			@RequestPart(name="image", required=false) byte[] image, 
+			HttpSession httpSession) {
 
 //		Date birthSql = Date.valueOf(birth);
 //		MemberBean bean = new MemberBean();
@@ -43,7 +53,7 @@ public class UpdateController {
 //		MemberBean updateResult = memberService.update(bean);
 //		System.out.println(updateResult);
 //		return "dashboard.jsp";
-//	//框架下怎麼String轉date.sql???
+//	//框架下怎String轉date.sql???
 //		Date birthSql = Date.valueOf(birth);
 		
 	//驗證
@@ -72,9 +82,10 @@ public class UpdateController {
 	//值的"存改" (by某Service)
 		MemberBean memberBean = (MemberBean)httpSession.getAttribute("member");
 		//???框架下只能一個個set嗎????
-		memberBean.setMemid(memID);
-		memberBean.setEmail(email);
-		memberBean.setPassword(password);
+//		memberBean.setMemid(memID);
+//		memberBean.setEmail(email);
+//		memberBean.setPassword(password);
+//		memberBean.setPassword(passwordEncoder.encode(password));
 		memberBean.setUsername(username);
 		memberBean.setPhonenum(phonenum);
 		memberBean.setBirth(birth);

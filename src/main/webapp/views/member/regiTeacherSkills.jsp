@@ -827,6 +827,7 @@
                                         <!-- 我是分隔線 -->
                                         <div class="col-12">
                                             <hr>
+                                        <label for="input-type" class="form-label">請上傳畢業證書</label>
                                         </div>
 										<!-- 畢業證書  待修介面 -->
 										<div class="col-12 col-sm-12 col-md-12 col-lg-2">

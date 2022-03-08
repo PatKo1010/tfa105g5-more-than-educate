@@ -482,7 +482,7 @@
 										method="post" enctype="multipart/form-data">
 										<div class="row row-sm">
 											<!-- 頭貼區塊 -->
-											<div class="col-12 col-sm-12 col-md-12 col-lg-2">
+											<div class="col-12 col-sm-12 col-md-12 col-lg-2" style="margin-bottom: 40px">
 												<div class="el-avatar">
 													<div class="avatar-upload">
 														<div class="avatar-edit">
@@ -517,16 +517,16 @@
 											<div class="col-12 col-sm-12 col-md-12 col-lg-10">
 												<div class="pr-15">
 													<div class="form-item">
-														<label for="input-name" class="form-label">E-mail</label>
+<!-- 														<label for="input-name" class="form-label">E-mail</label> -->
 														<input name="eduid" type="hidden" id="input-eduid" class="text-left" value="${education.eduid}" >
-														<input name="email" type="text" id="input-email"
+														<input name="email" type="hidden" id="input-email"
 															value="${member.email}"> <span class="error"
 															style="color: red;"> ${errors.email} </span>
 													</div>
 													<!-- 儲存password -->
 													<div class="form-item">
-														<label for="input-lastname" class="form-label">密碼</label>
-														<input name="password" type="text" id="input-password"
+<!-- 														<label for="input-lastname" class="form-label">密碼</label> -->
+														<input name="password" type="hidden" id="input-password"
 															value="${member.password}"> <span class="error"
 															style="color: red;"> ${errors.password} </span>
 													</div>

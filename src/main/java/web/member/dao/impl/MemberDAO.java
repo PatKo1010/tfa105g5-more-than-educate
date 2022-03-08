@@ -76,7 +76,7 @@ public class MemberDAO implements MemberDAOInterface {
 			MemberBean update =  session.createQuery("FROM MemberBean where mem_id= :mem_id", MemberBean.class)
 													.setParameter("mem_id", memberBean.getMemid()).uniqueResult();
 			if(update == null) {
-				return (MemberBean)getSession().merge(memberBean); //等於上面兩行嗎????
+				return (MemberBean)getSession().merge(memberBean);
 			} else { 
 				if(update.getEmail().equals(memberBean.getEmail())) {
 					update.setBirth(memberBean.getBirth());
