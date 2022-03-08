@@ -460,11 +460,6 @@
 													<div class="teacher">
 														<div class="avatar">
 															<ul class="icons">
-																<!-- 														<li> -->
-																<!-- 															<div class="icon-lang"> -->
-																<!-- 																<img src="course/getMemberImg" alt="Lang" /> -->
-																<!-- 															</div> -->
-																<!-- 														</li> -->
 															</ul>
 															<a href="page-teacher.html" target="_blank"> <img
 																	src="course/getMemberImg?courseid=${course.courseid}"
@@ -517,14 +512,16 @@
 									'Content-Type': 'application/json'
 								},
 								body: JSON.stringify({
-									memid: '${member.memid}',
-									courseid: '${course.courseid}'
+									'memid': '${member.memid}',
+									'courseid': '${course.courseid}'
 								})
 							})
-								.then(
+								.then(response => response.json())
+								.then((data) => {
+									console.log(data)
+									alert('已經加入購物車');
+								})
 
-									alert("已加入購物車！")
-								)
 						} else {
 							alert("請登入會員！")
 						}

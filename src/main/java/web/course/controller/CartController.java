@@ -32,6 +32,7 @@ public class CartController {
 
 	@PostMapping("/course/addShoppingCart")
 	public Map<String, String> addShoppingCart(@RequestBody Map<String, String> requestMap) {
+		System.out.println(requestMap.toString());
 
 		Jedis jedis = pool.getResource();
 		final String key = "member:" + requestMap.get("memid");
@@ -54,6 +55,7 @@ public class CartController {
 		List<vCourseMemberBean> result = new ArrayList<vCourseMemberBean>();
 
 		for (String courseId : courseIds) {
+			System.out.println(courseId);
 			vCourseMemberBean vCourseBean = courseService.selectByCourseId(Integer.parseInt(courseId));
 			result.add(vCourseBean);
 		}

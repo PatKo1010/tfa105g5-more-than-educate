@@ -11,4 +11,6 @@ public interface OrderInfoDaoInterface {
 	OrderInfoEntity update(OrderInfoEntity orderEntity);
 	Boolean delete(Integer id);
 	java.util.Date getInfoDate(Integer orderId);
+	List<OrderInfoEntity> selectByCourseId (Integer courseId);
+	
 }

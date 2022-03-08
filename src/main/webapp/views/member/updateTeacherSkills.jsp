@@ -590,9 +590,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath() %>/views/member/updateTeacherCourses.jsp">
+                        <a href="<%=request.getContextPath() %>/views/course/CourseOverview1.html">
                             <i class="fa fas fa-book"></i>
-                            <span class="text">開設課程</span>
+                            <span class="text">我的課程總覽</span>
                         </a>
                     </li>
 <!--                     <li> -->

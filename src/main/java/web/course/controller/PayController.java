@@ -36,9 +36,9 @@ public class PayController {
         JsonObject output = new JsonObject();
         output.addProperty("MerchantID", "2000132");
         JsonObject rqHeader = new JsonObject();
-        output.add("RqHeader", rqHeader);
         rqHeader.addProperty("Timestamp", System.currentTimeMillis() / 1000);
-        rqHeader.addProperty("Revision", "1.0.0");
+        rqHeader.addProperty("Revision", "1.3.20");
+        output.add("RqHeader", rqHeader);
         JsonObject data = new JsonObject();
         data.addProperty("MerchantID", "2000132");
         data.addProperty("PayToken", payToken);
