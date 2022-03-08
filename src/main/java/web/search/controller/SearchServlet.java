@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import web.course.entity.CourseBean;
+import web.education.entity.EducationBean;
 import web.hashtag.service.impl.HashtagService;
 import web.member.entity.MemberBean;
 import web.subject.entity.SubjectBean;
@@ -32,11 +33,20 @@ public class SearchServlet extends HttpServlet {
 		Integer id=Integer.parseInt(str);
 		MemberBean members3 =  hashtagSvc.showTeacher(id);
 		req.setAttribute("members3", members3);	
-		
+		EducationBean education =  hashtagSvc.showEducation(id);
+		req.setAttribute("education", education);
 		List<CourseBean> findcourse = hashtagSvc.showCourse(id);
+		if(findcourse==null||findcourse.size()==0) {
+			req.setAttribute("errorMsgs2", "此教師目前還沒開課哦!");
+			RequestDispatcher successView = req.getRequestDispatcher("/views/search/failpage2.jsp");
+			successView.forward(req, res);
+		}
+		else {
 		req.setAttribute("findcourse", findcourse);
 		RequestDispatcher successView = req.getRequestDispatcher("/views/search/teacher.jsp");
 		successView.forward(req, res);
+		}
+		
 	}
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
@@ -46,7 +56,7 @@ public class SearchServlet extends HttpServlet {
 			String str = req.getParameter("keyword");
 			if(str=="") {
 				List<String> errorMsgs = new LinkedList<String>();
-				req.setAttribute("errorMsgs", "請輸入想學習的科目或想找的老師或關鍵字");
+				req.setAttribute("errorMsgs", "請輸入想學習的科目或想找的老師");
 				RequestDispatcher failureView = req.getRequestDispatcher("/views/search/failpage.jsp");
 				failureView.forward(req, res);
 				return;

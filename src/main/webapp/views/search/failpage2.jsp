@@ -22,6 +22,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/public/css/search.css">
 </head>
+</head>
 
 <body>
 	<!-- Loading -->
@@ -576,251 +577,218 @@
 	<!--Wrapper-->
 	<div class="app-wrapper">
 		<div class="page page-teachers">
-			<!--Teachers-->
-			<section
-				class="section section-teachers section-teachers-list section-teachers-list-1">
-				<figure class="section-shape shape-2">
-					<img src="assets/images/shapes/2.svg" alt="Image Description" />
-				</figure>
-				<figure class="section-shape shape-3">
-					<img src="assets/images/shapes/3.svg" alt="Image Description" />
-				</figure>
-				<div class="display-spacing display-spacing-double">
-					<div class="container">
-						<div class="mb-30">
-							<div class="section-navbar">
-								<div class="row">
-									<div class="col-12 col-sm-12 col-md-6">
-										<div class="el-sortination">
-											<p>
-												 <span class="nowtitle">目前排序</span>
-											</p>
-											<ul>
-											
+			<!--Courses-->
+			<div class="outcontainer2">
 				
-											<form name="form4" method="post" action="<%=request.getContextPath()%>/search.controller" >
-												<button class="favorpriority" onmouseover="mouseover(event)" onmouseout="mouseout(event)">優質教師優先</button>
-												 <input type="hidden" name="action" value="goodOrder"></input>
-											</form>	
-												<form name="form5" method="post" action="<%=request.getContextPath()%>/search.controller" >
-												<button class="newpriority" onmouseover="mouseover(event)" onmouseout="mouseout(event)">新教師優先</button>
-												<input type="hidden" name="action" value="newOrder"></input>
-												</form>	
-											</ul>
-										</div>
-									</div>
-									
-								</div>
-							</div>
-						</div>
-						<div class="sysRecBar">
-							<c:forEach var="member1" items="${members1}">
-								<div class="bar1" >
-									<img class="person1"
-										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
-								
-									<div class="membertitle" onclick="direct(${member1.memid})" onmouseover="mouseover(event)" onmouseout="mouseout(event)">${member1.username}  ${member1.teatitle}</div>
-									<div class="comment"><img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member1.ratesum} · ${member1.ratecount}個評論</div>
-				
-									<div class="introduction1">${member1.introcontent}
-										${member1.photo} 
-										${member1.regdate}</div>
-									<div class="selfbotton">
-									 <form name="form2" method="post"  action="<%=request.getContextPath()%>/search.controller" >
-										<button class="reserve1">預約體驗</button>
-										<input type="hidden" name="action" value="reserve"></input>
-										</form>
-										<form name="form3" method="post"  action="<%=request.getContextPath()%>/search.controller" >
-										<button class="contact1">聯繫老師</button>
-										<input type="hidden" name="action" value="contact"></input>
-										<input type="hidden" name="talkTo" value="${member.username}">
-										</form>
-									</div>
-								</div>
-							</c:forEach>
-						</div>
-						<br>
-						<br>
-						<br>
-					</div>
+				<img class="person3"
+					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
+				<div class="membertitle3">${members3.username}
+					${members3.teatitle}</div>
+					<img src="<%=request.getContextPath()%>/public/images/star.png"
+						class="starimg2">
+				<div class="comment5">${members3.ratesum} ·
+					${members3.ratecount}個評論
 				</div>
-		</div>
-		</section>
-		<!--/-->
-	</div>
-	<!--Footer-->
-	<footer class="section app-footer app-footer-2">
-		<div class="footer-info">
-			<div class="container"></div>
-		</div>
-		<div class="footer-widgets">
-			<div class="container">
-				<div class="footer-widgets-links">
-					<div class="row row-xl-5">
-						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-							<div class="widget widget-links">
-								<div class="widget-title">
-									<h4>Quick Access</h4>
-								</div>
-								<div class="widget-body">
-									<ul>
-										<li><a href="page-cooperation.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Apply
-													to Teach</span>
-										</a></li>
-										<li><a href="page-teachers.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Search
-													for Teachers</span>
-										</a></li>
-										<li><a href="page-courses.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">List
-													of Courses</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Departments</span>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-none d-xl-block">
-							<div class="widget widget-links">
-								<div class="widget-title">
-									<h4>Languages</h4>
-								</div>
-								<div class="widget-body">
-									<ul>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													Hindi</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													Farsi</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													Turkish</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													Chinese</span>
-										</a></li>
-									</ul>
+				<button class="contact2">聯繫老師</button>
+				<div class="introduction2title">自我介紹</div>
+				<div class="introduction2">${members3.introcontent}</div>
+<br>
+				<div class="educatebackgroundtitle">教育背景</div>
+				<div class="educatebackground">${education.edustart} ~ 
+					${education.eduend}  ${education.eduschool}  ${education.edudepart}</div>
+				<br> <br> <br>
+				<br>
+				<div class="educatebackground2"> ${education.eduphoto}</div>
+				<div class="teachercourse">課程</div>
+				<div  class="error2">${errorMsgs2}</div>
+<br>
+<br>
+	<br>
+<br>			
+		
+		
+		<br>
+			<br>
+				<br>
+					<br>
+						<br>
+		
+		
+		<!--Footer-->
+		<footer class="section app-footer app-footer-2">
+			<div class="footer-info">
+				<div class="container"></div>
+			</div>
+			<div class="footer-widgets">
+				<div class="container">
+					<div class="footer-widgets-links">
+						<div class="row row-xl-5">
+							<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+								<div class="widget widget-links">
+									<div class="widget-title">
+										<h4>Quick Access</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li><a href="page-cooperation.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Apply
+														to Teach</span>
+											</a></li>
+											<li><a href="page-teachers.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Search
+														for Teachers</span>
+											</a></li>
+											<li><a href="page-courses.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">List
+														of Courses</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Departments</span>
+											</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-							<div class="widget widget-links">
-								<div class="widget-title">
-									<h4>Languages</h4>
-								</div>
-								<div class="widget-body">
-									<ul>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													English</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													Spanish</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													German</span>
-										</a></li>
-										<li><a href="page-departements.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Learn
-													French</span>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-							<div class="widget widget-links">
-								<div class="widget-title">
-									<h4>Teachers</h4>
-								</div>
-								<div class="widget-body">
-									<ul>
-										<li><a href="page-teachers.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">English
-													Tutors</span>
-										</a></li>
-										<li><a href="page-teachers.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Spanish
-													Tutors</span>
-										</a></li>
-										<li><a href="page-teachers.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">French
-													Tutors</span>
-										</a></li>
-										<li><a href="page-teachers.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Japanese
-													Tutors</span>
-										</a></li>
-									</ul>
+							<div
+								class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-none d-xl-block">
+								<div class="widget widget-links">
+									<div class="widget-title">
+										<h4>Languages</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														Hindi</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														Farsi</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														Turkish</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														Chinese</span>
+											</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-							<div class="widget widget-links">
-								<div class="widget-title">
-									<h4>Communication</h4>
+							<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+								<div class="widget widget-links">
+									<div class="widget-title">
+										<h4>Languages</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														English</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														Spanish</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														German</span>
+											</a></li>
+											<li><a href="page-departements.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Learn
+														French</span>
+											</a></li>
+										</ul>
+									</div>
 								</div>
-								<div class="widget-body">
-									<ul>
-										<li><a href="page-about.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">About
-													Us</span>
-										</a></li>
-										<li><a href="page-contact.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Contact
-													Us</span>
-										</a></li>
-										<li><a href="page-faq.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Faq</span>
-										</a></li>
-										<li><a href="page-policy.html"> <span
-												class="icon ti-angle-left"></span> <span class="text">Policy</span>
-										</a></li>
-									</ul>
+							</div>
+							<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+								<div class="widget widget-links">
+									<div class="widget-title">
+										<h4>Teachers</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li><a href="page-teachers.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">English
+														Tutors</span>
+											</a></li>
+											<li><a href="page-teachers.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Spanish
+														Tutors</span>
+											</a></li>
+											<li><a href="page-teachers.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">French
+														Tutors</span>
+											</a></li>
+											<li><a href="page-teachers.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Japanese
+														Tutors</span>
+											</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+								<div class="widget widget-links">
+									<div class="widget-title">
+										<h4>Communication</h4>
+									</div>
+									<div class="widget-body">
+										<ul>
+											<li><a href="page-about.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">About
+														Us</span>
+											</a></li>
+											<li><a href="page-contact.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Contact
+														Us</span>
+											</a></li>
+											<li><a href="page-faq.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Faq</span>
+											</a></li>
+											<li><a href="page-policy.html"> <span
+													class="icon ti-angle-left"></span> <span class="text">Policy</span>
+											</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				<span class="footer-line"></span>
-				<div class="row">
-					<div class="col-md-8">
-						<p>© 2020 All Rights Reserved</p>
-					</div>
-					<div class="col-md-4">
-						<ul class="el-social-links">
-							<li><a href="#"> <span class="fa fa-facebook"></span>
-							</a></li>
-							<li><a href="#"> <span class="fa fa-google"></span>
-							</a></li>
-							<li><a href="#"> <span class="fa fa-linkedin"></span>
-							</a></li>
-							<li><a href="#"> <span class="fa fa-twitter"></span>
-							</a></li>
-						</ul>
+			<div class="footer-copyright">
+				<div class="container">
+					<span class="footer-line"></span>
+					<div class="row">
+						<div class="col-md-8">
+							<p>© 2020 All Rights Reserved</p>
+						</div>
+						<div class="col-md-4">
+							<ul class="el-social-links">
+								<li><a href="#"> <span class="fa fa-facebook"></span>
+								</a></li>
+								<li><a href="#"> <span class="fa fa-google"></span>
+								</a></li>
+								<li><a href="#"> <span class="fa fa-linkedin"></span>
+								</a></li>
+								<li><a href="#"> <span class="fa fa-twitter"></span>
+								</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 	</div>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/public/js/searchresult.js"></script>
-	 
-    <scirpt src="<%=request.getContextPath()%>/public/js/searchresult.js"></scirpt>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/public/js/searchresult.js"></script>
+	<script
+		src="<%=request.getContextPath()%>/public/js/jquery-3.4.1.min.js"></script>
+	<scirpt src="<%=request.getContextPath()%>/public/js/searchresult.js"></scirpt>
 	<script src="<%=request.getContextPath()%>/public/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/public/js/plugins.min.js"></script>
 	<script src="<%=request.getContextPath()%>/public/js/main-scripts.js"></script>
