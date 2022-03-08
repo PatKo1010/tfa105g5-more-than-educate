@@ -7,6 +7,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" href="public/css/friendchat.css" type="text/css" />
+<link rel="shortcut icon" href="<%=request.getContextPath() %>/public/favicon.ico" />
 <style type="text/css">
 </style>
 <title>私訊</title>
@@ -39,7 +40,7 @@
 		var host = window.location.host;
 		var path = window.location.pathname;
 		var webCtx = path.substring(0, path.indexOf('/', 1));
-		var endPointURL = "ws://" + window.location.host + webCtx + MyPoint;
+		var endPointURL = "wss://" + window.location.host + webCtx + MyPoint;
 
 		var statusOutput = document.getElementById("statusOutput");
 		var messagesArea = document.getElementById("messagesArea");
