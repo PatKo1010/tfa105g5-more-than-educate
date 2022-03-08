@@ -208,6 +208,16 @@
                 </div>
             </div>
         </li>
+        <!-- 學生中心 -->
+        <c:if test="${not empty member}">
+            <li>
+                <a href="<%=request.getContextPath() %>/views/member/dashboard.jsp">
+                    <span class="text">學生中心</span>
+                    <span class="icon fa fa-angle-left"></span>
+                </a>
+            </li>
+        </c:if>
+        
         <!-- 申請成老師 -->
         <c:if test="${member.teaqual == false}">
         <li>
@@ -636,14 +646,14 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10">
                                             <div class="pr-15">
                                                 <div class="form-item">
-                                                    <label for="input-name" class="form-label">E-mail</label>
-                                                    <input name="email" type="text" id="input-email" value="${member.email}">
+<!--                                                     <label for="input-name" class="form-label">E-mail</label> -->
+                                                    <input name="email" type="hidden" id="input-email" value="${member.email}">
                                                     <span class="error" style="color:red;"> ${errors.email} </span>
                                                 </div>
                                         <!-- 儲存password -->
                                                 <div class="form-item">
-                                                    <label for="input-lastname" class="form-label">密碼</label>
-                                                    <input name="password" type="text" id="input-password" value="${member.password}">
+<!--                                                     <label for="input-lastname" class="form-label">密碼</label> -->
+                                                    <input name="password" type="hidden" id="input-password" value="${member.password}">
                                                     <span class="error" style="color:red;"> ${errors.password} </span>
                                                 </div>
                                             </div>

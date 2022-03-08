@@ -385,6 +385,16 @@
                 </div>
             </div>
         </li>
+        <!-- 學生中心 -->
+        <c:if test="${not empty member}">
+            <li>
+                <a href="<%=request.getContextPath() %>/views/member/dashboard.jsp">
+                    <span class="text">學生中心</span>
+                    <span class="icon fa fa-angle-left"></span>
+                </a>
+            </li>
+        </c:if>        
+        
         <!-- 申請成老師 -->
         <c:if test="${member.teaqual == false}">
         <li>
@@ -494,7 +504,8 @@
                                                 <div class="avatar-upload">
 													<!-- 上傳頭貼 -->
                                                     <div class="avatar-edit">
-                                                    	<input type="hidden" name="memID" value= "${member.memid}" />
+                                                    	<input type="hidden" name="memID" value="${member.memid}" />
+<%--                                                     	<input type= name="memID" value="${member.memid}" /> --%>
                                                         <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="image" />
                                                         <label for="imageUpload"></label>
                                                     </div>
@@ -519,13 +530,25 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-10">
                                             <div class="pr-15">
                                                 <div class="form-item">
-                                                    <label for="input-name" class="form-label">E-mail</label>
-                                                    <input name="email" type="text" id="input-email" value="${member.email}">
+<!--                                                     <label for="input-name" class="form-label">E-mail</label> -->
+													<c:if test="${member.ratecount == null}">
+                                                    	<input name="email" type="hidden" id="input-email" value="${member.email}">
+													</c:if>
+													<c:if test="${member.ratecount == 1}">
+<%--                                                     	<input name="email" type="text" id="input-email" value="${member.email}" disabled> --%>
+                                                    	<input name="email" type="hidden" id="input-email" value="${member.email}">
+													</c:if>
                                                     <span class="error" style="color:red;"> ${errors.email} </span>
                                                 </div>
                                                 <div class="form-item">
-                                                    <label for="input-lastname" class="form-label">密碼</label>
-                                                    <input name="password" type="text" id="input-password" value="${member.password}">
+<!--                                                     <label for="input-lastname" class="form-label">密碼</label> -->
+                                                    <c:if test="${member.ratecount == null}">
+                                                    	<input name="password" type="hidden" id="input-email" value="${member.password}">
+													</c:if>
+													<c:if test="${member.ratecount == 1}">
+<%--                                                     	<input name="password" type="text" id="input-email" value="${member.password}" disabled> --%>
+                                                    	<input name="password" type="hidden" id="input-email" value="${member.password}">
+													</c:if>
                                                     <span class="error" style="color:red;"> ${errors.password} </span>
                                                 </div>
                                             </div>
@@ -550,7 +573,7 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-item">
                                                 <label for="input-birth" class="form-label">生日</label>
-                                                <input name="birth" type="date" id="input-birth" class="text-left" value="${member.birth}">
+                                                <input name="birth" type="date" id="input-birth" class="text-left" value="${member.birth}" required>
                                             	<span class="error" style="color:red;"> ${errors.birth} </span>
                                             </div>
                                         </div>

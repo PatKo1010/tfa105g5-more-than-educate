@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import configuration.SpringJavaConfig;
 import web.course.entity.CourseBean;
+import web.education.entity.EducationBean;
 import web.hashtag.dao.HashtagDaoInterface;
 import web.hashtag.entity.HashtagBean;
 import web.member.entity.MemberBean;
@@ -47,5 +48,10 @@ public class HashtagService {
 	public List<CourseBean> showCourse(Integer id){
 		
 		return hashtagDao.showCourse(id);
+	}
+	
+	public EducationBean showEducation(Integer id){
+		
+		return hashtagDao.showEducation(id);
 	}
 }

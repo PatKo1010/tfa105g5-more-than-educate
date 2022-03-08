@@ -49,33 +49,81 @@
   box-sizing: border-box;
 }
 
+.comment3{
+	
+        position: relative;
+    left: 207px;
+    font-weight: bold;
+    font-size: 26px;
+	
+}
+
+.bar3{
+  display: block;
+  positon:relative;
+  width:1110px;
+  height:120px;
+  border:1px solid rgb(202, 200, 200);
+  margin-bottom: 30px;
+  border-radius:20px;
+ }
+.totalmoney{
+	
+    position: relative;
+    top: 17px;
+    left: -334px;
+    font-size: 20px;
+}
+
 .coursebar{
-    width: 400px;
+         width: 400px;
     word-wrap: break-word;
     position: relative;
-    top: -5px;
-	
+    top: -6px;
+    left: 130px;
+    font-size: 16px;
+    overflow: hidden;
 }
 .member3title{
-	position: relative;
-    top: -5px;
+	    position: relative;
+    left: 4px;
+    font-size: 18px;
+}
+
+.courselocation{
 	
 	
 }
 
 
+
+
+.sysRecBar2{
+  /* width:2000px; */
+  width:1200px;
+  display:flex;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content:flex-start; 
+  border-radius:10px;
+}
+
 .outcontainer2{
-	width:920px;
-	border:red 1px solid;
+	width:1200px;
 	margin:auto;
 }
 .outcontainer3{
 width:620px;
-border:rgb(86, 7, 233) 1px solid;
-
-
 }
 
+.favTeatext1{
+	    position: relative;
+    font-size: 20px;
+    right: 527px;
+    top: 76px;
+    color: #FFFAFA;
+	
+}
 
 
 div.error{
@@ -84,42 +132,63 @@ div.error{
 	color:red;
 }
 
+.person3{
+   position: relative;
+    height: 100px;
+    top: 140px;
+    left: 45px;
+    display: block;
+    width: 100px;
+    border-radius: 200px;
+}
+.starimg2{
+       width: 22px;
+    position: relative;
+    left: 185px;
+    top: 41px;
 
-
+ }
 .person2{
   position: relative;
   height:80px;
   top:32px;
-  left:80px;
+  left:35px;
   display:block;
   width:80px;
   border-radius: 160px;
 }
 .membertitle2{
- position:relative;
- left:205px;
- top:-44px;
-width:250px;
-white-space: nowrap;
-text-overflow : ellipsis;
-overflow:hidden;
- font-size:18px;
+position: relative;
+    left: 160px;
+    top: -83px;
+    width: 250px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 28px;
+    font-weight: bold;
+ }
+ .teachercourse{
+font-weight: bold;
+    font-size: 26px;
+    position: relative;
+    top: 98px;
+    left: 45px;
  }
 .introduction2title{
-  position: relative;
-  left: 81px;
-  top: 33px;
-  font-size: 20px;
-
+position: relative;
+    left: 45px;
+    top: 95px;
+    font-weight: bold;
+    font-size: 24px;
 
 }
 .introduction2{
-  position: relative;
-  left: 81px;
-  top: 50px;
-  width: 450px;
-  height: 464px;
-  overflow: hidden;
+     position: relative;
+    left: 45px;
+    top: 96px;
+    width: 450px;
+    font-size: 18px;
 }
 .favorimg2{
   width: 30px;
@@ -127,11 +196,23 @@ overflow:hidden;
   left: 100px;
   top: 100px;
 }
+.reserve3{
+ width:80px;
+  height:40px;
+  font-size: 14px;
+  position: relative;
+  border-radius:5px;
+  top:-220px;
+  left:423px;
+  background-color: #02CAB999;
+  border:none;
+  color: #FBF3F3;
+}
 .rightoutcontainer{
-width: 250px;
+      width: 250px;
     border: green 1px solid;
     position: relative;
-    top: -1020px;
+    top: -1255px;
     left: 645px;
 
 }
@@ -159,63 +240,78 @@ width: 250px;
 }
 
 .educatebackgroundtitle{
-    width: 600px;
+width: 600px;
     position: relative;
-    left: 81px;
-    top: 97px;
-    font-size: 20px;
-
-
+    left: 45px;
+    top: 128px;
+    font-size: 26px;
+    font-weight: bold;
 
 }
 
 .educatebackground{
-	width:500px;
-	 position: relative;
-  left:81px;
-  top:101px;
-	font-size: 16px;
+    width: 500px;
+    position: relative;
+    left: 45px;
+    top: 126px;
+    font-size: 20px;
+
+}
+.educatebackground2{
+    width: 500px;
+    position: relative;
+    left: 45px;
+    top: 44px;
+    font-size: 20px;
+
 }
 
+.comment5{
+     font-weight: bold;
+    position: relative;
+    left: 213px;
+    top: 19px;
+    font-size: 18px;
+	
+}
 
 .comment2{
-	
+	font-weight:bold;
 	position: relative;
-    left: 81px;
+    left: 205px;
     top: 70px;
  font-size: 20px;
 	
 }
 .studentimg{
-  position: relative;
-  height:60px;
-  top:85px;
-  left:80px;
-  display:block;
-  width:60px;
-  border-radius: 120px;
+ position: relative;
+    height: 60px;
+    top: 15px;
+    left: 205px;
+    display: block;
+    width: 60px;
+    border-radius: 120px;
 }
 .studentname{
-  position: relative;
-    left: 151px;
-    top: 26px;
+     position: relative;
+    left: 277px;
+    top: -43px;
     position: relative;
     font-size: 18px;
 }
 
 .date{
-  position: relative;
-  left: 153px;
-  top: 23px;
-  position: relative;
+left: 277px;
+    top: -42px;
+    position: relative;
 
 }
 
 .studentcomment{
 width:400px;
 position: relative;
-  left: 81px;
-  top:50px;
+  left: 205px;
+  top:-19px;
   width: 450px;
   overflow: hidden;
 
@@ -225,14 +321,16 @@ position: relative;
 
 .contact2{
 
-  width:80px;
-  height:40px;
-  font-size: 14px;
-  position: relative;
-  top:130px;
-  border-radius:5px;
-  border:grey 1px solid;
-  color:#5C5C5C;
+         width: 80px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: grey 1px solid;
+    color: #5C5C5C;
+    position: relative;
+    left: 185px;
+    top: 23px;
+   
 }
 
 
@@ -248,26 +346,33 @@ position: relative;
 
 .nowtitle{
 	font-size:16px;
-	color:#717F94;
+	color:black;
 }
 .favorpriority{
 	    font-size: 16px;
     position: relative;
     left: 5px;
-    top: 28px;
-    color: #5C5C5C;
-    border: rgb(196, 195, 195) 1px solid;
+    top: 26px;
+    color: #8b8a8a;
     border-radius: 5px;
    
 }
 .newpriority{
 	font-size:16px;
-	color:#5C5C5C;
-	border: rgb(196, 195, 195) 1px solid;
+	color:#8b8a8a;
 	border-radius:5px;
 	position:relative;
 	    left: 130px;
 	 
+}
+
+.error2{
+	    color: red;
+    font-size: 26px;
+    position: relative;
+    left: 45px;
+    top: 119px;
+	
 }
 
 
@@ -310,9 +415,9 @@ position: relative;
     border-radius:10px;
   }
 .favTeatext{
-    position: relative;
+        position: relative;
     font-size: 28px;
-    right: 310px;
+    right: 50px;
     top: 40px;
     color: #FFFAFA;
 }
@@ -388,6 +493,32 @@ position: relative;
   margin-bottom: 50px;
   border-radius:20px;
  }
+ div.bar1:hover{
+transform: scale(1.01);
+   
+    box-sizing: content-box;
+    border:none;
+    box-shadow: 0px 2px 3px 1px #5B70F9;
+
+
+ }
+ button.reserve1:hover{
+ background-color:#384CCE;
+ }
+ button.contact1:hover{
+ color:#02CAB9;
+ border-color:#02CAB9;
+ }
+ 
+ 
+ 
+.membertitle3{
+font-size: 26px;
+    left: 185px;
+    top: 39px;
+    position: relative;
+}
+ 
  .membertitle{
  position:relative;
  left:135px;
@@ -396,7 +527,7 @@ width:250px;
 white-space: nowrap;
 text-overflow : ellipsis;
 overflow:hidden;
- font-size:18px;
+ font-size:20px;
  }
  
  .comment{
@@ -415,17 +546,17 @@ overflow:hidden;
   width:80px;
   height:80px;
   top:15px;
-  left:45px;
+  left:32px;
   display:block;
   border-radius: 160px;
 }
 .introduction1{
-  position: relative;
-  top:-71px;
-margin: auto;
-width: 250px;
-height:150px;
-  overflow : hidden;
+ position: relative;
+    top: -47px;
+    margin: auto;
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
 }
 .contact1{
   width: 80px;
@@ -462,10 +593,14 @@ height:150px;
   border-radius:5px;
   top:-220px;
   left:423px;
-  background-color: #02CAB999;
+  background-color: #5B70F9;
   border:none;
   color: #FBF3F3;
 }
+
+
+
+
 .favorimg1{
   width:14px;
   position: relative;
@@ -478,15 +613,14 @@ height:150px;
 
 .requirelistbar{
 width:2000px;
-height:2000px;
-border:red solid 1px;
+
 }
 
 .input{
-        width: 956px;
+      width: 798px;
     height: 46px;
     position: relative;
-    right: 15px;
+    right: 87px;
     font-size: 20px;
 }
 
@@ -1018,8 +1152,9 @@ textarea:active {
 }
 
 .button:not(:disabled):not(.disabled) {
-    cursor: pointer;
+ cursor: pointer;
     position: relative;
+    left: 90px;
     top: -2px;
 }
 
@@ -4306,12 +4441,12 @@ Forms
   color: var(--base-0);
   -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
-  background-color: var(--secondary);
+  background-color: #5B70F9;
 }
 
 .button-secondary:hover {
   color: var(--base-0);
-  background-color: var(--secondary-1);
+  background-color:  #384CCE;
 }
 
 .button-gradient {

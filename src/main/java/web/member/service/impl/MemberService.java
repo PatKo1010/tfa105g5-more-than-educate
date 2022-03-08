@@ -45,7 +45,7 @@ public class MemberService {
 		return null;
 	}
 	//B.只讀Email
-	public MemberBean selectByEmail(String email) {
+	public MemberBean selectByEmail(String email) {  //用email,取得整個memberBean
 		if ( email != null && email.length() != 0) {
 			return memberDAO.selectByEmail(email);
 		}
@@ -55,8 +55,22 @@ public class MemberService {
 	//1.新增
 	public MemberBean insert(MemberBean memberBean) {
 		if (memberBean.getEmail() != null && memberBean.getPassword() != null) { //DAO實作已經寫了判斷,service還要寫判斷嗎????
-			MemberBean insertResult = memberDAO.insert(memberBean);
-			return insertResult;
+//			memberDAO.selectByEmail(memberBean.getEmail()); //return email那個MemberBean
+			System.out.println("!!!memberBean= " + memberBean);
+			System.out.println("!!!memberBean.email= " + memberBean.getEmail());
+			System.out.println("!!!selectByEmail= " + memberDAO.selectByEmail(memberBean.getEmail()) );
+			MemberBean check = memberDAO.selectByEmail(memberBean.getEmail());
+			if ( check == null ) {
+				System.out.println("!!!進入insert");
+				return memberDAO.insert(memberBean);
+			} else {
+				return check;
+			}
+//			if (  memberBean.getEmail().equals( memberDAO.selectByEmail(memberBean.getEmail()).getEmail() )  ) {
+//				return memberDAO.update(memberBean);
+//			} else {
+//				return memberDAO.insert(memberBean);
+//			}
 		}
 		return null;
 	}
@@ -84,7 +98,18 @@ public class MemberService {
 			return memberDAO.select(memberBeanSelect.getMemid());
 		}
 		return null;
-	} 
+	}
+	
+	
+	public MemberBean selectByMemId (Integer memid) {
+		if (memid != null) {
+			return  memberDAO.select(memid);
+		}
+		return null;
+	}
+	
+	
+	
 	
 	//4b.查詢(多)
 	public List<MemberBean> selectAll(MemberBean memberBeanSelectAll) {

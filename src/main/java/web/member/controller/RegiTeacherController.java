@@ -71,10 +71,10 @@ public class RegiTeacherController {
 
 //2.呼叫model
 		//值的存改 (byXXXService)
-		memberBean.setMemid(memID);
+//		memberBean.setMemid(memID);
 		memberBean.setPhoto(image);
-		memberBean.setEmail(email);
-		memberBean.setPassword(password);
+//		memberBean.setEmail(email);
+//		memberBean.setPassword(password);
 		memberBean.setUsername(username);
 		memberBean.setPhonenum(phonenum);
 		

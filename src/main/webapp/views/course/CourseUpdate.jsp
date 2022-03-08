@@ -208,8 +208,8 @@
             </div>
         </li>
         <li>
-            <a href="<%=request.getContextPath()%>/views/member/teacherProfile.jsp">
-                <span class="text">成為老師</span>
+            <a href="<%=request.getContextPath()%>/views/member/updateTeacherProfile.jsp">
+                <span class="text">老師中心</span>
                 <span class="icon fa fa-angle-left"></span>
             </a>
         </li>
@@ -526,13 +526,13 @@
                 </div>
                 <ul class="el-list-icon">
                     <li>
-                        <a href="<%=request.getContextPath() %>/views/member/teacherProfile.jsp">
+                        <a href="<%=request.getContextPath() %>/views/member/updateTeacherProfile.jsp">
                             <i class="fa fa-cog"></i>
                             <span class="text">教師資料</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath() %>/views/member/teacherSkills.jsp">
+                        <a href="<%=request.getContextPath() %>/views/member/updateTeacherSkills.jsp">
                             <i class="fa fa-cog"></i>
                             <span class="text">教授資格</span>
                         </a>
@@ -540,7 +540,7 @@
                     <li>
                         <a href="<%=request.getContextPath() %>/views/course/CourseOverview1.html">
                             <i class="fa fas fa-book"></i>
-                            <span class="text">課程總覽</span>
+                            <span class="text">我的課程總覽</span>
                         </a>
                     </li>
                 </ul>

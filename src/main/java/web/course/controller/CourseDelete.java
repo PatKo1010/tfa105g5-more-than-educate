@@ -1,28 +1,41 @@
 package web.course.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import web.course.entity.CourseBean;
 import web.course.service.CourseServiceInterface;
+import web.orderInfo.entity.OrderInfoEntity;
+import web.orderInfo.service.OrderInfoServiceInterface;
 
-@Controller
+@RestController
 public class CourseDelete {
 
 	@Autowired
 	private CourseServiceInterface courseServiceInterface;
-	
-	@RequestMapping(path = {"/views/course.delete"})
-	public String delete(Model model, CourseBean bean) {
-		System.out.println("hehehehe");
-		boolean result = courseServiceInterface.rmoveCourse(bean);
-		if(!result) {
-			model.addAttribute("delete", 0);
-		}else {
-			model.addAttribute("delete", 1);
+	@Autowired
+	private OrderInfoServiceInterface orderInfoService;
+
+	@PostMapping(path = { "/views/course.delete" })
+	public String delete(Model model, @RequestBody CourseBean bean) {
+		
+		System.out.println(bean);
+
+		List<OrderInfoEntity> orderList = orderInfoService.selectOrderByCourseId(bean);
+		System.out.println(orderList);
+
+		if (orderList != null && orderList.size() != 0) {
+			return Boolean.toString(false);
+			
+		} else {			
+			Boolean result = courseServiceInterface.rmoveCourse(bean);
+			return result.toString();
 		}
-		return "redirect:/views/course/CourseOverview1.html";
+
 	}
 }

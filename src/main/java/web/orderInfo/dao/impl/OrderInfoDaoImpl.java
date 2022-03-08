@@ -1,5 +1,6 @@
 package web.orderInfo.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.PersistenceContext;
@@ -60,6 +61,14 @@ public class OrderInfoDaoImpl implements OrderInfoDaoInterface {
 	public java.util.Date getInfoDate(Integer orderId){
 		String HQL = "select orderDate FROM OrderInfoEntity where orderId =:XXX";
 		return (java.util.Date)session.createQuery(HQL).setParameter("XXX", orderId).uniqueResult(); 
+	}
+	@Override
+	public List<OrderInfoEntity> selectByCourseId(Integer courseId) {
+		if (courseId != null) {
+			String hql = "From OrderInfoEntity where courseId =:xxx";
+			return this.session.createQuery(hql, OrderInfoEntity.class).setParameter("xxx", courseId).list();
+		}
+		return null;
 	}
 	
 }

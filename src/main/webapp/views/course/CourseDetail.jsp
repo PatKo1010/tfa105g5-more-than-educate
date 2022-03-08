@@ -166,9 +166,6 @@
 										</div>
 									</div>
 								</li>
-								<li><a href="/tfa105g5-more-than-educate/views/member/teacherProfile.jsp">
-										<span class="text">成為老師</span> <span class="icon fa fa-angle-left"></span>
-									</a></li>
 							</ul>
 						</div>
 						<div class="header-logo">
@@ -201,12 +198,7 @@
 						<div style="float: right;">
 							<!-- 					<form action="/tfa105g5-more-than-educate/course/shoppingCart" method="post"> -->
 							<input type="hidden" name="memid" value="${member.memid}">
-							<a
-								href="http://localhost:7080/tfa105g5-more-than-educate/views/course/CourseShoppingCart.html">
-								<img src="<%=request.getContextPath()%>/public/shopping-cart1.ico"
-									style="width: 40px; height: 35px;">
-							</a> <a
-								href="http://localhost:7080/tfa105g5-more-than-educate/views/course/CourseShoppingCart.html">
+						 	<a href="/tfa105g5-more-than-educate/views/course/CourseShoppingCart.html">
 								<img src="<%=request.getContextPath()%>/public/shopping-cart2.ico"
 									style="width: 40px; height: 35px;">
 							</a>
@@ -460,11 +452,6 @@
 													<div class="teacher">
 														<div class="avatar">
 															<ul class="icons">
-																<!-- 														<li> -->
-																<!-- 															<div class="icon-lang"> -->
-																<!-- 																<img src="course/getMemberImg" alt="Lang" /> -->
-																<!-- 															</div> -->
-																<!-- 														</li> -->
 															</ul>
 															<a href="page-teacher.html" target="_blank"> <img
 																	src="course/getMemberImg?courseid=${course.courseid}"
@@ -517,14 +504,16 @@
 									'Content-Type': 'application/json'
 								},
 								body: JSON.stringify({
-									memid: '${member.memid}',
-									courseid: '${course.courseid}'
+									'memid': '${member.memid}',
+									'courseid': '${course.courseid}'
 								})
 							})
-								.then(
+								.then(response => response.json())
+								.then((data) => {
+									console.log(data)
+									alert('已經加入購物車');
+								})
 
-									alert("已加入購物車！")
-								)
 						} else {
 							alert("請登入會員！")
 						}
