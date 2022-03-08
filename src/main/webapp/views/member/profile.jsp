@@ -385,6 +385,16 @@
                 </div>
             </div>
         </li>
+        <!-- 學生中心 -->
+        <c:if test="${not empty member}">
+            <li>
+                <a href="<%=request.getContextPath() %>/views/member/dashboard.jsp">
+                    <span class="text">學生中心</span>
+                    <span class="icon fa fa-angle-left"></span>
+                </a>
+            </li>
+        </c:if>        
+        
         <!-- 申請成老師 -->
         <c:if test="${member.teaqual == false}">
         <li>
