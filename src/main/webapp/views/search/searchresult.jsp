@@ -599,11 +599,11 @@
 											
 				
 											<form name="form4" method="post" action="<%=request.getContextPath()%>/search.controller" >
-												<button class="favorpriority">優質教師優先</button>
+												<button class="favorpriority" onmouseover="mouseover(event)" onmouseout="mouseout(event)">優質教師優先</button>
 												 <input type="hidden" name="action" value="goodOrder"></input>
 											</form>	
 												<form name="form5" method="post" action="<%=request.getContextPath()%>/search.controller" >
-												<button class="newpriority">新教師優先</button>
+												<button class="newpriority" onmouseover="mouseover(event)" onmouseout="mouseout(event)">新教師優先</button>
 												<input type="hidden" name="action" value="newOrder"></input>
 												</form>	
 											</ul>
@@ -617,19 +617,16 @@
 							<c:forEach var="member" items="${members}">
 							
                                 <form name="form" method="post" action="<%=request.getContextPath()%>/search.controller" >    
-								<div class="bar1" onclick="direct(${member.memid})"   >
+								<div class="bar1" onmouseover="barmouseover(event)" onmouseout="barmouseout(event)" >
 								 <input type="hidden" name="action" value="showTeacher"></input>
 								  </form>
-									<img class="person1"
+									<img class="person1" 
 										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
-									<div class="membertitle">${member.username}  ${member.teatitle}</div>
-									<div class="comment"><img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member.ratesum} · ${member.ratecount}個評論</div>
-									<div class=personbar1>
-										<img class="favorimg1"
-											src="https://pic.sucaibar.com/pic/201307/08/028acf7310.png">
-										<span class="favorclick1">收藏</span>
-									</div>
-									<div class="introduction1">${member.introcontent}
+									<div class="membertitle" onclick="direct(${member.memid})" onmouseover="mouseover(event)" onmouseout="mouseout(event)">${member.username}  ${member.teatitle}</div>
+									<div class="comment">
+									<img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member.ratesum} · ${member.ratecount}個評論</div>
+							
+									<div class="introduction1" >${member.introcontent}
 										${member.photo} 
 										${member.regdate}</div>
 									<div class="selfbotton">

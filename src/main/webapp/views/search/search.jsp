@@ -511,7 +511,7 @@
                                 <div class="container">
                                     <div class="el-cta el-cta-4">
                                         <form name="form" method="post" action="<%=request.getContextPath()%>/search.controller" >
-                                        <input class=input name ="keyword" placeholder="輸入想學習的科目或想找的老師"> </input>
+                                       <input class=input name ="keyword" placeholder="輸入想學習的科目或想找的老師"></input>
                                         <input type="hidden" name="action" value="getTeacher"></input>
                                         <button type="sumit"  class="button button-md button-secondary">
                                             <span class="text text-light">搜尋</span>
@@ -523,13 +523,15 @@
                             </div>
 
                             <div class="outfavor">
-        <div class="favorh2">三位收藏老師</div>
         <br>
         <br>
         <div class="favorTeaBar">
-            <span class="favTeatext">快來看看你所收藏喜愛的教師吧</span>
+            <span class="favTeatext">More_Than_Educate匯集專業講師
+</span>
+<span class="favTeatext1">與您同一陣線，
+解決各種學習痛點，成就非凡人生
+</span>
             <br>
-            <button class="favTeabutton">瀏覽收藏教師</button>
             <img class="backgroundimg"
                 src="<%=request.getContextPath()%>/public/images/backgroundimg.png">
         </div>
@@ -618,32 +620,195 @@
                                     </div>
                                 </div>
                                 <!--Item-->
+                              
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+              <br>
+              <br>
+              <br>
+              <br>
             <!--/-->
         </div>
         <!--Footer-->
-        
-            <div class="footer-copyright">
-                <div class="container">
-                    <span class="footer-line"></span>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <p>© 2020 All Rights Reserved</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/public/js/search.js"></script>
-    <script src="../../public/js/jquery.min.js"></script>
-    <script src="../../public/js/plugins.min.js"></script>
-    <script src="../../public/js/main-scripts.js"></script>
+	<footer class="section app-footer app-footer-2">
+		<div class="footer-info">
+			<div class="container"></div>
+		</div>
+		<div class="footer-widgets">
+			<div class="container">
+				<div class="footer-widgets-links">
+					<div class="row row-xl-5">
+						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+							<div class="widget widget-links">
+								<div class="widget-title">
+									<h4>Quick Access</h4>
+								</div>
+								<div class="widget-body">
+									<ul>
+										<li><a href="page-cooperation.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Apply
+													to Teach</span>
+										</a></li>
+										<li><a href="page-teachers.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Search
+													for Teachers</span>
+										</a></li>
+										<li><a href="page-courses.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">List
+													of Courses</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Departments</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-none d-xl-block">
+							<div class="widget widget-links">
+								<div class="widget-title">
+									<h4>Languages</h4>
+								</div>
+								<div class="widget-body">
+									<ul>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													Hindi</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													Farsi</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													Turkish</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													Chinese</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+							<div class="widget widget-links">
+								<div class="widget-title">
+									<h4>Languages</h4>
+								</div>
+								<div class="widget-body">
+									<ul>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													English</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													Spanish</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													German</span>
+										</a></li>
+										<li><a href="page-departements.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Learn
+													French</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+							<div class="widget widget-links">
+								<div class="widget-title">
+									<h4>Teachers</h4>
+								</div>
+								<div class="widget-body">
+									<ul>
+										<li><a href="page-teachers.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">English
+													Tutors</span>
+										</a></li>
+										<li><a href="page-teachers.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Spanish
+													Tutors</span>
+										</a></li>
+										<li><a href="page-teachers.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">French
+													Tutors</span>
+										</a></li>
+										<li><a href="page-teachers.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Japanese
+													Tutors</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+							<div class="widget widget-links">
+								<div class="widget-title">
+									<h4>Communication</h4>
+								</div>
+								<div class="widget-body">
+									<ul>
+										<li><a href="page-about.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">About
+													Us</span>
+										</a></li>
+										<li><a href="page-contact.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Contact
+													Us</span>
+										</a></li>
+										<li><a href="page-faq.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Faq</span>
+										</a></li>
+										<li><a href="page-policy.html"> <span
+												class="icon ti-angle-left"></span> <span class="text">Policy</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				<span class="footer-line"></span>
+				<div class="row">
+					<div class="col-md-8">
+						<p>© 2020 All Rights Reserved</p>
+					</div>
+					<div class="col-md-4">
+						<ul class="el-social-links">
+							<li><a href="#"> <span class="fa fa-facebook"></span>
+							</a></li>
+							<li><a href="#"> <span class="fa fa-google"></span>
+							</a></li>
+							<li><a href="#"> <span class="fa fa-linkedin"></span>
+							</a></li>
+							<li><a href="#"> <span class="fa fa-twitter"></span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+	
+	</footer>
+	</div>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/public/js/searchresult.js"></script>
+	  <script src="<%=request.getContextPath() %>/public/js/jquery-3.4.1.min.js"></script>
+    <scirpt src="<%=request.getContextPath()%>/public/js/searchresult.js"></scirpt>
+	<script src="<%=request.getContextPath()%>/public/js/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/public/js/plugins.min.js"></script>
+	<script src="<%=request.getContextPath()%>/public/js/main-scripts.js"></script>
 </body>
-
 </html>

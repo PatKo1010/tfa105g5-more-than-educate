@@ -12,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Repository;
 import configuration.SpringJavaConfig;
 import web.course.entity.CourseBean;
+import web.education.entity.EducationBean;
 import web.hashtag.dao.HashtagDaoInterface;
 import web.hashtag.entity.HashtagBean;
 import web.member.entity.MemberBean;
@@ -119,7 +120,7 @@ public class HashtagDao implements HashtagDaoInterface {
 		@Override
 		public  List<MemberBean> orderNewTeacher(List <MemberBean> members){
 			Integer subjectid=members.get(0).getSubjectid();
-			String hql1 = " from MemberBean where teaqual=1 and subjectid=:subjectid order by regdate ";
+			String hql1 = " from MemberBean where teaqual=1 and subjectid=:subjectid order by regdate desc";
 			List<MemberBean>  result = session.createQuery(hql1).setParameter("subjectid", subjectid).list();
 			return result;
 		};
@@ -131,7 +132,11 @@ public class HashtagDao implements HashtagDaoInterface {
 			return result;
 		}
 		
-		
-		
+		@Override
+		public  EducationBean showEducation(Integer id) {
+			String hql = " from EducationBean where memid=:id";
+			EducationBean result= (EducationBean) session.createQuery(hql).setParameter("id",id).uniqueResult();
+			return result;
+		}
 		
 }
