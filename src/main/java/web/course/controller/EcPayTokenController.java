@@ -11,6 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,9 +35,10 @@ public class EcPayTokenController {
 	private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	@Autowired
 	private OrderInfoServiceInterface ois;
-	
+
 	@PostMapping("/course/getEcpayToken")
-	public Map<String, String> handler(Model model, @RequestBody List<vCourseMemberBean> orders) throws ServletException, IOException {
+	public Map<String, String> handler(Model model, @RequestBody List<vCourseMemberBean> orders)
+			throws ServletException, IOException {
 		System.out.println(orders);
 //		for(vCourseMemberBean vBean : orders){
 //			Map<Integer, java.util.Date> orderMap = ois.insertOrderReserved(vBean.getCourseid(), vBean.getMemid());
@@ -48,23 +50,21 @@ public class EcPayTokenController {
 //				}
 //			});
 //		}
-		
+
 		final vCourseMemberBean order = orders.get(0);
-		Map<Integer, java.util.Date> orderMap = ois.insertOrderReserved(order.getCourseid(), order.getMemid());
-		for (Map.Entry<Integer, java.util.Date> entry : orderMap.entrySet()) {
-			try {
-				Map<String, String> resultMap = new HashMap<>();
-				resultMap.put("token", getEcpay(entry.getKey(), entry.getValue()));
-				resultMap.put("orderId", String.valueOf(entry.getKey()));
-				return resultMap;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		Map<String, Object> orderMap = ois.insertOrderReserved(order.getCourseid(), order.getMemid());
+
+		Map<String, String> resultMap = new HashMap<>();
+		try {
+			resultMap.put("token", getEcpay((Integer) orderMap.get("orderId"), (Date) orderMap.get("orderDate")));
+			resultMap.put("orderId", String.valueOf((Integer) orderMap.get("orderId")));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return null;
+		return resultMap;
 	}
 
-	private String getEcpay(Integer orderId, java.util.Date date) throws Exception{
+	private String getEcpay(Integer orderId, java.util.Date date) throws Exception {
 		URL url = new URL("https://ecpg-stage.ecpay.com.tw/Merchant/GetTokenbyTrade");
 		HttpURLConnection httpUrlConnection = (HttpURLConnection) url.openConnection();
 		httpUrlConnection.setRequestProperty("Content-Type", "application/json");
@@ -81,30 +81,31 @@ public class EcPayTokenController {
 		data.addProperty("ChoosePaymentList", "1");
 		JsonObject orderInfo = new JsonObject();
 		data.add("OrderInfo", orderInfo);
-		orderInfo.addProperty("MerchantTradeNo", String.valueOf(orderId));
+		orderInfo.addProperty("MerchantTradeNo","\""+ orderId + "\"");
+//		System.out.println("\""+ orderId + "\"");
 		orderInfo.addProperty("MerchantTradeDate", SDF.format(date));
 		orderInfo.addProperty("TotalAmount", 1000);
 		orderInfo.addProperty("ReturnURL", "https://localhost:8443/tfa105g5-more-than-educate/");
 		orderInfo.addProperty("TradeDesc", "test");
 		orderInfo.addProperty("ItemName", "Java");
-		
+
 		JsonObject cardInfo = new JsonObject();
 		cardInfo.addProperty("orderResultURL", "https://localhost:8443/tfa105g5-more-than-educate/");
 		data.add("CardInfo", cardInfo);
-		
+
 		JsonObject consumerInfo = new JsonObject();
 		cardInfo.addProperty("Name", "TibaMe");
 		data.add("ConsumerInfo", consumerInfo);
-		
+
 		JsonObject output = new JsonObject();
 		output.addProperty("MerchantID", "2000132");
 		JsonObject rqHeader = new JsonObject();
 		output.add("RqHeader", rqHeader);
 		rqHeader.addProperty("Timestamp", System.currentTimeMillis() / 1000);
-		rqHeader.addProperty("Revision", "1.0.0");
+		rqHeader.addProperty("Revision", "1.3.20");
 		output.addProperty("Data", encrypt(data.toString()));
 //		System.out.println(output);
-		
+
 		writer.write(output.toString());
 		writer.close();
 
@@ -121,6 +122,7 @@ public class EcPayTokenController {
 			Gson gson = new Gson();
 			JsonObject jsonObject = gson.fromJson(stringBuilder.toString(), JsonObject.class);
 			String dataStr = URLDecoder.decode(decrypt(jsonObject.get("Data").getAsString()), "UTF-8");
+			System.out.println(dataStr);
 			JsonObject dataObject = gson.fromJson(dataStr, JsonObject.class);
 			final String token = dataObject.get("Token").getAsString();
 			System.out.println(token);
