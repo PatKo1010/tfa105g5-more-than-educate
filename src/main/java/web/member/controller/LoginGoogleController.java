@@ -110,6 +110,7 @@ public class LoginGoogleController {
             
             bean.setPassword("採第三方google登入,不可更改密碼");
             bean.setRatecount(1);
+            bean.setTeaqual(false);
             memberService.insert(bean);  //可能要改update
             
             MemberBean resultBean = memberService.selectByEmail(bean.getEmail());
