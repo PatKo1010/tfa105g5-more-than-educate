@@ -86,7 +86,7 @@
                                 </div>
 <!--                                 <div class="form-item"> -->
 <!--                                     <button class="button button-md button-block button-gmail button-primary" type="button"> -->
-<!--                                         <span class="text">Register with Google</span> -->
+<!--                                         <span class="text" onclick="windows.location.href='https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com%2Fauth%2Fuserinfo.email+https://www.googleapis.com%2Fauth%2Fuserinfo.profile&amp;state=/profile&amp;redirect_uri=******&amp;response_type=code&amp;client_id=1064292731610-gq88kia62m4187k3j0nusfuoq10gj6i7.apps.googleusercontent.com'">Register with Google</span> -->
 <!--                                     </button> -->
 <!--                                 </div> -->
                             </form>

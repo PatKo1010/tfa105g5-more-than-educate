@@ -78,15 +78,14 @@
                                 <div class="form-item mb-0">
 <!--                                     <a href="teacher/dashboard.html" class="button button-md button-block button-primary text-center"> -->
 <!--                                         <span class="text text-center" >登入</span> -->
-                                        <span class="button button-md button-block button-primary text text-center" onclick="loginForm.submit()" >登入</span>
+                                    <span class="button button-md button-block button-primary text text-center" onclick="loginForm.submit()" >登入</span>
 <!--                                     </a> -->
                                 </div>
                                 
                                 <div class="form-item">
-<!--  ~~~~待做~~~~  Sign in with google  -->
-<!--                                     <button class="button button-md button-block button-gmail button-primary" type="button"> -->
-<!--                                         <span class="text">Sign in with Google</span> -->
-<!--                                     </button> -->
+                                    <button class="button button-md button-block button-gmail button-primary" type="button" onclick="window.location.href='https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com%2Fauth%2Fuserinfo.email+https://www.googleapis.com%2Fauth%2Fuserinfo.profile&amp;state=/profile&amp;redirect_uri=https://localhost:8443/tfa105g5-more-than-educate/views/member/loginWithGoogle&amp;response_type=code&amp;client_id=1064292731610-gq88kia62m4187k3j0nusfuoq10gj6i7.apps.googleusercontent.com'">
+                                        <span class="text" >有google嗎 用它登入巴~</span>
+                                    </button>
                                 </div>
                                 
                             </form>
