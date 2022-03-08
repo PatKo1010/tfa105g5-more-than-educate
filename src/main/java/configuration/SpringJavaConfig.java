@@ -54,7 +54,7 @@ public class SpringJavaConfig {
 		config.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		config.setJdbcUrl("jdbc:mysql://localhost:3306/more_than_educate?serverTimezone=Asia/Taipei");
 		config.setUsername("root");
-		config.setPassword("p19951010");
+		config.setPassword("Steven2532");
 		config.addDataSourceProperty("cachePrepStmts", "true");
 		config.addDataSourceProperty("prepStmtCacheSize", "250");
 		config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");

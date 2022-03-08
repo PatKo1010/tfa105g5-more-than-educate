@@ -80,7 +80,7 @@ public class AdminControllerInsert {
 			} else {
 				session.setAttribute("login", result);
 			}
-			return "/bullet/resources/bulletSelect";
+			return "redirect:/views/bullet/resources/bulletSelect.jsp";
 			
 
 		}

@@ -20,13 +20,13 @@ public class BulletControllerDelete {
 
 	@ResponseBody
 	@RequestMapping(value = "/bulletdelete.controller" ,produces = "text/html; charset=UTF-8")
-	public String getSearchResultViaAjax(Integer id, BulletBean bean) {
+	public String getSearchResultViaAjax(Integer bulletId, BulletBean bean) {
 
 		String message = "";
-		if (id == null || "".equals(id)) {
-			message = "no ddata";
+		if (bulletId == null ) {
+			message = "no data";
 		} else {
-			bean.setBulletId(id);
+			bean.setBulletId(bulletId);
 			boolean bv = service.delete(bean);
 			System.out.println(bv);
 			message = bv == true ? "刪除成功" : "failed";

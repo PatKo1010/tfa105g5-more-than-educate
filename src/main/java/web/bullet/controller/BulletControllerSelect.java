@@ -30,7 +30,7 @@ public class BulletControllerSelect {
 	}
 
 	@RequestMapping(path = { "/bulletselect.controller" })
-	public String method(BulletBean bean, String BulletBeanselectbyid, String BulletBeanselectbyadminid,
+	public String method(BulletBean bean, String BulletBeanselectbyid,
 			BindingResult bindingResult, Model model) {
 		Map<String, String> errors = new HashMap<String, String>();
 
@@ -43,13 +43,8 @@ public class BulletControllerSelect {
 		if (errors != null && !errors.isEmpty()) {
 			return "/bullet/resources/Display";
 		}
-		if (BulletBeanselectbyid != null) {
 			List<BulletBean> result = service.select(bean);
 			model.addAttribute("select", result);
 			return "/bullet/resources/Display";
-		} else {
-			return "/bulletlistall.controller";
-		}
-
 	}
 }

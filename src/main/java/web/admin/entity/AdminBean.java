@@ -24,7 +24,7 @@ public class AdminBean implements Serializable {
 	private String adminPassword;
 	
 
-	public Integer getAdmin_Id() {
+	public Integer getAdminId() {
 		return adminId;
 	}
 
@@ -45,7 +45,7 @@ public class AdminBean implements Serializable {
 				+ "]";
 	}
 
-	public void setAdmin_Id(Integer adminId) {
+	public void setAdminId(Integer adminId) {
 		this.adminId = adminId;
 	}
 

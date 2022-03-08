@@ -54,9 +54,15 @@ public class BulletServiceImpl implements BulletServiceInterface {
 			if (temp != null) {
 				result = new ArrayList<BulletBean>();
 				result.add(temp);
+			} else {
+				result = dao.selectall();
 			}
-		} 
-		return result;
+			return result;
+			
+		} else {
+			return dao.selectall();
+		}
+		
 
 	}
 
@@ -64,7 +70,7 @@ public class BulletServiceImpl implements BulletServiceInterface {
 	public List<BulletBean> selectByAdminId(BulletBean bean) {
 
 		List<BulletBean> beanList = dao.adminFindById(bean.getAdminId());
-		return beanList;
+		return beanList.isEmpty()?dao.selectall() : beanList;
 	}
 
 	@Override

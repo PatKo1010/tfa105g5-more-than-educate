@@ -21,15 +21,15 @@ public class SpringMvcJavaConfig implements WebMvcConfigurer {
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	 */
-//	@Override
-//	public void configureViewResolvers(ViewResolverRegistry registry) {
-//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-//		resolver.setViewClass(InternalResourceView.class);
-//		resolver.setPrefix("/WEB-INF/views");
-//		resolver.setSuffix(".jsp");
-//		
-//		registry.viewResolver(resolver);
-//	}
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setViewClass(InternalResourceView.class);
+		resolver.setPrefix("/views");
+		resolver.setSuffix(".jsp");
+		
+		registry.viewResolver(resolver);
+	}
 	
 	/*
 	 <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
