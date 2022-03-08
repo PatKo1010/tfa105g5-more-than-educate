@@ -1,5 +1,8 @@
 package web.bullet.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +21,56 @@ public class BulletServiceImpl implements BulletServiceInterface {
 
 	@Override
 	public BulletBean select(Integer id) {
-		return dao.select(id);
+		if (id != null) {
+			return dao.select(id);
+		}
+		return null;
+
 	}
+
 	@Override
 	public BulletBean insert(BulletBean bean) {
-		BulletBean result=null;
-		if(bean!=null && bean.getAdminId()!=null) {
-			result=dao.insert(bean);
+		if (bean != null) {
+			return dao.insert(bean);
+		}
+		return null;
+	}
+
+	@Override
+	public boolean delete(BulletBean bean) {
+		boolean result = false;
+		if (bean != null && bean.getBulletId() != null) {
+			result = dao.delete(bean.getBulletId());
 		}
 		return result;
+
 	}
+
+	@Override
+	public List<BulletBean> select(BulletBean bean) {
+		List<BulletBean> result = null;
+		if (bean != null && bean.getBulletId() != null ) {
+			BulletBean temp = dao.select(bean.getBulletId());
+			if (temp != null) {
+				result = new ArrayList<BulletBean>();
+				result.add(temp);
+			}
+		} 
+		return result;
+
+	}
+
+	@Override
+	public List<BulletBean> selectByAdminId(BulletBean bean) {
+
+		List<BulletBean> beanList = dao.adminFindById(bean.getAdminId());
+		return beanList;
+	}
+
+	@Override
+	public List<BulletBean> selectall() {
 	
+		return dao.selectall();
+	}
+
 }

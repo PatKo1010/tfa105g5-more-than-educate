@@ -1,7 +1,7 @@
 package web.bullet.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,52 +9,63 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="bullet")
+@Table(name = "bullet")
 
-public class BulletBean implements Serializable{
+public class BulletBean extends Core implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="bullet_id")
-	@GeneratedValue (strategy= GenerationType.IDENTITY)
-	private Integer bulletID;
-	@Column(name="admin_id")
-	private Integer adminID;
-	@Column(name="bullet_title")
+	@Column(name = "bullet_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer bulletId;
+	@Column(name = "admin_id")
+	private Integer adminId;
+	@NotNull
+	@Column(name = "bullet_title",nullable = false)
 	private String bulletTitle;
-	@Column(name="bullet_content")
+	@NotNull
+	@Column(name = "bullet_content",nullable = false)
 	private String bulletContent;
-	@Column(name="bullet_time")
-	private LocalDateTime bulletTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "bullet_time", columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+	private Date bulletTime = new Date();
+
 	
-	
+	public BulletBean(Integer bulletID, Integer adminID, String bulletTitle, String bulletContent,
+			Date bulletTime) {
+		super();
+		this.adminId = adminID;
+		this.bulletId = bulletID;
+		this.bulletTitle = bulletTitle;
+		this.bulletContent = bulletContent;
+		this.bulletTime = bulletTime;
+	}
+
+	public BulletBean(boolean successful) {
+		super(successful);
+	}
+
 	public BulletBean() {
 	}
-	
-	public BulletBean(Integer bulletID,Integer adminID,String bulletTitle,String bulletContent,LocalDateTime bulletTime) {
-		super();
-		this.adminID=adminID;
-		this.bulletID=bulletID;
-		this.bulletTitle=bulletTitle;
-		this.bulletContent=bulletContent;
-		this.bulletTime=bulletTime;
-	}
-	
+
 	public Integer getBulletId() {
-		return bulletID;
+		return bulletId;
 	}
 
 	public void setBulletId(Integer bulletId) {
-		this.bulletID = bulletId;
+		this.bulletId = bulletId;
 	}
 
 	public Integer getAdminId() {
-		return adminID;
+		return adminId;
 	}
 
 	public void setAdminId(Integer adminId) {
-		this.adminID = adminId;
+		this.adminId = adminId;
 	}
 
 	public String getBulletTitle() {
@@ -73,19 +84,18 @@ public class BulletBean implements Serializable{
 		this.bulletContent = bulletContent;
 	}
 
-	public LocalDateTime getBulletTime() {
+	public Date getBulletTime() {
 		return bulletTime;
 	}
 
-	public void setBulletTime(LocalDateTime bulletTime) {
+	public void setBulletTime(Date bulletTime) {
 		this.bulletTime = bulletTime;
 	}
 
 	@Override
 	public String toString() {
-		return "BulletBean [bulletId=" + bulletID + ", adminId=" + adminID + ", bulletTitle=" + bulletTitle
+		return "BulletBean [bulletId=" + bulletId + ", adminId=" + adminId + ", bulletTitle=" + bulletTitle
 				+ ", bulletContent=" + bulletContent + ", bulletTime=" + bulletTime + "]";
 	}
 
-
-	}
+}
