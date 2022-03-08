@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ecpay.payment.integration.AllInOne;
 import ecpay.payment.integration.domain.AioCheckOutALL;
 import web.course.entity.vCourseMemberBean;
+import web.member.entity.MemberBean;
 import web.orderInfo.service.OrderInfoServiceInterface;
 
 @RestController
@@ -26,12 +27,13 @@ public class EcpayController {
 	public static AllInOne allInOne;
 
 	@PostMapping( value = "/course/ecpay",  produces = "text/plain;charset=UTF-8")
-	public String handler (Model model, @RequestBody List<vCourseMemberBean> orders) {
+	public String handler (Model model, @RequestBody List<vCourseMemberBean> orders, HttpSession session ) {
 		
+		MemberBean memBean = (MemberBean)session.getAttribute("member");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		
 		vCourseMemberBean vBean = orders.get(0);
-		Map<String, Object> orderMap =  orderInfoService.insertOrderReserved( vBean.getCourseid(), vBean.getMemid());
+		Map<String, Object> orderMap =  orderInfoService.insertOrderReserved( vBean.getCourseid(), memBean.getMemid());
 		System.out.println(orderMap.toString());
 		
 		System.out.println(String.valueOf((Integer)orderMap.get("orderId")) +"TFA105G5");

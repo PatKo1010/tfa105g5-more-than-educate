@@ -32,6 +32,8 @@ public class OrderInfoServiceImpl implements OrderInfoServiceInterface {
 
 	@Override
 	public Map<String, Object> insertOrderReserved(Integer courseId, Integer memId) {
+		
+		
 		Map<String, Object> result = new HashMap<>();
 		OrderInfoEntity orderInfoEntity = new OrderInfoEntity();
 		orderInfoEntity.setMemId(memId);

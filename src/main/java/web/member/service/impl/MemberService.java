@@ -98,7 +98,18 @@ public class MemberService {
 			return memberDAO.select(memberBeanSelect.getMemid());
 		}
 		return null;
-	} 
+	}
+	
+	
+	public MemberBean selectByMemId (Integer memid) {
+		if (memid != null) {
+			return  memberDAO.select(memid);
+		}
+		return null;
+	}
+	
+	
+	
 	
 	//4b.查詢(多)
 	public List<MemberBean> selectAll(MemberBean memberBeanSelectAll) {

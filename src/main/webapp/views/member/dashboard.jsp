@@ -67,6 +67,18 @@
                                                                 <ul>
                                                                     <li>
                                                                         <a
+                                                                            href="<%=request.getContextPath() %>/views/search/search.jsp">
+                                                                            <span class="text">搜尋頁面</span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <!--Col-->
+                                                            <div class="col">
+                                                                <p class="title">學生中心</p>
+                                                                <ul>
+                                                                    <li>
+                                                                        <a
                                                                             href="<%=request.getContextPath() %>/views/member/dashboard.jsp">
                                                                             <span class="text">學生首頁</span>
                                                                         </a>
@@ -128,10 +140,9 @@
                                 </a>
                             </div>
                             <div class="header-links">
-                                        <form action="<%= request.getContextPath() %>/views/member/logout"
-                                            method="post">
-                                            <button class="button button-md button-primary" type="submit">登出</button>
-                                        </form>
+                                <form action="<%= request.getContextPath() %>/views/member/logout" method="post">
+                                    <button class="button button-md button-primary" type="submit">登出</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -168,7 +179,8 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="<%=request.getContextPath()%>/views/orderDetail/StudentCourse.html">
+                                                                <a
+                                                                    href="<%=request.getContextPath()%>/views/orderDetail/StudentCourse.html">
                                                                     <i class="fa fas fa-book"></i>
                                                                     <span class="text">課程</span>
                                                                 </a>
@@ -206,7 +218,9 @@
                                                                         <!-- 頭貼預覽 -->
                                                                         <div class="avatar-preview">
                                                                             <c:if test="${not empty member.photo}">
-																				<div id="imagePreview" style="background-image: url(/tfa105g5-more-than-educate/views/member/getProfilePhotoController);"></div>
+                                                                                <div id="imagePreview"
+                                                                                    style="background-image: url(/tfa105g5-more-than-educate/views/member/getProfilePhotoController);">
+                                                                                </div>
                                                                             </c:if>
                                                                             <c:if test="${empty member.photo}">
                                                                                 <div id="imagePreview"
@@ -224,8 +238,8 @@
                                                                     <div class="form-item">
                                                                         <label for="input-name"
                                                                             class="form-label">E-mail</label>
-                                                                        <input name="email" type="hidden" id="input-email"
-                                                                            value=${member.email}>
+                                                                        <input name="email" type="hidden"
+                                                                            id="input-email" value=${member.email}>
                                                                         <span class="error" style="color:red;">
                                                                             ${errors.email} </span>
                                                                     </div>

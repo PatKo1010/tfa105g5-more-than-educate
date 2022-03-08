@@ -497,10 +497,20 @@ position: relative;
 transform: scale(1.01);
    
     box-sizing: content-box;
-    box-shadow: 0px 2px 3px 1px #6a6b6b99;
+    border:none;
+    box-shadow: 0px 2px 3px 1px #5B70F9;
 
 
  }
+ button.reserve1:hover{
+ background-color:#384CCE;
+ }
+ button.contact1:hover{
+ color:#02CAB9;
+ border-color:#02CAB9;
+ }
+ 
+ 
  
 .membertitle3{
 font-size: 26px;
@@ -583,10 +593,14 @@ overflow:hidden;
   border-radius:5px;
   top:-220px;
   left:423px;
-  background-color: #02CAB999;
+  background-color: #5B70F9;
   border:none;
   color: #FBF3F3;
 }
+
+
+
+
 .favorimg1{
   width:14px;
   position: relative;
@@ -4427,12 +4441,12 @@ Forms
   color: var(--base-0);
   -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
-  background-color: var(--secondary);
+  background-color: #5B70F9;
 }
 
 .button-secondary:hover {
   color: var(--base-0);
-  background-color: var(--secondary-1);
+  background-color:  #384CCE;
 }
 
 .button-gradient {

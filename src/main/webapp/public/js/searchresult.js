@@ -4,7 +4,7 @@ $(e.target).css("color","#02CAB9");
 }
 
 function mouseout(e){
-$(e.target).css("color","#8b8a8a");
+$(e.target).css("color","black");
 }
 
 
