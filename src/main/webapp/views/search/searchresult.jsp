@@ -202,6 +202,7 @@
 												action="<%=request.getContextPath()%>/search.controller">
 												<button class="reserve1">聯繫老師</button>
 												<input type="hidden" name="action" value="contact"></input>
+												<input type= "hidden" name="talkTo" value= "${member.username}"></input>
 											</form>
 										</div>
 								</div>

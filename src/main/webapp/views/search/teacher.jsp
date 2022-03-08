@@ -139,13 +139,23 @@
 
 						<img class="person3"
 							src="<%=request.getContextPath()%>/member/getTeahcerPic?memid=${members3.memid}">
-						<div class="membertitle3">${members3.username}
-							${members3.teatitle}</div>
+						<div class="membertitle3">
+							${members3.username}
+							${members3.teatitle}
+						</div>
 						<img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg2">
 						<div class="comment5">${members3.ratesum} ·
 							${members3.ratecount}個評論
 						</div>
-						<button class="contact2">聯繫老師</button>
+
+
+
+						<form name="form3" method="post" action="<%=request.getContextPath()%>/search.controller">
+							<button class="contact2">聯繫老師</button>
+							<input type="hidden" name="action" value="contact"></input>
+							<input type="hidden" name="talkTo" value="${members3.username}"></input>
+						</form>
+
 						<div class="introduction2title">自我介紹</div>
 						<div class="introduction2">${members3.introcontent}</div>
 						<br>
@@ -185,7 +195,7 @@
 
 												<div class="card-links">
 													<a href="<%=request.getContextPath() %>/views/courseDetail?courseId=${course.courseid}"
-														class="button button-md button-line-primary"> 
+														class="button button-md button-line-primary">
 														<span class="text">查看課程</span>
 													</a>
 												</div>
