@@ -207,24 +207,33 @@
                 </div>
             </div>
         </li>
+        <!-- 學生中心 -->
+        <c:if test="${not empty member}">
+            <li>
+                <a href="<%=request.getContextPath() %>/views/member/dashboard.jsp">
+                    <span class="text">學生中心</span>
+                    <span class="icon fa fa-angle-left"></span>
+                </a>
+            </li>
+        </c:if>
         <!-- 申請成老師 -->
-<%--         <c:if test="${member.teaqual == false}"> --%>
+        <c:if test="${member.teaqual == false}">
         <li>
             <a href="<%=request.getContextPath() %>/views/member/regiTeacherProfile.jsp">
                 <span class="text">申請成為教師</span>
                 <span class="icon fa fa-angle-left"></span>
             </a>
         </li>
-<%-- 	    </c:if> --%>
+	    </c:if>
         <!-- 已成為老師 -->
-<%-- 		<c:if test="${member.teaqual == true}"> --%>
+		<c:if test="${member.teaqual == true}">
 		<li>
             <a href="<%=request.getContextPath() %>/views/member/updateTeacherProfile.jsp">
                 <span class="text">教師中心</span>
                 <span class="icon fa fa-angle-left"></span>
             </a>
         </li>
-<%-- 	    </c:if>     --%>
+	    </c:if>    
     </ul>
 </div>
                 <div class="header-logo">
