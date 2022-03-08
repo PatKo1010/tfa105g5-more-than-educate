@@ -103,7 +103,7 @@ public class SearchServlet extends HttpServlet {
 			ServletContext ctx = getServletContext();
 			ApplicationContext ac = (ApplicationContext) ctx
 					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-			RequestDispatcher directView = req.getRequestDispatcher("/views/search/teacher.jsp");
+			RequestDispatcher directView = req.getRequestDispatcher("/chatservlet");
 			directView.forward(req, res);
 		}
 		if ("goodOrder".equals(action)) {
