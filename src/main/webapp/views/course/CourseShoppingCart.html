@@ -244,7 +244,7 @@
                                 <td>
                                     <input name= "courseid" type= "hidden" value ='${courseid}'/> 
                                     
-                                    <button onclick="sremCourse(${courseid})" class="button button-primary" style="width:50px;height:30px;">刪除</button>
+                                    <button data-id="${courseid}" onclick="sremCourse(${courseid})" class="button button-primary" style="width:50px;height:30px;">刪除</button>
                                 </td>
                             </tr>    
                             <br>                                                            
@@ -257,7 +257,7 @@
         })
 
         function sremCourse(courseid) {
-            const url = 'http://localhost:7080/tfa105g5-more-than-educate/course/sremCourse';
+            const url = '/tfa105g5-more-than-educate/course/sremCourse';
             fetch(url, {
                 method: 'POST',
                 headers: {

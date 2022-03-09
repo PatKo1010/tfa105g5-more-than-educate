@@ -52,45 +52,42 @@ public class SearchServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		String action = req.getParameter("action");
 		HttpSession session = req.getSession();
+		
 		if ("getTeacher".equals(action)) {
-			String str = req.getParameter("keyword");
-			if(str=="") {
-				List<String> errorMsgs = new LinkedList<String>();
-				req.setAttribute("errorMsgs", "請輸入想學習的科目或想找的老師");
-				RequestDispatcher failureView = req.getRequestDispatcher("/views/search/failpage.jsp");
-				failureView.forward(req, res);
-				return;
-			}
-			ServletContext ctx = getServletContext();
-			ApplicationContext ac = (ApplicationContext) ctx
-					.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-			SubjectService subjectSvc = ac.getBean("subjectService", SubjectService.class);
-			HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
-//			List<MemberBean> members =  hashtagSvc.findTeacherTest2(str);//關鍵字找老師
-			List<MemberBean> members = null;
-//			if(members.size() == 0){
-				members =  subjectSvc.findTeacherTest(str);//科目找老師
-				System.out.println("findTeacherTest:"+members);
-				if( members == null || members.size() == 0) {
-					members =  hashtagSvc.findTeacherTest(str);//名字找老師
-					if(members.isEmpty()) {
-						List<String> errorMsgs = new LinkedList<String>();
-						req.setAttribute("errorMsgs", "找不到「"+str+"」相關資料");
-						RequestDispatcher failureView = req
-								.getRequestDispatcher("/views/search/failpage.jsp");
-						failureView.forward(req, res);
-						return;
-					}
-				}
-				
-//			}
-//			List<String> hashtag=hashtagSvc.findHashtagName(members);
-//			req.setAttribute("hashtag", hashtag);
-				session.setAttribute("members",members);
-			req.setAttribute("members", members);
-			RequestDispatcher successView = req.getRequestDispatcher("/views/search/searchresult.jsp");
-			successView.forward(req, res);
-		}
+			   String str = req.getParameter("keyword");
+			   if(str=="") {
+			    List<String> errorMsgs = new LinkedList<String>();
+			    req.setAttribute("errorMsgs", "請輸入想學習的科目或想找的老師");
+			    RequestDispatcher failureView = req.getRequestDispatcher("/views/search/failpage.jsp");
+			    failureView.forward(req, res);
+			    return;
+			   }
+			   ServletContext ctx = getServletContext();
+			   ApplicationContext ac = (ApplicationContext) ctx
+			     .getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+			   SubjectService subjectSvc = ac.getBean("subjectService", SubjectService.class);
+			   HashtagService hashtagSvc = ac.getBean("hashtagService", HashtagService.class);
+			   List<MemberBean> members =  hashtagSvc.findTeacherTest2(str);//關鍵字找老師
+			   if(members == null || members.size() == 0){
+			    members =  subjectSvc.findTeacherTest(str);//科目找老師
+			    if( members == null || members.size() == 0) {
+			     members =  hashtagSvc.findTeacherTest(str);//名字找老師
+			     if(members.isEmpty()) {
+			      List<String> errorMsgs = new LinkedList<String>();
+			      req.setAttribute("errorMsgs", "找不到「"+str+"」相關資料");
+			      RequestDispatcher failureView = req
+			        .getRequestDispatcher("/views/search/failpage.jsp");
+			      failureView.forward(req, res);
+			      return;
+			     }
+			    } 
+			   }
+			    session.setAttribute("members",members); 
+			   RequestDispatcher successView = req.getRequestDispatcher("/views/search/searchresult.jsp");
+			   successView.forward(req, res);
+			  }
+		
+		
 		if ("reserve".equals(action)) {
 			ServletContext ctx = getServletContext();
 			ApplicationContext ac = (ApplicationContext) ctx

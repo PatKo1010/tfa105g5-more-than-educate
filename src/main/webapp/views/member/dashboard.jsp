@@ -140,6 +140,14 @@
                                 </a>
                             </div>
                             <div class="header-links">
+                                <form name="form3" method="post"
+                                    action="<%=request.getContextPath()%>/search.controller">
+                                    <button class="contact2">聊天室</button>
+                                    <input type="hidden" name="action" value="contact"></input>
+                                    <input type="hidden" name="talkTo" value="${member.username}"></input>
+                                </form>
+                            </div>
+                            <div class="header-links">
                                 <form action="<%= request.getContextPath() %>/views/member/logout" method="post">
                                     <button class="button button-md button-primary" type="submit">登出</button>
                                 </form>

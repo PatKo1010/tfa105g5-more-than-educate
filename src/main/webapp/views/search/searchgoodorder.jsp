@@ -617,7 +617,8 @@
 							<c:forEach var="member1" items="${members1}">
 								<div class="bar1" >
 									<img class="person1"
-										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
+											src="<%=request.getContextPath()%>/member/getTeahcerPic?memid=${member1.memid}"
+											alt="尚無圖片">
 								
 									<div class="membertitle" onclick="direct(${member1.memid})" onmouseover="mouseover(event)" onmouseout="mouseout(event)">${member1.username}  ${member1.teatitle}</div>
 									<div class="comment"><img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member1.ratesum} · ${member1.ratecount}個評論</div>
