@@ -184,6 +184,9 @@
 			<input type="hidden" name="adminId" value="${login.adminId}">
 
 		</form>
+			<h3>
+			<a href="javascript:window.history.go(-1);">點此返上一頁</a>
+		</h3>
 
 		<h3>
 			<span class="error">${errors.action}</span>
@@ -219,8 +222,6 @@
 		<script
 			src="<%=request.getContextPath()%>/resources/assets/js/dashboard.js"></script>
 
-		<h3>
-			<a href="javascript:window.history.go(-1);">點此返上一頁</a>
-		</h3>
+	
 	</body>
 </html>
