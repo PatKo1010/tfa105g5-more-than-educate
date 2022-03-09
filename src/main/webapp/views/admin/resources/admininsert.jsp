@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<title>MoreThanEducate 新增管理員</title>
+<<head>
+<title>MoreThanEducate</title>
 <meta charset="UTF-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -28,8 +28,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="resources/assets/css/plugins.min.css" />
-<link rel="stylesheet" href="resources/assets/css/styles.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/assets/css/plugins.min.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/assets/css/styles.css" />
 </head>
 <body>
 
@@ -148,15 +150,7 @@
 						<span class="text-2"></span>
 					</a>
 				</div>
-				<div class="header-links">
-					<a href="page-login.html"
-						class="button button-md button-line-primary"> <span
-						class="title">Sign In</span>
-					</a> <a href="page-register.html"
-						class="button button-md button-primary"> <span class="title">Sign
-							Up</span>
-					</a>
-				</div>
+				
 			</div>
 		</div>
 
@@ -201,6 +195,15 @@
 	<tr><td>管理員信箱</td><td>${insert.adminEmail}</td></tr>
 </table>
 </c:if>
+		<script
+			src="<%=request.getContextPath()%>/resources/assets/js/jquery.min.js"></script>
+		<script
+			src="<%=request.getContextPath()%>/resources/assets/js/plugins.min.js"></script>
+		<script
+			src="<%=request.getContextPath()%>/resources/assets/js/main-scripts.js"></script>
+		<script
+			src="<%=request.getContextPath()%>/resources/assets/js/dashboard.js"></script>
+
 <h3><a href="javascript:window.history.go(-1);">點此返回布告欄</a></h3>
 </body>
 </html>
