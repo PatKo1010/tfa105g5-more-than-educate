@@ -593,56 +593,62 @@
 									<div class="col-12 col-sm-12 col-md-6">
 										<div class="el-sortination">
 											<p>
-												 <span class="nowtitle">目前排序</span>
+												<span class="nowtitle">目前排序</span>
 											</p>
 											<ul>
-											
-				
-											<form name="form4" method="post" action="<%=request.getContextPath()%>/search.controller" >
-												<button class="favorpriority" onmouseover="mouseover(event)" onmouseout="mouseout(event)">優質教師優先</button>
-												 <input type="hidden" name="action" value="goodOrder"></input>
-											</form>	
-												<form name="form5" method="post" action="<%=request.getContextPath()%>/search.controller" >
-												<button class="newpriority" onmouseover="mouseover(event)" onmouseout="mouseout(event)">新教師優先</button>
-												<input type="hidden" name="action" value="newOrder"></input>
-												</form>	
+
+
+												<form name="form4" method="post"
+													action="<%=request.getContextPath()%>/search.controller">
+													<button class="favorpriority"
+														onmouseover="mouseover(event)"
+														onmouseout="mouseout(event)">優質教師優先</button>
+													<input type="hidden" name="action" value="goodOrder"></input>
+												</form>
+												<form name="form5" method="post"
+													action="<%=request.getContextPath()%>/search.controller">
+													<button class="newpriority" onmouseover="mouseover(event)"
+														onmouseout="mouseout(event)">新教師優先</button>
+													<input type="hidden" name="action" value="newOrder"></input>
+												</form>
 											</ul>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
 						<div class="sysRecBar">
 							<c:forEach var="member1" items="${members1}">
-								<div class="bar1" >
+								<div class="bar1">
 									<img class="person1"
-											src="<%=request.getContextPath()%>/member/getTeahcerPic?memid=${member1.memid}"
-											alt="尚無圖片">
-								
-									<div class="membertitle" onclick="direct(${member1.memid})" onmouseover="mouseover(event)" onmouseout="mouseout(event)">${member1.username}  ${member1.teatitle}</div>
-									<div class="comment"><img src="<%=request.getContextPath()%>/public/images/star.png" class="starimg">  ${member1.ratesum} · ${member1.ratecount}個評論</div>
-				
+										src="<%=request.getContextPath()%>/member/getTeahcerPic?memid=${member1.memid}"
+										alt="尚無圖片">
+
+									<div class="membertitle" onclick="direct(${member1.memid})"
+										onmouseover="mouseover(event)" onmouseout="mouseout(event)">${member1.username}
+										${member1.teatitle}</div>
+									<div class="comment">
+										<img
+											src="<%=request.getContextPath()%>/public/images/star.png"
+											class="starimg"> ${member1.ratesum} ·
+										${member1.ratecount}個評論
+									</div>
+
 									<div class="introduction1">${member1.introcontent}
-										${member1.photo} 
-										${member1.regdate}</div>
+										${member1.photo} ${member1.regdate}</div>
 									<div class="selfbotton">
-									 <form name="form2" method="post"  action="<%=request.getContextPath()%>/search.controller" >
-										<button class="reserve1">預約體驗</button>
-										<input type="hidden" name="action" value="reserve"></input>
-										</form>
-										<form name="form3" method="post"  action="<%=request.getContextPath()%>/search.controller" >
-										<button class="contact1">聯繫老師</button>
-										<input type="hidden" name="action" value="contact"></input>
-										<input type="hidden" name="talkTo" value="${member.username}">
+										<form name="form3" method="post"
+											action="<%=request.getContextPath()%>/search.controller">
+											<button class="reserve1">聯繫老師</button>
+											<input type="hidden" name="action" value="contact"></input> <input
+												type="hidden" name="talkTo" value="${member.username}"></input>
 										</form>
 									</div>
 								</div>
 							</c:forEach>
 						</div>
-						<br>
-						<br>
-						<br>
+						<br> <br> <br>
 					</div>
 				</div>
 		</div>
@@ -819,9 +825,10 @@
 		</div>
 	</footer>
 	</div>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/public/js/searchresult.js"></script>
-	 
-    <scirpt src="<%=request.getContextPath()%>/public/js/searchresult.js"></scirpt>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/public/js/searchresult.js"></script>
+
+	<scirpt src="<%=request.getContextPath()%>/public/js/searchresult.js"></scirpt>
 	<script src="<%=request.getContextPath()%>/public/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/public/js/plugins.min.js"></script>
 	<script src="<%=request.getContextPath()%>/public/js/main-scripts.js"></script>

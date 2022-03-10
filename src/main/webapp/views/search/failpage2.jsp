@@ -581,7 +581,7 @@
 			<div class="outcontainer2">
 				
 				<img class="person3"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqQRYz4mFkCQC0JwgafHGFefKznm_vgU6BA&usqp=CAU">
+					src="<%=request.getContextPath()%>/member/getTeahcerPic?memid=${members3.memid}">
 				<div class="membertitle3">${members3.username}
 					${members3.teatitle}</div>
 					<img src="<%=request.getContextPath()%>/public/images/star.png"

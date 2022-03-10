@@ -38,10 +38,11 @@ public class MemberService {
 		if (password != null && password.length()!= 0) {
 //			String dbPassword = dbObject.getPassword();
 //			if (dbPassword.equals(password)) {
-			if(passwordEncoder.matches(password, dbObject.getPassword()))
+			if(passwordEncoder.matches(password, dbObject.getPassword())) {
 				return dbObject;
 			}
-//		}
+			return null;
+		}
 		return null;
 	}
 	//B.只讀Email
