@@ -187,7 +187,7 @@ position: relative;
      position: relative;
     left: 45px;
     top: 96px;
-    width: 450px;
+    width:900px;
     font-size: 18px;
 }
 .favorimg2{
@@ -320,19 +320,20 @@ position: relative;
 
 
 .contact2{
-
-         width: 80px;
-    height: 40px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: grey 1px solid;
-    color: #5C5C5C;
-    position: relative;
-    left: 185px;
-    top: 23px;
+ width:80px;
+  height:40px;
+  font-size: 14px;
+  position: relative;
+  border-radius:5px;
+    top: 28px;
+    left: 186px;
+  background-color: #5B70F9;
+  border:none;
+  color: #FBF3F3;
    
 }
 
+button.contact2:hover{background-color:#384CCE;}
 
 
 

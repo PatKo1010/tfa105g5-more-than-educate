@@ -40,20 +40,26 @@ public class LoginController {
 ////request.getParamter("username");
 //		String email = request.getParameter("email");  //getParameter: 從view取值
 //		String password = request.getParameter("password");
+		MemberBean bean = memberService.selectByEmail(email);
 		
 	//驗證
 		Map<String, String> errors = new HashMap<String, String>(); //用map 當物件error!
 		model.addAttribute("errors", errors); //"errors"設定進error物件
-		if(email == null || email.length() == 0) {
+		if(email == null || email.length() == 0 ) {
 			errors.put("email", "請填入email"); //errors.put method
 		}
 		if(password == null || password.length() == 0) {
 			errors.put("password", "請填入密碼");
 		}
+		if (bean == null) {
+			errors.put("email", "查無此信箱"); 
+		}
+		
 	//驗證結果的action (e.g.轉導)
 		if(errors != null && !errors.isEmpty() ) {
 			return "/views/member/login.jsp";
 		}
+	
 
 		
 //2.呼叫Model
