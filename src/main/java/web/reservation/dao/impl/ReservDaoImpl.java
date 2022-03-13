@@ -64,5 +64,14 @@ public class ReservDaoImpl implements ReservDaoInterface{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	
+	
+	
 
 }

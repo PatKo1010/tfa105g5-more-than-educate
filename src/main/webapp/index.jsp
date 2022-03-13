@@ -123,7 +123,7 @@
                                         </a>
                                     </li>
                                 </c:if>
-                                
+
                                 <!-- 申請成老師 -->
                                 <c:if test="${member.teaqual == false}">
                                     <li>
@@ -214,267 +214,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="el-floating-shapes">
-                            <span class="shape shape-1">
-                                <img src="public/images/shapes/1.png" alt="--Alternative--">
-                            </span>
-                            <span class="shape shape-2">
-                                <img src="public/images/shapes/2.png" alt="--Alternative--">
-                            </span>
-                            <span class="shape shape-3">
-                                <img src="public/images/shapes/3.png" alt="--Alternative--">
-                            </span>
-                            <span class="shape shape-4">
-                                <img src="public/images/shapes/4.png" alt="--Alternative--">
-                            </span>
-                        </div>
+                        <!--                         <div class="el-floating-shapes"> -->
+                        <!--                             <span class="shape shape-1"> -->
+                        <!--                                 <img src="public/images/shapes/1.png" alt="--Alternative--"> -->
+                        <!--                             </span> -->
+                        <!--                             <span class="shape shape-2"> -->
+                        <!--                                 <img src="public/images/shapes/2.png" alt="--Alternative--"> -->
+                        <!--                             </span> -->
+                        <!--                             <span class="shape shape-3"> -->
+                        <!--                                 <img src="public/images/shapes/3.png" alt="--Alternative--"> -->
+                        <!--                             </span> -->
+                        <!--                             <span class="shape shape-4"> -->
+                        <!--                                 <img src="public/images/shapes/4.png" alt="--Alternative--"> -->
+                        <!--                             </span> -->
+                        <!--                         </div> -->
                     </section>
                     <!--/-->
                     <!--Teachers-->
-                    <section class="section section-teachers section-teachers-slider">
-                        <div class="display-spacing">
-                            <div class="container">
-                                <header class="el-heading center">
-                                    <h2>Our professional teachers</h2>
-                                    <p>We provide the best service that comes with the best results.</p>
-                                    <div class="divider divider-line"></div>
-                                </header>
-                                <div class="el-slider">
-                                    <div class="swiper-container swiper-teachers">
-                                        <div class="swiper-wrapper">
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <div class="card el-card">
-                                                    <a href="page-teacher.html">
-                                                        <div class="inner">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/people/1.jpg" alt="alt" />
-                                                            </div>
-                                                            <div class="details">
-                                                                <h3>Miranda Fox</h3>
-                                                                <p>Lorem ipsum dolor sit amet consectetur elit sed do.
-                                                                </p>
-                                                            </div>
-                                                            <div class="other">
-                                                                <p class="price">
-                                                                    <span>Price</span>
-                                                                    <span class="text-color">$25.00</span>
-                                                                </p>
-                                                            </div>
-                                                            <ul class="icons icons-left">
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/flags/russia.svg"
-                                                                            alt="Lang" />
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/icons/graduation.svg"
-                                                                            alt="Is experienced" />
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <div class="card el-card">
-                                                    <a href="page-teacher.html">
-                                                        <div class="inner">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/people/2.jpg" alt="alt" />
-                                                            </div>
-                                                            <div class="details">
-                                                                <h3>James Maxwell</h3>
-                                                                <p>Lorem ipsum dolor sit amet consectetur elit sed do.
-                                                                </p>
-                                                            </div>
-                                                            <div class="other">
-                                                                <p class="price">
-                                                                    <span>Price</span>
-                                                                    <span class="text-color">$25.00</span>
-                                                                </p>
-                                                            </div>
-                                                            <ul class="icons icons-left">
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/flags/germany.svg"
-                                                                            alt="Lang" />
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/icons/language-exhange.svg"
-                                                                            alt="language exhange" />
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="icons icons-right">
-                                                                <li>
-                                                                    <p class="icon-status bg-danger">
-                                                                        <span>Native</span>
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <div class="card el-card">
-                                                    <a href="page-teacher.html">
-                                                        <div class="inner">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/people/3.jpg" alt="alt" />
-                                                            </div>
-                                                            <div class="details">
-                                                                <h3>John Woo</h3>
-                                                                <p>Lorem ipsum dolor sit amet consectetur elit sed do.
-                                                                </p>
-                                                            </div>
-                                                            <div class="other">
-                                                                <p class="price">
-                                                                    <span>Price</span>
-                                                                    <span class="text-color">$25.00</span>
-                                                                </p>
-                                                            </div>
-                                                            <ul class="icons icons-left">
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/flags/italy.svg"
-                                                                            alt="Lang" />
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <div class="card el-card">
-                                                    <a href="page-teacher.html">
-                                                        <div class="inner">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/people/4.jpg" alt="alt" />
-                                                            </div>
-                                                            <div class="details">
-                                                                <h3>Emily Thompson</h3>
-                                                                <p>Lorem ipsum dolor sit amet consectetur elit sed do.
-                                                                </p>
-                                                            </div>
-                                                            <div class="other">
-                                                                <p class="price">
-                                                                    <span>Price</span>
-                                                                    <span class="text-color">$25.00</span>
-                                                                </p>
-                                                            </div>
-                                                            <ul class="icons icons-left">
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/flags/uk.svg"
-                                                                            alt="Lang" />
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="icons icons-right">
-                                                                <li>
-                                                                    <p class="icon-status bg-secondary">
-                                                                        <span>Starter</span>
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <div class="card el-card">
-                                                    <a href="page-teacher.html">
-                                                        <div class="inner">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/people/5.jpg" alt="alt" />
-                                                            </div>
-                                                            <div class="details">
-                                                                <h3>Robert Fox</h3>
-                                                                <p>Lorem ipsum dolor sit amet consectetur elit sed do.
-                                                                </p>
-                                                            </div>
-                                                            <div class="other">
-                                                                <p class="price">
-                                                                    <span>Price</span>
-                                                                    <span class="text-color">$25.00</span>
-                                                                </p>
-                                                            </div>
-                                                            <ul class="icons icons-left">
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/flags/india.svg"
-                                                                            alt="Lang" />
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <div class="card el-card">
-                                                    <a href="page-teacher.html">
-                                                        <div class="inner">
-                                                            <div class="avatar">
-                                                                <img src="assets/images/people/6.jpg" alt="alt" />
-                                                            </div>
-                                                            <div class="details">
-                                                                <h3>Ava Taylor</h3>
-                                                                <p>Lorem ipsum dolor sit amet consectetur elit sed do.
-                                                                </p>
-                                                            </div>
-                                                            <div class="other">
-                                                                <p class="price">
-                                                                    <span>Price</span>
-                                                                    <span class="text-color new-price">$20.00</span>
-                                                                    <span class="text-color old-price">$25.00</span>
-                                                                </p>
-                                                            </div>
-                                                            <ul class="icons icons-left">
-                                                                <li>
-                                                                    <div class="icon-lang">
-                                                                        <img src="assets/images/flags/france.svg"
-                                                                            alt="Lang" />
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="icon-off">
-                                                                        <span>%20</span>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="icons icons-right">
-                                                                <li>
-                                                                    <p class="icon-status bg-danger">
-                                                                        <span>Native</span>
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-button-prev"></div>
-                                        <div class="swiper-button-next"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+
                     <!--/-->
                 </div>
                 <!--Footer-->
